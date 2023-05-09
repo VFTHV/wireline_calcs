@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { cablesData, CableSpecs } from '../database/cables';
+import { cablesData } from '../database/cables';
 
 const WeakPoint = () => {
   const [cableType, setCableType] = useState<string>('');
