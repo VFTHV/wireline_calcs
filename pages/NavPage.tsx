@@ -1,21 +1,15 @@
-import { NavLink } from 'react-router-dom';
+import NavItem from '../src/components/NavItem';
 
-function NavPage() {
+const NavPage = () => {
   return (
-    <nav>
+    <nav className="navigation">
       <ul>
-        <li>
-          <NavLink to="/weakpoint">Weak Point Calculator</NavLink>
-        </li>
-        <li>
-          <NavLink to="/weightbar">Sinker Bar Weight Calculator</NavLink>
-        </li>
-        <li>
-          <NavLink to="/stretch">Cable Stretch Calculator</NavLink>
-        </li>
+        <NavItem to="/weakpoint">Weak Point Calculator</NavItem>
+        <NavItem to="/weightbar">Sinker Bar Weight Calculator</NavItem>
+        <NavItem to="/stretch">Cable Stretch Calculator</NavItem>
       </ul>
     </nav>
   );
-}
+};
 
 export default NavPage;

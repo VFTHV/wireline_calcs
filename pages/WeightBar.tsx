@@ -1,7 +1,5 @@
-import React from 'react';
-
-function WeightBar() {
+const WeightBar = () => {
   return <div>WeightBar</div>;
-}
+};
 
 export default WeightBar;

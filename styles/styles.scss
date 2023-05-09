@@ -1,4 +1,13 @@
-.class {
-  font-size: large;
-  background-color: white;
+@import 'variables';
+@import 'basic_styles';
+
+.navigation {
+  padding: 0 $padding-default;
+
+  .navlink {
+    padding: $padding-default;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 2px $dark-blue;
+  }
 }
