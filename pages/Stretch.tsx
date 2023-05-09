@@ -1,5 +1,11 @@
+import NavHeader from '../src/components/NavHeader';
+
 const Stretch = () => {
-  return <div>Stretch</div>;
+  return (
+    <>
+      <NavHeader>Stretch</NavHeader>
+    </>
+  );
 };
 
 export default Stretch;

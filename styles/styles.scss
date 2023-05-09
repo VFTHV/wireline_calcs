@@ -4,10 +4,26 @@
 .navigation {
   padding: 0 $padding-default;
 
-  .navlink {
+  .navitem {
     padding: $padding-default;
     display: flex;
     justify-content: space-between;
     border-bottom: solid 2px $dark-blue;
+  }
+}
+
+.nav-header {
+  padding: $padding-default;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-group {
+  padding: $padding-default;
+  display: flex;
+  flex-direction: column;
+  .form-item {
+    height: 2rem;
+    border-radius: 5px;
   }
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { cablesData } from '../database/cables';
-
+import NavHeader from '../src/components/NavHeader';
 const WeakPoint = () => {
   const [cableType, setCableType] = useState<string>('');
   const [depth, setDepth] = useState<string>('');
@@ -9,15 +9,18 @@ const WeakPoint = () => {
 
   return (
     <>
-      <form>
+      <NavHeader>Weakpoint</NavHeader>
+      <div className="input-group">
         <label htmlFor="cable">Cable Type:</label>
-        <br />
+
         <select
+          className="form-item"
           id="cable"
           name="cable"
           value={cableType}
           onChange={(e) => setCableType(e.target.value)}
         >
+          <option value={''}>select</option>
           {cablesData.map((cable) => {
             return (
               <option key={cable.type} value={cable.type}>
@@ -26,7 +29,7 @@ const WeakPoint = () => {
             );
           })}
         </select>
-      </form>
+      </div>
       <table>
         <tbody>
           <tr>
@@ -47,15 +50,17 @@ const WeakPoint = () => {
           </tr>
         </tbody>
       </table>
-      <label>
-        Depth:
+      <div className="input-group">
+        <label htmlFor="depth">Depth:</label>
         <input
+          className="form-item"
           id="depth"
+          name="depth"
           value={depth}
           type="number"
           onChange={(e) => setDepth(e.target.value)}
         />
-      </label>
+      </div>
     </>
   );
 };

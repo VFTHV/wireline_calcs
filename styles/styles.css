@@ -25,9 +25,25 @@ body {
 .navigation {
   padding: 0 1rem;
 }
-.navigation .navlink {
+.navigation .navitem {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   border-bottom: solid 2px rgb(0, 65, 216);
+}
+
+.nav-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-group {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.input-group .form-item {
+  height: 2rem;
+  border-radius: 5px;
 }/*# sourceMappingURL=styles.css.map */

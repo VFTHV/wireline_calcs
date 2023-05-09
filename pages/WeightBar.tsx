@@ -1,5 +1,11 @@
+import NavHeader from '../src/components/NavHeader';
+
 const WeightBar = () => {
-  return <div>WeightBar</div>;
+  return (
+    <>
+      <NavHeader>Weight Bar</NavHeader>
+    </>
+  );
 };
 
 export default WeightBar;
