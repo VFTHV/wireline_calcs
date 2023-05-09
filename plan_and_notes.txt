@@ -1,0 +1,42 @@
+- What project does: 
+    calculations for wireline engineers like following: 
+      cable weak point calculator
+      sinker bar weight calculator
+      cable stretch calculator
+
+- Project functionality:
+  
+  Cable weak point calculator:
+    engineer chooses from list of cables and cable specs are getting populated
+    engineer enters depth and toolstring weight in order to determine the maximum number
+      of wires for rehead and pullout at this depth
+    additionally percentage of pullout at certain depth: engineer enters the depth and percentage,
+      software calculates the pull in lbs
+  
+  Sinker bar weight calculator:
+    engineer enters the cable diameter, wellhead pressure and percentage for overbalance,
+      software calculates the required weight of toolstring
+    additionally the lubricator length functionality could be a plus:
+      engineer enters the logging tool length, OD of weight bars and type (tungsten, lead, regular), 
+      lubricator spacing - software calculates total lubricator length required
+  
+  Cable stretch calculator:
+    engineer chooses cable type, enters current depth, environment (oil, gas, water), current tension - 
+      software calculates current wireline stretch
+  
+  Z-chart (additional):
+    engineer presses the 'add' button - software adds a line to the flange of the drum with input 
+      element, engineer adds the depth.
+    ability to store data in session storage in case engineer refreshes the page 
+    ability to create .pdf and email (e.g. to engineer's email address)
+
+  Cable keyseat calculator (additional)
+
+- Technologies to use:
+
+  React: rendering
+  React-router: routing
+  Redux-toolkit: state management
+  JS Classes: calculations
+  TypeScript: types assistance for calculations
+  SASS: styling
