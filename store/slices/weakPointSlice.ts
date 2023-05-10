@@ -31,12 +31,15 @@ const weakPointSlice = createSlice({
       const selectedCable = state.cablesData.find(
         (cable) => cable.type === action.payload
       );
+
+      // state = { ...initialState, currentCable: selectedCable };
       state.currentCable = selectedCable;
       state.cableWeight =
         state.maxWPstrength =
         state.outersRehead =
         state.depth =
         state.toolWeight =
+        state.toolWeightVsWeakPoint =
           0;
     },
     changeToolWeight(state, action: { payload: number }) {
