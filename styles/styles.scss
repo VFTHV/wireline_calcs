@@ -13,17 +13,48 @@
 }
 
 .nav-header {
-  padding: $padding-default;
   display: flex;
+  padding: $padding-default;
   justify-content: space-between;
+}
+
+.t-row {
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  text-align: left;
+
+  background-color: $secondary-color;
+
+  .t-head,
+  .t-data {
+    border: solid 1px $gray;
+    padding: $padding-default;
+    display: flex;
+    align-items: center;
+  }
+  .t-head {
+    color: $primary-color;
+  }
+  .t-data {
+    color: black;
+    font-size: 2rem;
+    font-weight: 100;
+  }
 }
 
 .input-group {
   padding: $padding-default;
   display: flex;
   flex-direction: column;
+  .select-item,
   .form-item {
     height: 2rem;
     border-radius: 5px;
+  }
+  .form-item {
+    width: 90%;
   }
 }
