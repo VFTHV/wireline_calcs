@@ -10,6 +10,8 @@
     engineer chooses from list of cables and cable specs are getting populated
     engineer enters depth and toolstring weight in order to determine the maximum number
       of wires for rehead and pullout at this depth
+
+  Max Pull calculator
     additionally percentage of pullout at certain depth: engineer enters the depth and percentage,
       software calculates the pull in lbs
   
