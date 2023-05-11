@@ -2,7 +2,6 @@ import { cablesData } from '../database/cables';
 import NavHeader from '../src/components/NavHeader';
 import TableRow from '../src/components/TableRow';
 import InputData from '../src/components/InputData';
-
 import { useSelector, useDispatch } from 'react-redux';
 import {
   changeCableType,
@@ -10,18 +9,20 @@ import {
   changeDepth,
 } from '../store/slices/weakPointSlice';
 import { StoreState } from '../store';
+import { WirelineCalcs } from '../logics/wirelineCalcs';
 
 const WeakPoint = () => {
   const dispatch = useDispatch();
-  const {
+  const { currentCable, toolWeight, depth, environment } = useSelector(
+    (state: StoreState) => state.weakPoint
+  );
+
+  const calcData = new WirelineCalcs(
     currentCable,
-    toolWeight,
     depth,
-    cableWeight,
-    maxWPstrength,
-    outersRehead,
-    toolWeightVsWeakPoint,
-  } = useSelector((state: StoreState) => state.weakPoint);
+    environment,
+    toolWeight
+  );
 
   return (
     <>
@@ -79,16 +80,16 @@ const WeakPoint = () => {
       </InputData>
       <table>
         <tbody className="table">
-          <TableRow data={cableWeight} units="lbs">
+          <TableRow data={calcData.cableWeight()} units="lbs">
             TOTAL CABLE WEIGHT
           </TableRow>
-          <TableRow data={maxWPstrength} units="lbs">
+          <TableRow data={calcData.maxWPstrength()} units="lbs">
             MAX WEAKPOINT STRENGTH
           </TableRow>
-          <TableRow data={outersRehead} units="">
+          <TableRow data={calcData.outersRehead()} units="">
             NUMBER OF OUTER WIRES
           </TableRow>
-          <TableRow data={toolWeightVsWeakPoint} units="%">
+          <TableRow data={calcData.toolWeightVsWeakpt()} units="%">
             TOOL WEIGHT % OF WEAKPOINT
           </TableRow>
         </tbody>
