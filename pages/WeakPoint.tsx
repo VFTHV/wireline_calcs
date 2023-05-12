@@ -7,9 +7,11 @@ import {
   changeCableType,
   changeToolWeight,
   changeDepth,
+  changeEnvironment,
 } from '../store/slices/weakPointSlice';
 import { StoreState } from '../store';
 import { WirelineCalcs } from '../logics/wirelineCalcs';
+import { Environment } from '../store/slices/types';
 
 const WeakPoint = () => {
   const dispatch = useDispatch();
@@ -23,7 +25,7 @@ const WeakPoint = () => {
     environment,
     toolWeight
   );
-
+  console.log(currentCable?.outers);
   return (
     <>
       <NavHeader>Weakpoint</NavHeader>
@@ -46,6 +48,32 @@ const WeakPoint = () => {
           })}
         </select>
       </div>
+
+      <form>
+        <div className="radio-container">
+          <label>
+            <input
+              type="radio"
+              name="fluid"
+              value={Environment.FLUID}
+              onChange={(e) => dispatch(changeEnvironment(e.target.value))}
+              checked={environment === Environment.FLUID}
+            />
+            <div className="left label-container">FLUID</div>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="gas"
+              value={Environment.GAS}
+              onChange={(e) => dispatch(changeEnvironment(e.target.value))}
+              checked={environment === Environment.GAS}
+            />
+            <div className="label-container right">GAS</div>
+          </label>
+        </div>
+      </form>
+
       <table>
         <tbody className="table">
           <TableRow data={currentCable?.breakingStrength} units="lbs">

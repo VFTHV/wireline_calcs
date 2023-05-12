@@ -2,10 +2,10 @@
 @import 'basic_styles';
 
 .navigation {
-  padding: 0 $padding-default;
+  padding: 0 $spacing-default;
 
   .navitem {
-    padding: $padding-default;
+    padding: $spacing-default;
     display: flex;
     justify-content: space-between;
     border-bottom: solid 2px $dark-blue;
@@ -14,7 +14,7 @@
 
 .nav-header {
   display: flex;
-  padding: $padding-default;
+  padding: $spacing-default;
   justify-content: space-between;
 }
 
@@ -31,7 +31,7 @@
   .t-head,
   .t-data {
     border: solid 1px $gray;
-    padding: $padding-default;
+    padding: $spacing-default;
     display: flex;
     align-items: center;
   }
@@ -46,7 +46,7 @@
 }
 
 .input-group {
-  padding: $padding-default;
+  margin: $spacing-default;
   display: flex;
   flex-direction: column;
   .select-item,
@@ -56,5 +56,41 @@
   }
   .form-item {
     width: 90%;
+  }
+}
+
+.radio-container {
+  margin: $spacing-default auto;
+  display: flex;
+  width: 15rem;
+  height: 2rem;
+  background-color: $secondary-color;
+  border-radius: 5px;
+  input {
+    display: none;
+    &:checked + .label-container {
+      background-color: $light-blue;
+      color: #fff;
+      font-weight: 700;
+    }
+  }
+  label {
+    color: $primary-color;
+    width: 50%;
+    cursor: pointer;
+    .left {
+      border-radius: 5px 0 0 5px;
+    }
+    .right {
+      border-radius: 0 5px 5px 0;
+    }
+    .label-container {
+      width: 100%;
+      height: 100%;
+      transition: background-color 0.3s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }

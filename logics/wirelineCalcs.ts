@@ -27,6 +27,8 @@ export class WirelineCalcs {
   outersRehead(): number {
     if (!this.currenCable) return 0;
     let outersRehead = this.maxWPstrength() / this.currenCable.outerArmorBS;
+    // add armors in cone - max rehead wires ???
+    // in max number of armors to rehead should not exceed it
     if (outersRehead > this.currenCable.outers) {
       outersRehead = this.currenCable.outers;
     }

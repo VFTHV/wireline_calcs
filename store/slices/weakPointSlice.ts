@@ -35,9 +35,16 @@ const weakPointSlice = createSlice({
     changeDepth(state, action: { payload: number }) {
       state.depth = action.payload;
     },
+    changeEnvironment(state, action) {
+      state.environment = action.payload;
+    },
   },
 });
 
-export const { changeCableType, changeDepth, changeToolWeight } =
-  weakPointSlice.actions;
+export const {
+  changeCableType,
+  changeDepth,
+  changeToolWeight,
+  changeEnvironment,
+} = weakPointSlice.actions;
 export const weakPointReducer = weakPointSlice.reducer;
