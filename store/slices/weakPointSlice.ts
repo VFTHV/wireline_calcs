@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { CableSpecs, cablesData } from '../../database/cables';
-import { Environment } from './types';
+import { Environment, UnitSystem } from './types';
 
 export interface WeakPointState {
   cablesData: CableSpecs[];
@@ -8,6 +8,7 @@ export interface WeakPointState {
   depth: number;
   toolWeight: number;
   environment: Environment;
+  UnitSystem: UnitSystem;
 }
 
 const initialState: WeakPointState = {
@@ -16,6 +17,7 @@ const initialState: WeakPointState = {
   depth: 0,
   toolWeight: 0,
   environment: Environment.FLUID,
+  UnitSystem: UnitSystem.ENGLISH,
 };
 
 const weakPointSlice = createSlice({
@@ -38,6 +40,9 @@ const weakPointSlice = createSlice({
     changeEnvironment(state, action) {
       state.environment = action.payload;
     },
+    changeUnits(state, action) {
+      state.UnitSystem = action.payload;
+    },
   },
 });
 
@@ -46,5 +51,6 @@ export const {
   changeDepth,
   changeToolWeight,
   changeEnvironment,
+  changeUnits,
 } = weakPointSlice.actions;
 export const weakPointReducer = weakPointSlice.reducer;

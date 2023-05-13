@@ -10,7 +10,8 @@ export interface CableSpecs {
   innerArmorBS: number;
   outerArmorBS: number;
   weightInAir: number;
-  // armors in cone - max rehead wires ???
+  // add armors in cone - max rehead wires ???
+  // in max number of armors to rehead should not exceed it
 }
 
 export const cablesData: CableSpecs[] = [

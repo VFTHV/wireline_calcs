@@ -1,4 +1,5 @@
 import { FC, ChangeEvent } from 'react';
+import { UnitSystem } from '../../store/slices/types';
 
 interface InputDataProps {
   children: string;
@@ -15,6 +16,13 @@ const InputData: FC<InputDataProps> = ({
   value,
   unit,
 }) => {
+  let units = unit;
+  if (units === UnitSystem.ENGLISH) {
+    units = 'ft';
+  } else if (units === UnitSystem.METRIC) {
+    units = 'm';
+  }
+
   return (
     <div className="input-group">
       <label htmlFor={nameId}>{children}</label>
@@ -27,7 +35,7 @@ const InputData: FC<InputDataProps> = ({
           type="number"
           onChange={onChange}
         />{' '}
-        <span>{unit}</span>
+        <span>{units}</span>
       </div>
     </div>
   );

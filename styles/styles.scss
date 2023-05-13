@@ -18,6 +18,9 @@
   justify-content: space-between;
 }
 
+.table {
+  width: 100%;
+}
 .t-row {
   display: grid;
   grid-template-columns: 3fr 3fr;
@@ -53,9 +56,10 @@
   .form-item {
     height: 2rem;
     border-radius: 5px;
+    width: calc(100% - 2rem);
   }
-  .form-item {
-    width: 90%;
+  span {
+    width: 2rem;
   }
 }
 

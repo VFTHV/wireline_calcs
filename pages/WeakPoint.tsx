@@ -15,14 +15,14 @@ import CableSelector from '../src/components/CableSelector';
 
 const WeakPoint = () => {
   const dispatch = useDispatch();
-  const { currentCable, toolWeight, depth, environment } = useSelector(
-    (state: StoreState) => state.weakPoint
-  );
+  const { currentCable, toolWeight, depth, environment, UnitSystem } =
+    useSelector((state: StoreState) => state.weakPoint);
 
   const calcData = new WirelineCalcs(
     currentCable,
     depth,
     environment,
+    UnitSystem,
     toolWeight
   );
 
@@ -35,8 +35,8 @@ const WeakPoint = () => {
         onChange={(e) => dispatch(changeEnvironment(e.target.value))}
         currentValue={environment}
       />
-      <table>
-        <tbody className="table">
+      <table className="table">
+        <tbody>
           <TableRow data={currentCable?.breakingStrength} units="lbs">
             CABLE BREAKING STRENGTH
           </TableRow>
@@ -63,12 +63,12 @@ const WeakPoint = () => {
         onChange={(e) => dispatch(changeDepth(+e.target.value))}
         nameId="depth"
         value={depth}
-        unit="ft"
+        unit={UnitSystem}
       >
         Depth:
       </InputData>
-      <table>
-        <tbody className="table">
+      <table className="table">
+        <tbody>
           <TableRow data={calcData.cableWeight()} units="lbs">
             TOTAL CABLE WEIGHT
           </TableRow>

@@ -1,20 +1,25 @@
 import { CableSpecs } from '../database/cables';
-import { Environment } from '../store/slices/types';
+import { Environment, UnitSystem } from '../store/slices/types';
 
 export class WirelineCalcs {
   constructor(
     public currenCable: CableSpecs | undefined,
     public depth: number,
     public environment: Environment,
+    public units: UnitSystem,
     public toolWeight?: number
   ) {}
 
   cableWeight(): number {
     if (!this.currenCable) return 0;
     let envCoeff = 1;
+    let depthCoeff = 1;
     if (this.environment === Environment.FLUID) envCoeff = 0.83;
+    if (this.units === UnitSystem.METRIC) depthCoeff = 1 / 0.3048;
     const cableWeight =
-      envCoeff * this.currenCable.weightInAir * (this.depth / 1000);
+      envCoeff *
+      this.currenCable.weightInAir *
+      ((this.depth * depthCoeff) / 1000);
     return +cableWeight.toFixed();
   }
 
