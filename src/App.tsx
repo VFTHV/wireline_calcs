@@ -6,14 +6,14 @@ import Stretch from '../pages/Stretch';
 
 function App() {
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/" element={<NavPage />} />
         <Route path="/weakpoint" element={<WeakPoint />} />
         <Route path="/weightbar" element={<WeightBar />} />
         <Route path="/stretch" element={<Stretch />} />
       </Routes>
-    </div>
+    </>
   );
 }
 

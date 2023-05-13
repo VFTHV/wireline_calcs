@@ -1,10 +1,8 @@
-import { cablesData } from '../database/cables';
 import NavHeader from '../src/components/NavHeader';
 import TableRow from '../src/components/TableRow';
 import InputData from '../src/components/InputData';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  changeCableType,
   changeToolWeight,
   changeDepth,
   changeEnvironment,
@@ -12,6 +10,8 @@ import {
 import { StoreState } from '../store';
 import { WirelineCalcs } from '../logics/wirelineCalcs';
 import { Environment } from '../store/slices/types';
+import RadioDualInput from '../src/components/RadioDualInput';
+import CableSelector from '../src/components/CableSelector';
 
 const WeakPoint = () => {
   const dispatch = useDispatch();
@@ -25,55 +25,16 @@ const WeakPoint = () => {
     environment,
     toolWeight
   );
-  console.log(currentCable?.outers);
+
   return (
     <>
       <NavHeader>Weakpoint</NavHeader>
-      <div className="input-group">
-        <label htmlFor="cable">Cable Type:</label>
-        <select
-          className="select-item"
-          id="cable"
-          name="cable"
-          value={currentCable?.type}
-          onChange={(e) => dispatch(changeCableType(e.target.value))}
-        >
-          <option value={''}>select</option>
-          {cablesData.map((cable) => {
-            return (
-              <option key={cable.type} value={cable.type}>
-                {cable.type}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-
-      <form>
-        <div className="radio-container">
-          <label>
-            <input
-              type="radio"
-              name="fluid"
-              value={Environment.FLUID}
-              onChange={(e) => dispatch(changeEnvironment(e.target.value))}
-              checked={environment === Environment.FLUID}
-            />
-            <div className="left label-container">FLUID</div>
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="gas"
-              value={Environment.GAS}
-              onChange={(e) => dispatch(changeEnvironment(e.target.value))}
-              checked={environment === Environment.GAS}
-            />
-            <div className="label-container right">GAS</div>
-          </label>
-        </div>
-      </form>
-
+      <CableSelector />
+      <RadioDualInput
+        values={[Environment.FLUID, Environment.GAS]}
+        onChange={(e) => dispatch(changeEnvironment(e.target.value))}
+        currentValue={environment}
+      />
       <table>
         <tbody className="table">
           <TableRow data={currentCable?.breakingStrength} units="lbs">
