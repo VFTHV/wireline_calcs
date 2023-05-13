@@ -77,10 +77,10 @@ body {
 .input-group .form-item {
   height: 2rem;
   border-radius: 5px;
-  width: calc(100% - 2rem);
+  width: 90%;
 }
 .input-group span {
-  width: 2rem;
+  width: 10%;
 }
 
 .radio-container {
