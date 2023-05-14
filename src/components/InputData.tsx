@@ -34,7 +34,7 @@ const InputData: FC<InputDataProps> = ({
           value={value ? value : ''}
           type="number"
           onChange={onChange}
-        />{' '}
+        />
         <span>{units}</span>
       </div>
     </div>

@@ -1,11 +1,21 @@
+import { ChangeEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { StoreState } from '../../store';
 import { cablesData } from '../../database/cables';
-import { changeCableType } from '../../store';
+import { changeCable } from '../../store';
 
 const CableSelector = () => {
   const dispatch = useDispatch();
   const { currentCable } = useSelector((state: StoreState) => state.weakPoint);
+
+  const handleCableChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const selectedCable = cablesData.find(
+      (cable) => cable.type === e.target.value
+    );
+    if (selectedCable) {
+      dispatch(changeCable(selectedCable));
+    }
+  };
 
   return (
     <div className="input-group">
@@ -15,9 +25,10 @@ const CableSelector = () => {
         id="cable"
         name="cable"
         value={currentCable?.type}
-        onChange={(e) => dispatch(changeCableType(e.target.value))}
+        onChange={handleCableChange}
       >
         <option value={''}>select</option>
+        {/* <option value={'Manual'}>Manual</option> */}
         {cablesData.map((cable) => {
           return (
             <option key={cable.type} value={cable.type}>

@@ -24,12 +24,8 @@ const weakPointSlice = createSlice({
   name: 'weakPoint',
   initialState,
   reducers: {
-    changeCableType(state, action: { payload: string }) {
-      const selectedCable = state.cablesData.find(
-        (cable) => cable.type === action.payload
-      );
-      state.currentCable = selectedCable;
-      state.depth = state.toolWeight = 0;
+    changeCable(state, action: { payload: CableSpecs }) {
+      state.currentCable = action.payload;
     },
     changeToolWeight(state, action: { payload: number }) {
       state.toolWeight = action.payload;
@@ -47,7 +43,7 @@ const weakPointSlice = createSlice({
 });
 
 export const {
-  changeCableType,
+  changeCable,
   changeDepth,
   changeToolWeight,
   changeEnvironment,
