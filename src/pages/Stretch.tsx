@@ -1,4 +1,4 @@
-import NavHeader from '../src/components/NavHeader';
+import NavHeader from '../components/NavHeader';
 
 const Stretch = () => {
   return (

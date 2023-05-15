@@ -1,8 +1,8 @@
 import { ChangeEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { StoreState } from '../../store';
-import { cablesData } from '../../database/cables';
-import { changeCable } from '../../store';
+import { StoreState } from '../store';
+import { cablesData } from '../database/cables';
+import { changeCable } from '../store';
 
 const CableSelector = () => {
   const dispatch = useDispatch();

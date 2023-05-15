@@ -10,11 +10,13 @@ interface NavItemProps {
 
 const NavItem: FC<NavItemProps> = ({ to, children }) => {
   return (
-    <li className="navitem">
-      <BsCalculator />
-      <NavLink to={to}>{children}</NavLink>
-      <GoChevronRight />
-    </li>
+    <NavLink to={to}>
+      <li className="navitem">
+        <BsCalculator />
+        {children}
+        <GoChevronRight />
+      </li>
+    </NavLink>
   );
 };
 

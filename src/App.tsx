@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-import NavPage from '../pages/NavPage';
-import WeakPoint from '../pages/WeakPoint';
-import WeightBar from '../pages/WeightBar';
-import Stretch from '../pages/Stretch';
+import NavPage from './pages/NavPage';
+import WeakPoint from './pages/WeakPoint';
+import WeightBar from './pages/WeightBar';
+import Stretch from './pages/Stretch';
 import RadioDualInput from './components/RadioDualInput';
-import { UnitSystem } from '../store/slices/types';
-import { StoreState, changeUnits } from '../store';
+import { UnitSystem } from './store/slices/types';
+import { StoreState, changeUnits } from './store';
 import { useDispatch, useSelector } from 'react-redux';
 
 function App() {

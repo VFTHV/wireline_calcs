@@ -42,3 +42,11 @@
   JS Classes: calculations
   TypeScript: types assistance for calculations
   SASS: styling
+
+
+Ideas:
+
+- Add data valudation to InputData.tsx:
+  range prop with 2-item array should be provided with min and max
+  if min or max are exceeded, then small red text under the input
+  element will pop up saying 'VALUE MAY BE OUTSIDE OF NORMAL OPERTING RANGE'

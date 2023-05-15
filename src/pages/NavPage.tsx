@@ -1,4 +1,4 @@
-import NavItem from '../src/components/NavItem';
+import NavItem from '../components/NavItem';
 
 const NavPage = () => {
   return (

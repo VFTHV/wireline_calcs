@@ -1,4 +1,4 @@
-import { CableSpecs } from '../database/cables';
+import { CableSpecs } from '../src/database/cables';
 import { Environment, UnitSystem } from '../store/slices/types';
 
 export class WirelineCalcs {

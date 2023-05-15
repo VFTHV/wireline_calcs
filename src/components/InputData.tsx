@@ -1,5 +1,5 @@
 import { FC, ChangeEvent } from 'react';
-import { UnitSystem } from '../../store/slices/types';
+import { UnitSystem } from '../store/slices/types';
 
 interface InputDataProps {
   children: string;
