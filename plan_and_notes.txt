@@ -50,3 +50,10 @@ Ideas:
   range prop with 2-item array should be provided with min and max
   if min or max are exceeded, then small red text under the input
   element will pop up saying 'VALUE MAY BE OUTSIDE OF NORMAL OPERTING RANGE'
+
+- In Weight Bar: add database of most of the weight bars and weights. And offer
+  which sinker bars to use for engineer, based on diameter of tools
+
+- Add 'Choose Units' page where engineer chooses depth, pressure etc. units. then
+  to use all these units for calculations. Special conversion function needs to be
+  created

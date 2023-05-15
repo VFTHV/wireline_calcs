@@ -8,6 +8,8 @@ import {
   changeWeight,
   changePercentOverBalance,
 } from '../store';
+import TableRow from '../components/TableRow';
+import { useWeightBarCalc } from '../logics/useWeighBarCalc';
 
 const WeightBar = () => {
   const dispatch = useDispatch();
@@ -15,7 +17,9 @@ const WeightBar = () => {
     (state: StoreState) => state.weightBar
   );
 
-  console.log(weight);
+  const { balanceWeightCalc, finalWeight, sinkerBarWeight } =
+    useWeightBarCalc();
+
   return (
     <>
       <NavHeader>Weight Bar</NavHeader>
@@ -51,6 +55,28 @@ const WeightBar = () => {
       >
         Percent over Balance:
       </InputData>
+      <table className="table">
+        <tbody>
+          <TableRow
+            data={balanceWeightCalc(diameter, wellPressure)}
+            units="lbs"
+          >
+            BALANCE WEIGHT
+          </TableRow>
+          <TableRow
+            data={finalWeight(diameter, wellPressure, percentOverBalance)}
+            units="lbs"
+          >
+            FINAL WEIGHT
+          </TableRow>
+          <TableRow
+            data={sinkerBarWeight(diameter, wellPressure, percentOverBalance)}
+            units="lbs"
+          >
+            SINKER BAR WEIGHT
+          </TableRow>
+        </tbody>
+      </table>
     </>
   );
 };

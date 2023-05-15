@@ -23,6 +23,17 @@ const InputData: FC<InputDataProps> = ({
     units = 'm';
   }
 
+  // const renderError = () => {
+  //   const sortedRange = range.sort((a, b) => a - b);
+  //   if (value < sortedRange[0] || value > sortedRange[1]) {
+  //     return (
+  //       <div className="error-message">
+  //         value may be outside of normal operating range
+  //       </div>
+  //     );
+  //   }
+  // };
+
   return (
     <div className="input-group">
       <label htmlFor={nameId}>{children}</label>
@@ -37,6 +48,7 @@ const InputData: FC<InputDataProps> = ({
         />
         <span>{units}</span>
       </div>
+      {/* {renderError()} */}
     </div>
   );
 };
