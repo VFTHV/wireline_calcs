@@ -14,6 +14,7 @@ const store = configureStore<StoreState>({
 export { store };
 export * from './slices/weakPointSlice';
 export * from './slices/weightBarSlice';
+export * from './slices/unitSystemSlice';
 
 export interface StoreState {
   weakPoint: WeakPointState;

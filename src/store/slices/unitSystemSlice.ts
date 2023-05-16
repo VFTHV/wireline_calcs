@@ -17,13 +17,13 @@ const unitSystemSlice = createSlice({
   name: 'unitSystem',
   initialState,
   reducers: {
-    changeDepthUnits(state, action: { payload: 'ft' | 'm' }) {
+    changeDepthUnits(state, action) {
       state.depthUnits = action.payload;
     },
-    changeWeightUnits(state, action: { payload: 'lbs' | 'kg' }) {
+    changeWeightUnits(state, action) {
       state.weightUnits = action.payload;
     },
-    changeDiameterUnits(state, action: { payload: 'in' | 'mm' }) {
+    changeDiameterUnits(state, action) {
       state.diameterUnits = action.payload;
     },
   },

@@ -51,7 +51,7 @@ const WeakPoint = () => {
         onChange={(e) => dispatch(changeDepth(+e.target.value))}
         nameId="depth"
         value={depth}
-        unit={unitSystem.weightUnits}
+        unit={unitSystem.depthUnits}
       >
         Depth:
       </InputData>

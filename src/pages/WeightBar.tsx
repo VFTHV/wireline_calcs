@@ -16,6 +16,7 @@ const WeightBar = () => {
   const { diameter, wellPressure, weight, percentOverBalance } = useSelector(
     (state: StoreState) => state.weightBar
   );
+  const unitSystem = useSelector((state: StoreState) => state.unitSystem);
 
   const { balanceWeightCalc, finalWeight, sinkerBarWeight } =
     useWeightBarCalc();
@@ -27,7 +28,7 @@ const WeightBar = () => {
         onChange={(e) => dispatch(changeDiameter(e.target.value))}
         nameId="diameter"
         value={diameter}
-        unit="in"
+        unit={unitSystem.diameterUnits}
       >
         Cable Diameter:
       </InputData>
@@ -43,7 +44,7 @@ const WeightBar = () => {
         onChange={(e) => dispatch(changeWeight(e.target.value))}
         nameId="weight"
         value={weight}
-        unit="lbs"
+        unit={unitSystem.weightUnits}
       >
         Tool Weight:
       </InputData>
@@ -59,19 +60,19 @@ const WeightBar = () => {
         <tbody>
           <TableRow
             data={balanceWeightCalc(diameter, wellPressure)}
-            units="lbs"
+            units={unitSystem.weightUnits}
           >
             BALANCE WEIGHT
           </TableRow>
           <TableRow
             data={finalWeight(diameter, wellPressure, percentOverBalance)}
-            units="lbs"
+            units={unitSystem.weightUnits}
           >
             FINAL WEIGHT
           </TableRow>
           <TableRow
             data={sinkerBarWeight(diameter, wellPressure, percentOverBalance)}
-            units="lbs"
+            units={unitSystem.weightUnits}
           >
             SINKER BAR WEIGHT
           </TableRow>

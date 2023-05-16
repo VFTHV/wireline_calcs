@@ -3,12 +3,14 @@ import NavPage from './pages/NavPage';
 import WeakPoint from './pages/WeakPoint';
 import WeightBar from './pages/WeightBar';
 import Stretch from './pages/Stretch';
+import UnitsPage from './pages/UnitsPage';
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<NavPage />} />
+        <Route path="/units" element={<UnitsPage />} />
         <Route path="/weakpoint" element={<WeakPoint />} />
         <Route path="/weightbar" element={<WeightBar />} />
         <Route path="/stretch" element={<Stretch />} />
