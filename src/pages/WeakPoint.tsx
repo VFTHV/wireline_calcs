@@ -12,17 +12,20 @@ import { WirelineCalcs } from '../logics/wirelineCalcs';
 import { Environment } from '../store/slices/types';
 import RadioDualInput from '../components/RadioDualInput';
 import CableSelector from '../components/CableSelector';
+import CurrentCableSpecs from '../components/CurrentCableSpecs';
 
 const WeakPoint = () => {
   const dispatch = useDispatch();
-  const { currentCable, toolWeight, depth, environment, UnitSystem } =
-    useSelector((state: StoreState) => state.weakPoint);
+  const { currentCable, toolWeight, depth, environment } = useSelector(
+    (state: StoreState) => state.weakPoint
+  );
+  const unitSystem = useSelector((state: StoreState) => state.unitSystem);
 
   const calcData = new WirelineCalcs(
     currentCable,
     depth,
     environment,
-    UnitSystem,
+    unitSystem,
     toolWeight
   );
 
@@ -35,27 +38,12 @@ const WeakPoint = () => {
         onChange={(e) => dispatch(changeEnvironment(e.target.value))}
         currentValue={environment}
       />
-      <table className="table">
-        <tbody>
-          <TableRow data={currentCable?.breakingStrength} units="lbs">
-            CABLE BREAKING STRENGTH
-          </TableRow>
-          <TableRow data={currentCable?.outerArmorBS} units="lbs">
-            OUTER ARMOR BREAKING STRENGTH
-          </TableRow>
-          <TableRow data={currentCable?.weightInAir} units="lbs">
-            AVG. CABLE WEIGHT IN AIR
-          </TableRow>
-          <TableRow data={currentCable?.maxTension} units="lbs">
-            MAX. RECOMMENDED TENSION
-          </TableRow>
-        </tbody>
-      </table>
+      <CurrentCableSpecs />
       <InputData
         onChange={(e) => dispatch(changeToolWeight(+e.target.value))}
         nameId="weight"
         value={toolWeight}
-        unit="lbs"
+        unit={unitSystem.weightUnits}
       >
         Toolstring Weight:
       </InputData>
@@ -63,16 +51,22 @@ const WeakPoint = () => {
         onChange={(e) => dispatch(changeDepth(+e.target.value))}
         nameId="depth"
         value={depth}
-        unit={UnitSystem}
+        unit={unitSystem.weightUnits}
       >
         Depth:
       </InputData>
       <table className="table">
         <tbody>
-          <TableRow data={calcData.cableWeight()} units="lbs">
+          <TableRow
+            data={calcData.cableWeight()}
+            units={unitSystem.weightUnits}
+          >
             TOTAL CABLE WEIGHT
           </TableRow>
-          <TableRow data={calcData.maxWPstrength()} units="lbs">
+          <TableRow
+            data={calcData.maxWPstrength()}
+            units={unitSystem.weightUnits}
+          >
             MAX WEAKPOINT STRENGTH
           </TableRow>
           <TableRow data={calcData.outersRehead()} units="">

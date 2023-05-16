@@ -1,5 +1,4 @@
 import { FC, ChangeEvent } from 'react';
-import { UnitSystem } from '../store/slices/types';
 
 interface InputDataProps {
   children: string;
@@ -16,13 +15,6 @@ const InputData: FC<InputDataProps> = ({
   value,
   unit,
 }) => {
-  let units = unit;
-  if (units === UnitSystem.ENGLISH) {
-    units = 'ft';
-  } else if (units === UnitSystem.METRIC) {
-    units = 'm';
-  }
-
   // const renderError = () => {
   //   const sortedRange = range.sort((a, b) => a - b);
   //   if (value < sortedRange[0] || value > sortedRange[1]) {
@@ -42,11 +34,11 @@ const InputData: FC<InputDataProps> = ({
           className="form-item"
           id={nameId}
           name={nameId}
-          value={value ? value : ''}
+          value={value ? Math.abs(value) : ''}
           type="number"
           onChange={onChange}
         />
-        <span>{units}</span>
+        <span>{unit}</span>
       </div>
       {/* {renderError()} */}
     </div>
