@@ -22,7 +22,8 @@ const WeightBar = () => {
     diameter,
     wellPressure,
     weight,
-    percentOverBalance
+    percentOverBalance,
+    unitSystem
   );
 
   return (
