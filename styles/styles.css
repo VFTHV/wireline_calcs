@@ -82,6 +82,11 @@ body {
 .input-group span {
   width: 15%;
 }
+.input-group .error-message {
+  color: black;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
 
 .radio-container {
   margin: 1rem auto;

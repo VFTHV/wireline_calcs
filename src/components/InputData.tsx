@@ -1,46 +1,49 @@
 import { FC, ChangeEvent } from 'react';
+import { maxInputValues } from '../database/maxInputValues';
+import { MeasurementType, UnitType } from '../database/maxInputValues';
 
 interface InputDataProps {
   children: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  nameId: string;
+  typeId: MeasurementType;
   value: number;
-  unit: string;
+  unit: UnitType;
 }
 
 const InputData: FC<InputDataProps> = ({
   children,
   onChange,
-  nameId,
+  typeId,
   value,
   unit,
 }) => {
-  // const renderError = () => {
-  //   const sortedRange = range.sort((a, b) => a - b);
-  //   if (value < sortedRange[0] || value > sortedRange[1]) {
-  //     return (
-  //       <div className="error-message">
-  //         value may be outside of normal operating range
-  //       </div>
-  //     );
-  //   }
-  // };
+  const renderError = () => {
+    const maxInput = maxInputValues[typeId][unit];
+    if (!maxInput) return;
+    if (value > maxInput) {
+      return (
+        <div className="error-message">
+          value may be outside of normal operating range
+        </div>
+      );
+    }
+  };
 
   return (
     <div className="input-group">
-      <label htmlFor={nameId}>{children}</label>
+      <label htmlFor={typeId}>{children}</label>
       <div>
         <input
           className="form-item"
-          id={nameId}
-          name={nameId}
+          id={typeId}
+          name={typeId}
           value={value ? Math.abs(value) : ''}
           type="number"
           onChange={onChange}
         />
         <span>{unit}</span>
       </div>
-      {/* {renderError()} */}
+      {renderError()}
     </div>
   );
 };

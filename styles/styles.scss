@@ -61,10 +61,11 @@
   span {
     width: 15%;
   }
-  // .error-message {
-  //   color: $error-color;
-  //   font-weight: 700;
-  // }
+  .error-message {
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
 }
 
 .radio-container {

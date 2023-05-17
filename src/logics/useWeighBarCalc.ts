@@ -14,7 +14,7 @@ export const useWeightBarCalc = (
     if (unitSystem.pressureUnits === Pressure.ATM) convPressure *= 14.7;
     let convDiameter = diameter;
     if (unitSystem.diameterUnits === Diameter.MM) convDiameter /= 25.4;
-    console.log(convDiameter);
+
     let balanceWeight = (convPressure * Math.PI * convDiameter ** 2) / 4;
 
     // converting output

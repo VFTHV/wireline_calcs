@@ -41,7 +41,7 @@ const WeakPoint = () => {
       <CurrentCableSpecs />
       <InputData
         onChange={(e) => dispatch(changeToolWeight(+e.target.value))}
-        nameId="weight"
+        typeId="weight"
         value={toolWeight}
         unit={unitSystem.weightUnits}
       >
@@ -49,7 +49,7 @@ const WeakPoint = () => {
       </InputData>
       <InputData
         onChange={(e) => dispatch(changeDepth(+e.target.value))}
-        nameId="depth"
+        typeId="depth"
         value={depth}
         unit={unitSystem.depthUnits}
       >
