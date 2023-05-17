@@ -22,6 +22,11 @@ interface DiameterType {
   MM: 'mm';
 }
 
+interface PressureType {
+  PSI: 'psi';
+  ATM: 'atm';
+}
+
 export const Depth: DepthType = {
   FT: 'ft',
   M: 'm',
@@ -35,4 +40,9 @@ export const Weight: WeightType = {
 export const Diameter: DiameterType = {
   INCH: 'in',
   MM: 'mm',
+};
+
+export const Pressure: PressureType = {
+  PSI: 'psi',
+  ATM: 'atm',
 };

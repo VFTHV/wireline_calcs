@@ -13,8 +13,9 @@ const CurrentCableSpecs = () => {
 
   const onWeightConvert = (input: number | undefined) => {
     if (!input) return 0;
-    if (unitSystem.weightUnits === Weight.KG) input *= 0.45;
-    return input;
+    let weight = input;
+    if (unitSystem.weightUnits === Weight.KG) weight *= 0.45;
+    return Math.round(weight);
   };
   return (
     <>

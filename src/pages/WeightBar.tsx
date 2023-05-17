@@ -18,8 +18,12 @@ const WeightBar = () => {
   );
   const unitSystem = useSelector((state: StoreState) => state.unitSystem);
 
-  const { balanceWeightCalc, finalWeight, sinkerBarWeight } =
-    useWeightBarCalc();
+  const { balanceWeight, finalWeight, sinkerBarWeight } = useWeightBarCalc(
+    diameter,
+    wellPressure,
+    weight,
+    percentOverBalance
+  );
 
   return (
     <>
@@ -36,7 +40,7 @@ const WeightBar = () => {
         onChange={(e) => dispatch(changePressure(e.target.value))}
         nameId="pressure"
         value={wellPressure}
-        unit="psi"
+        unit={unitSystem.pressureUnits}
       >
         Well Pressure:
       </InputData>
@@ -58,22 +62,13 @@ const WeightBar = () => {
       </InputData>
       <table className="table">
         <tbody>
-          <TableRow
-            data={balanceWeightCalc(diameter, wellPressure)}
-            units={unitSystem.weightUnits}
-          >
+          <TableRow data={balanceWeight} units={unitSystem.weightUnits}>
             BALANCE WEIGHT
           </TableRow>
-          <TableRow
-            data={finalWeight(diameter, wellPressure, percentOverBalance)}
-            units={unitSystem.weightUnits}
-          >
+          <TableRow data={finalWeight} units={unitSystem.weightUnits}>
             FINAL WEIGHT
           </TableRow>
-          <TableRow
-            data={sinkerBarWeight(diameter, wellPressure, percentOverBalance)}
-            units={unitSystem.weightUnits}
-          >
+          <TableRow data={sinkerBarWeight} units={unitSystem.weightUnits}>
             SINKER BAR WEIGHT
           </TableRow>
         </tbody>
