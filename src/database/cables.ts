@@ -16,6 +16,19 @@ export interface CableSpecs {
 
 export const cablesData: CableSpecs[] = [
   {
+    type: 'MANUAL',
+    diameter: 0,
+    stretchCoeff: 0,
+    breakingStrength: 0,
+    maxTension: 0,
+    conuctorResistance: 0,
+    inners: 0,
+    outers: 0,
+    innerArmorBS: 0,
+    outerArmorBS: 0,
+    weightInAir: 0,
+  },
+  {
     type: '1N10 (1/10")',
     diameter: 0.101,
     stretchCoeff: 13.1,

@@ -27,8 +27,6 @@ const CableSelector = () => {
         value={currentCable?.type}
         onChange={handleCableChange}
       >
-        <option value={''}>select</option>
-        {/* <option value={'Manual'}>Manual</option> */}
         {cablesData.map((cable) => {
           return (
             <option key={cable.type} value={cable.type}>

@@ -12,6 +12,7 @@ import { WirelineCalcs } from '../logics/wirelineCalcs';
 import { Environment } from '../store/slices/types';
 import RadioDualInput from '../components/RadioDualInput';
 import CableSelector from '../components/CableSelector';
+import CableManualEntrance from '../components/CableManualEntrance';
 import CurrentCableSpecs from '../components/CurrentCableSpecs';
 
 const WeakPoint = () => {
@@ -33,15 +34,19 @@ const WeakPoint = () => {
     <>
       <NavHeader>Weakpoint</NavHeader>
       <CableSelector />
+      {currentCable.type === 'MANUAL' ? (
+        <CableManualEntrance />
+      ) : (
+        <CurrentCableSpecs />
+      )}
       <RadioDualInput
         values={[Environment.FLUID, Environment.GAS]}
         onChange={(e) => dispatch(changeEnvironment(e.target.value))}
         currentValue={environment}
       />
-      <CurrentCableSpecs />
       <InputData
         onChange={(e) => dispatch(changeToolWeight(+e.target.value))}
-        typeId="weight"
+        typeId={'toolWeight'}
         value={toolWeight}
         unit={unitSystem.weightUnits}
       >
@@ -49,7 +54,7 @@ const WeakPoint = () => {
       </InputData>
       <InputData
         onChange={(e) => dispatch(changeDepth(+e.target.value))}
-        typeId="depth"
+        typeId={'depth'}
         value={depth}
         unit={unitSystem.depthUnits}
       >

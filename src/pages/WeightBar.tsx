@@ -31,7 +31,7 @@ const WeightBar = () => {
       <NavHeader>Weight Bar</NavHeader>
       <InputData
         onChange={(e) => dispatch(changeDiameter(e.target.value))}
-        typeId="diameter"
+        typeId={'diameter'}
         value={diameter}
         unit={unitSystem.diameterUnits}
       >
@@ -39,7 +39,7 @@ const WeightBar = () => {
       </InputData>
       <InputData
         onChange={(e) => dispatch(changePressure(e.target.value))}
-        typeId="pressure"
+        typeId={'pressure'}
         value={wellPressure}
         unit={unitSystem.pressureUnits}
       >
@@ -47,7 +47,7 @@ const WeightBar = () => {
       </InputData>
       <InputData
         onChange={(e) => dispatch(changeWeight(e.target.value))}
-        typeId="weight"
+        typeId={'toolWeight'}
         value={weight}
         unit={unitSystem.weightUnits}
       >
@@ -55,7 +55,7 @@ const WeightBar = () => {
       </InputData>
       <InputData
         onChange={(e) => dispatch(changePercentOverBalance(e.target.value))}
-        typeId="overBalance"
+        typeId={'overBalance'}
         value={percentOverBalance}
         unit="%"
       >

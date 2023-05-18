@@ -4,7 +4,7 @@ import { Environment } from './types';
 
 export interface WeakPointState {
   cablesData: CableSpecs[];
-  currentCable: CableSpecs | undefined;
+  currentCable: CableSpecs;
   depth: number;
   toolWeight: number;
   environment: 'fluid' | 'gas';
@@ -12,7 +12,7 @@ export interface WeakPointState {
 
 const initialState: WeakPointState = {
   cablesData,
-  currentCable: undefined,
+  currentCable: cablesData[0],
   depth: 0,
   toolWeight: 0,
   environment: Environment.FLUID,
@@ -24,6 +24,15 @@ const weakPointSlice = createSlice({
   reducers: {
     changeCable(state, action: { payload: CableSpecs }) {
       state.currentCable = action.payload;
+    },
+    changeOuterBS(state, action: { payload: number }) {
+      state.currentCable.outerArmorBS = action.payload;
+    },
+    changeWeightInAir(state, action: { payload: number }) {
+      state.currentCable.weightInAir = action.payload;
+    },
+    changeMaxTension(state, action: { payload: number }) {
+      state.currentCable.maxTension = action.payload;
     },
     changeToolWeight(state, action: { payload: number }) {
       state.toolWeight = action.payload;
@@ -37,6 +46,13 @@ const weakPointSlice = createSlice({
   },
 });
 
-export const { changeCable, changeDepth, changeToolWeight, changeEnvironment } =
-  weakPointSlice.actions;
+export const {
+  changeCable,
+  changeDepth,
+  changeToolWeight,
+  changeEnvironment,
+  changeOuterBS,
+  changeWeightInAir,
+  changeMaxTension,
+} = weakPointSlice.actions;
 export const weakPointReducer = weakPointSlice.reducer;
