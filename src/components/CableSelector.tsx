@@ -24,7 +24,7 @@ const CableSelector = () => {
         className="select-item"
         id="cable"
         name="cable"
-        value={currentCable?.type}
+        value={currentCable.type}
         onChange={handleCableChange}
       >
         {cablesData.map((cable) => {

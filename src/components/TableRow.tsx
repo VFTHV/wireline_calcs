@@ -4,6 +4,7 @@ interface TableRowProps {
   children: string;
   data: string | number | undefined;
   units: string;
+  key?: string | number;
 }
 
 const TableRow: FC<TableRowProps> = ({ children, data, units }) => {

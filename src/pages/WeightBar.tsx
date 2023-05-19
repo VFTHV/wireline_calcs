@@ -10,6 +10,7 @@ import {
 } from '../store';
 import TableRow from '../components/TableRow';
 import { useWeightBarCalc } from '../logics/useWeighBarCalc';
+import WeightBarSelector from '../components/WeightBarSelector';
 
 const WeightBar = () => {
   const dispatch = useDispatch();
@@ -74,6 +75,7 @@ const WeightBar = () => {
           </TableRow>
         </tbody>
       </table>
+      <WeightBarSelector />
     </>
   );
 };

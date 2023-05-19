@@ -22,25 +22,25 @@ const CurrentCableSpecs = () => {
       <table className="table">
         <tbody>
           <TableRow
-            data={onWeightConvert(currentCable?.breakingStrength)}
+            data={onWeightConvert(currentCable.breakingStrength)}
             units={unitSystem.weightUnits}
           >
             CABLE BREAKING STRENGTH
           </TableRow>
           <TableRow
-            data={onWeightConvert(currentCable?.outerArmorBS)}
+            data={onWeightConvert(currentCable.outerArmorBS)}
             units={unitSystem.weightUnits}
           >
             OUTER ARMOR BREAKING STRENGTH
           </TableRow>
           <TableRow
-            data={onWeightConvert(currentCable?.weightInAir)}
+            data={onWeightConvert(currentCable.weightInAir)}
             units={unitSystem.weightUnits}
           >
             AVG. CABLE WEIGHT IN AIR
           </TableRow>
           <TableRow
-            data={onWeightConvert(currentCable?.maxTension)}
+            data={onWeightConvert(currentCable.maxTension)}
             units={unitSystem.weightUnits}
           >
             MAX. RECOMMENDED TENSION
