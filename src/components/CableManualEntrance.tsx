@@ -13,10 +13,7 @@ const CableManualEntrance = () => {
     (state: StoreState) => state.weakPoint.currentCable
   );
   const unitSystem = useSelector((state: StoreState) => state.unitSystem);
-  console.clear();
-  console.log('Outer Armor BS: ', outerArmorBS);
-  console.log('Weight in air: ', weightInAir);
-  console.log('Max Tension: ', maxTension);
+
   return (
     <>
       <InputData

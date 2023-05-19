@@ -4,7 +4,7 @@ import { UnitSystemState } from '../store';
 
 export class WirelineCalcs {
   constructor(
-    public currenCable: CableSpecs | undefined,
+    public currentCable: CableSpecs | undefined,
     public depth: number,
     public environment: 'fluid' | 'gas',
     public unitSystem: UnitSystemState,
@@ -12,7 +12,7 @@ export class WirelineCalcs {
   ) {}
 
   cableWeight(): number {
-    if (!this.currenCable) return 0;
+    if (!this.currentCable) return 0;
     // converting inputs to English
     let depth = this.depth;
     if (this.unitSystem.depthUnits === Depth.M) depth /= 0.3048;
@@ -21,7 +21,7 @@ export class WirelineCalcs {
     if (this.environment === Environment.FLUID) envCoeff = 0.83;
 
     let cableWeight = Math.round(
-      envCoeff * this.currenCable.weightInAir * (depth / 1000)
+      envCoeff * this.currentCable.weightInAir * (depth / 1000)
     );
     // converting output
     if (this.unitSystem.weightUnits === Weight.KG) {
@@ -31,11 +31,11 @@ export class WirelineCalcs {
   }
 
   maxWPstrength(): number {
-    if (!this.currenCable || !this.cableWeight()) return 0;
+    if (!this.currentCable || !this.cableWeight()) return 0;
     let cableWeight = this.cableWeight();
     // converting input to English
     if (this.unitSystem.weightUnits === Weight.KG) cableWeight /= 0.45;
-    let maxWPstrength = Math.round(this.currenCable.maxTension - cableWeight);
+    let maxWPstrength = Math.round(this.currentCable.maxTension - cableWeight);
     // converting output
 
     if (this.unitSystem.weightUnits === Weight.KG) maxWPstrength *= 0.45;
@@ -43,16 +43,16 @@ export class WirelineCalcs {
   }
 
   outersRehead(): number {
-    if (!this.currenCable) return 0;
+    if (!this.currentCable) return 0;
 
     let maxWPstrength = this.maxWPstrength();
     // converting input to English
     if (this.unitSystem.weightUnits === Weight.KG) maxWPstrength /= 0.45;
-    let outersRehead = maxWPstrength / this.currenCable.outerArmorBS;
+    let outersRehead = maxWPstrength / this.currentCable.outerArmorBS;
     // add armors in cone - max rehead wires ???
     // in max number of armors to rehead should not exceed it
-    if (outersRehead > this.currenCable.outers) {
-      outersRehead = this.currenCable.outers;
+    if (this.currentCable.outers && outersRehead > this.currentCable.outers) {
+      outersRehead = this.currentCable.outers;
     }
     return +outersRehead.toFixed(1);
   }
