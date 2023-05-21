@@ -6,8 +6,8 @@ const WeightBarSelector = () => {
   const weightBarODs = [...new Set(weightBarsData.map((bar) => bar.od))];
   const [od, setOd] = useState(weightBarODs[0]);
 
-  const filteredODs = weightBarsData.filter((bar) => bar.od === od);
-  const filteredTypes = [...new Set(filteredODs.map((bar) => bar.type))];
+  const filteredByOD = weightBarsData.filter((bar) => bar.od === od);
+  const filteredByType = [...new Set(filteredByOD.map((bar) => bar.type))];
 
   return (
     <>
@@ -29,7 +29,7 @@ const WeightBarSelector = () => {
           })}
         </select>
       </div>
-      {filteredTypes.map((type) => {
+      {filteredByType.map((type) => {
         const capType =
           type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
         return (
@@ -38,7 +38,7 @@ const WeightBarSelector = () => {
               <TableRow data={capType} units="">
                 Material:
               </TableRow>
-              {filteredODs
+              {filteredByOD
                 .filter((bar) => bar.type === type)
                 .map((bar) => {
                   return (

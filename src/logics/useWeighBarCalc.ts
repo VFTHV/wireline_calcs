@@ -1,25 +1,52 @@
 import { Diameter, Pressure, Weight } from '../store/slices/types';
 import { UnitSystemState } from '../store';
+import { UnitType } from '../store/slices/types';
+
+const convertUnits = (
+  input: number,
+  unitType: UnitType,
+  convType: 'in' | 'out'
+): number => {
+  if (convType === 'in') {
+    switch (unitType) {
+      case Weight.KG:
+        return (input /= 0.45);
+      case Pressure.ATM:
+        return (input *= 14.7);
+      case Diameter.MM:
+        return (input /= 25.4);
+      default:
+        return input;
+    }
+  } else {
+    switch (unitType) {
+      case Weight.KG:
+        return (input *= 0.45);
+      case Pressure.ATM:
+        return (input /= 14.7);
+      case Diameter.MM:
+        return (input *= 25.4);
+      default:
+        return input;
+    }
+  }
+};
 
 export const useWeightBarCalc = (
   diameter: number,
   pressure: number,
   toolWeight: number,
   percentOverBalance: number,
-  unitSystem: UnitSystemState
+  units: UnitSystemState
 ) => {
   function balanceWeightCalc() {
     // converting inputs to English
-    let convPressure = pressure;
-    if (unitSystem.pressureUnits === Pressure.ATM) convPressure *= 14.7;
-    let convDiameter = diameter;
-    if (unitSystem.diameterUnits === Diameter.MM) convDiameter /= 25.4;
+    const convPressure = convertUnits(pressure, units.pressureUnits, 'in');
+    const convDiameter = convertUnits(diameter, units.diameterUnits, 'in');
 
     let balanceWeight = (convPressure * Math.PI * convDiameter ** 2) / 4;
-
     // converting output
-    if (unitSystem.weightUnits === Weight.KG) balanceWeight *= 0.45;
-
+    balanceWeight = convertUnits(balanceWeight, units.weightUnits, 'out');
     return Math.round(balanceWeight);
   }
 
@@ -27,17 +54,13 @@ export const useWeightBarCalc = (
     const multiplier = 1 + percentOverBalance / 100;
 
     // converting inputs to English
-    let convPressure = pressure;
-    if (unitSystem.pressureUnits === Pressure.ATM) convPressure *= 14.7;
-    let convDiameter = diameter;
-    if (unitSystem.diameterUnits === Diameter.MM) convDiameter /= 25.4;
+    const convPressure = convertUnits(pressure, units.pressureUnits, 'in');
+    const convDiameter = convertUnits(diameter, units.diameterUnits, 'in');
 
     const balanceWeight = (convPressure * Math.PI * convDiameter ** 2) / 4;
     let finalWeight = balanceWeight * multiplier;
-
     // converting output
-    if (unitSystem.weightUnits === Weight.KG) finalWeight *= 0.45;
-
+    finalWeight = convertUnits(finalWeight, units.weightUnits, 'out');
     return Math.round(finalWeight);
   }
 
@@ -45,19 +68,16 @@ export const useWeightBarCalc = (
     const multiplier = 1 + percentOverBalance / 100;
 
     // converting inputs to English
-    let convPressure = pressure;
-    if (unitSystem.pressureUnits === Pressure.ATM) convPressure *= 14.7;
-    let convDiameter = diameter;
-    if (unitSystem.diameterUnits === Diameter.MM) convDiameter /= 25.4;
+    const convPressure = convertUnits(pressure, units.pressureUnits, 'in');
+    const convDiameter = convertUnits(diameter, units.diameterUnits, 'in');
 
     const balanceWeight = (convPressure * Math.PI * convDiameter ** 2) / 4;
     const finalWeight = balanceWeight * multiplier;
-    let sinkerBarWeight = Math.round(finalWeight - toolWeight);
+    let sinkerBarWeight = finalWeight - toolWeight;
 
     // converting output
-    if (unitSystem.weightUnits === Weight.KG) sinkerBarWeight *= 0.45;
-
-    return sinkerBarWeight;
+    sinkerBarWeight = convertUnits(sinkerBarWeight, units.weightUnits, 'out');
+    return Math.round(sinkerBarWeight);
   }
 
   return {

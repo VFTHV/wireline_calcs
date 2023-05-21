@@ -1,25 +1,11 @@
-import { Pressure, Weight, Diameter, Depth } from '../store/slices/types';
-
-export type MeasurementType =
-  | 'pressure'
-  | 'toolWeight'
-  | 'overBalance'
-  | 'depth'
-  | 'diameter'
-  | 'outerBS'
-  | 'weightInAir'
-  | 'maxTension';
-
-export type UnitType =
-  | 'lbs'
-  | 'kg'
-  | 'ft'
-  | 'm'
-  | 'in'
-  | 'mm'
-  | 'psi'
-  | 'atm'
-  | '%';
+import {
+  Pressure,
+  Weight,
+  Diameter,
+  Depth,
+  MeasurementType,
+  UnitType,
+} from '../store/slices/types';
 
 export const maxInputValues: Record<
   MeasurementType,

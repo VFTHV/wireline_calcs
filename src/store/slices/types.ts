@@ -46,3 +46,24 @@ export const Pressure: PressureType = {
   PSI: 'psi',
   ATM: 'atm',
 };
+
+export type MeasurementType =
+  | 'pressure'
+  | 'toolWeight'
+  | 'overBalance'
+  | 'depth'
+  | 'diameter'
+  | 'outerBS'
+  | 'weightInAir'
+  | 'maxTension';
+
+export type UnitType =
+  | 'lbs'
+  | 'kg'
+  | 'ft'
+  | 'm'
+  | 'in'
+  | 'mm'
+  | 'psi'
+  | 'atm'
+  | '%';
