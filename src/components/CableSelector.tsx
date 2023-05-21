@@ -21,7 +21,7 @@ const CableSelector = () => {
     <div className="input-group">
       <label htmlFor="cable">Cable Type:</label>
       <select
-        className="select-item"
+        className="input-item"
         id="cable"
         name="cable"
         value={currentCable.type}

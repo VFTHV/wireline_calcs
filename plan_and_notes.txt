@@ -34,6 +34,12 @@
 
   Cable keyseat calculator (additional)
 
+  Cement Bond Log Predicted Pipe Time calculation:
+    engineer enters the tool OD, casing ID, fluid type, tx-rx spacing (3 or 5 ft). 
+    program caculates PPT in usec/ft or usec/m
+
+  Form to submit bugs
+
 - Technologies to use:
 
   React: rendering

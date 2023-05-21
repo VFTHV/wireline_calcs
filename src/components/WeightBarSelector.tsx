@@ -14,7 +14,7 @@ const WeightBarSelector = () => {
       <div className="input-group">
         <label htmlFor="weightBar">Weight Bar OD:</label>
         <select
-          className="select-item"
+          className="input-item"
           id="weightBar"
           name="weightBar"
           value={od}

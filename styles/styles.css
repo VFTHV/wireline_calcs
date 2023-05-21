@@ -73,19 +73,30 @@ body {
   display: flex;
   flex-direction: column;
 }
-.input-group .select-item,
-.input-group .form-item {
+.input-group .input-item {
   height: 2rem;
   border-radius: 5px;
+}
+.input-group .input-with-units {
   width: 85%;
+}
+.input-group .textearea {
+  height: unset;
 }
 .input-group span {
   width: 15%;
 }
 .input-group .error-message {
-  color: black;
+  color: rgb(0, 0, 0);
   font-size: 0.8rem;
   font-weight: 700;
+}
+
+.button {
+  padding: 0.5rem;
+  width: 5rem;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
 }
 
 .radio-container {

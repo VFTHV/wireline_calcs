@@ -1,6 +1,6 @@
 import { FC, ChangeEvent } from 'react';
 import { maxInputValues } from '../database/maxInputValues';
-import { MeasurementType, UnitType } from '../database/maxInputValues';
+import { MeasurementType, UnitType } from '../store/slices/types';
 
 interface InputDataProps {
   children: string;
@@ -34,7 +34,7 @@ const InputData: FC<InputDataProps> = ({
       <label htmlFor={typeId}>{children}</label>
       <div>
         <input
-          className="form-item"
+          className="input-item input-with-units"
           id={typeId}
           name={typeId}
           value={value ? Math.abs(value) : ''}
