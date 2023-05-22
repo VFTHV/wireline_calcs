@@ -4,7 +4,7 @@ export interface CableSpecs {
   stretchCoeff: number;
   breakingStrength: number;
   maxTension: number;
-  conuctorResistance: number;
+  conductorResistance: number;
   inners: number;
   outers: number;
   innerArmorBS: number;
@@ -21,7 +21,7 @@ export const cablesData: CableSpecs[] = [
     stretchCoeff: 0,
     breakingStrength: 0,
     maxTension: 0,
-    conuctorResistance: 0,
+    conductorResistance: 0,
     inners: 0,
     outers: 0,
     innerArmorBS: 0,
@@ -34,7 +34,7 @@ export const cablesData: CableSpecs[] = [
     stretchCoeff: 13.1,
     breakingStrength: 1000,
     maxTension: 500,
-    conuctorResistance: 21,
+    conductorResistance: 21,
     inners: 12,
     outers: 18,
     innerArmorBS: 42,
@@ -47,7 +47,7 @@ export const cablesData: CableSpecs[] = [
     stretchCoeff: 2.2,
     breakingStrength: 5600,
     maxTension: 2800,
-    conuctorResistance: 4.1,
+    conductorResistance: 4.1,
     inners: 15,
     outers: 15,
     innerArmorBS: 132,
@@ -60,7 +60,7 @@ export const cablesData: CableSpecs[] = [
     stretchCoeff: 2.5,
     breakingStrength: 5600,
     maxTension: 2800,
-    conuctorResistance: 4.1,
+    conductorResistance: 4.1,
     inners: 12,
     outers: 18,
     innerArmorBS: 215,
@@ -73,7 +73,7 @@ export const cablesData: CableSpecs[] = [
     stretchCoeff: 1.9,
     breakingStrength: 7300,
     maxTension: 3650,
-    conuctorResistance: 4.1,
+    conductorResistance: 4.1,
     inners: 12,
     outers: 18,
     innerArmorBS: 286,
@@ -86,7 +86,7 @@ export const cablesData: CableSpecs[] = [
     stretchCoeff: 1.55,
     breakingStrength: 10200,
     maxTension: 5100,
-    conuctorResistance: 2.8,
+    conductorResistance: 2.8,
     inners: 12,
     outers: 18,
     innerArmorBS: 393,
@@ -99,7 +99,7 @@ export const cablesData: CableSpecs[] = [
     stretchCoeff: 1.8,
     breakingStrength: 10200,
     maxTension: 6500,
-    conuctorResistance: 2.9,
+    conductorResistance: 2.9,
     inners: 10,
     outers: 24,
     innerArmorBS: 602,
@@ -112,7 +112,7 @@ export const cablesData: CableSpecs[] = [
     stretchCoeff: 1.2,
     breakingStrength: 12000,
     maxTension: 6000,
-    conuctorResistance: 2.8,
+    conductorResistance: 2.8,
     inners: 12,
     outers: 18,
     innerArmorBS: 442,
@@ -125,7 +125,7 @@ export const cablesData: CableSpecs[] = [
     stretchCoeff: 1.2,
     breakingStrength: 14750,
     maxTension: 7375,
-    conuctorResistance: 2.8,
+    conductorResistance: 2.8,
     inners: 12,
     outers: 18,
     innerArmorBS: 564,
@@ -138,7 +138,7 @@ export const cablesData: CableSpecs[] = [
     stretchCoeff: 1.35,
     breakingStrength: 16000,
     maxTension: 10000,
-    conuctorResistance: 2.4,
+    conductorResistance: 2.4,
     inners: 11,
     outers: 24,
     innerArmorBS: 769,

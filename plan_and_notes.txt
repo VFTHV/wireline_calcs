@@ -6,7 +6,7 @@
 
 - Project functionality:
   
-  Cable weak point calculator:
+  DONE: Cable weak point calculator:
     engineer chooses from list of cables and cable specs are getting populated
     engineer enters depth and toolstring weight in order to determine the maximum number
       of wires for rehead and pullout at this depth
@@ -15,7 +15,7 @@
     additionally percentage of pullout at certain depth: engineer enters the depth and percentage,
       software calculates the pull in lbs
   
-  Sinker bar weight calculator:
+  DONE: Sinker bar weight calculator:
     engineer enters the cable diameter, wellhead pressure and percentage for overbalance,
       software calculates the required weight of toolstring
     additionally the lubricator length functionality could be a plus:
@@ -52,14 +52,23 @@
 
 Ideas:
 
-- Add data valudation to InputData.tsx:
+- DONE: Add data validation to InputData.tsx:
   range prop with 2-item array should be provided with min and max
   if min or max are exceeded, then small red text under the input
   element will pop up saying 'VALUE MAY BE OUTSIDE OF NORMAL OPERTING RANGE'
 
-- In Weight Bar: add database of most of the weight bars and weights. And offer
+- DONE: In Weight Bar: add database of most of the weight bars and weights. And offer
   which sinker bars to use for engineer, based on diameter of tools
 
-- Add 'Choose Units' page where engineer chooses depth, pressure etc. units. then
+- DONE: Add 'Choose Units' page where engineer chooses depth, pressure etc. units. then
   to use all these units for calculations. Special conversion function needs to be
   created
+
+- those items that are not shared between components -> move to useState
+  like changeDepth to useState
+
+- Add number of holes in cone for rehead for each cable type for calculations of max rehead
+
+- Add casing database
+
+- Add tubing database

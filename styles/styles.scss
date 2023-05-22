@@ -42,7 +42,7 @@
     color: $primary-color;
   }
   .t-data {
-    color: black;
+    color: $black;
     font-size: 2rem;
     font-weight: 100;
   }
@@ -67,7 +67,7 @@
     width: 15%;
   }
   .error-message {
-    color: rgb(0, 0, 0);
+    color: $black;
     font-size: 0.8rem;
     font-weight: 700;
   }
@@ -78,6 +78,8 @@
   width: 5rem;
   border-radius: 5px;
   background-color: $secondary-color;
+  color: $black;
+  font-weight: 700;
 }
 
 .radio-container {

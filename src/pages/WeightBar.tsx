@@ -58,7 +58,7 @@ const WeightBar = () => {
         onChange={(e) => dispatch(changePercentOverBalance(e.target.value))}
         typeId={'overBalance'}
         value={percentOverBalance}
-        unit="%"
+        unit={'%'}
       >
         Percent over Balance:
       </InputData>
