@@ -72,3 +72,6 @@ Ideas:
 - Add casing database
 
 - Add tubing database
+
+- refactor those input elements where I had to prefix with '+' to make
+  it a number

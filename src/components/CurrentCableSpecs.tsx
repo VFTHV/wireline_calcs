@@ -1,48 +1,28 @@
 import { useSelector } from 'react-redux';
 import { StoreState } from '../store';
-import { Weight } from '../store/slices/types';
 import TableRow from './TableRow';
 
 const CurrentCableSpecs = () => {
-  const { unitSystem, currentCable } = useSelector((state: StoreState) => {
+  const { weightUnits, currentCable } = useSelector((state: StoreState) => {
     return {
-      unitSystem: state.unitSystem,
+      weightUnits: state.unitSystem.weightUnits,
       currentCable: state.weakPoint.currentCable,
     };
   });
-
-  const onWeightConvert = (input: number | undefined) => {
-    if (!input) return 0;
-    let weight = input;
-    if (unitSystem.weightUnits === Weight.KG) weight *= 0.45;
-    return Math.round(weight);
-  };
   return (
     <>
       <table className="table">
         <tbody>
-          <TableRow
-            data={onWeightConvert(currentCable.breakingStrength)}
-            units={unitSystem.weightUnits}
-          >
+          <TableRow data={currentCable.breakingStrength} units={weightUnits}>
             CABLE BREAKING STRENGTH
           </TableRow>
-          <TableRow
-            data={onWeightConvert(currentCable.outerArmorBS)}
-            units={unitSystem.weightUnits}
-          >
+          <TableRow data={currentCable.outerArmorBS} units={weightUnits}>
             OUTER ARMOR BREAKING STRENGTH
           </TableRow>
-          <TableRow
-            data={onWeightConvert(currentCable.weightInAir)}
-            units={unitSystem.weightUnits}
-          >
+          <TableRow data={currentCable.weightInAir} units={weightUnits}>
             AVG. CABLE WEIGHT IN AIR
           </TableRow>
-          <TableRow
-            data={onWeightConvert(currentCable.maxTension)}
-            units={unitSystem.weightUnits}
-          >
+          <TableRow data={currentCable.maxTension} units={weightUnits}>
             MAX. RECOMMENDED TENSION
           </TableRow>
         </tbody>

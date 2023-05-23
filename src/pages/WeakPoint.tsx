@@ -77,7 +77,7 @@ const WeakPoint = () => {
           <TableRow data={calcData.outersRehead()} units="">
             NUMBER OF OUTER WIRES
           </TableRow>
-          <TableRow data={calcData.toolWeightVsWeakpt()} units="%">
+          <TableRow data={+calcData.toolWeightVsWeakpt()} units="%">
             TOOL WEIGHT % OF WEAKPOINT
           </TableRow>
         </tbody>
