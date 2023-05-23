@@ -4,7 +4,7 @@ import { UnitType } from '../store/slices/types';
 
 interface TableRowProps {
   children: string;
-  data: number | undefined;
+  data: number | string | undefined;
   units: UnitType;
 }
 
@@ -13,8 +13,17 @@ const TableRow: FC<TableRowProps> = ({ children, data, units }) => {
 
   const displayData = () => {
     if (!data) return '';
-    const convData = convertToMetric(data, units);
-    return `${convData} ${units}`;
+    if (typeof data === 'number') {
+      let convData = convertToMetric(data, units);
+
+      if (convData < 10) {
+        convData = +convData.toFixed(2);
+      } else {
+        convData = Math.round(convData);
+      }
+      return `${convData} ${units}`;
+    }
+    return data;
   };
 
   return (

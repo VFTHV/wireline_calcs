@@ -24,9 +24,9 @@ export class WirelineCalcs {
       envCoeff * this.currentCable.weightInAir * (depth / 1000)
     );
     // converting output
-    if (this.unitSystem.weightUnits === Weight.KG) {
-      cableWeight *= 0.45;
-    }
+    // if (this.unitSystem.weightUnits === Weight.KG) {
+    //   cableWeight *= 0.45;
+    // }
     return cableWeight;
   }
 
@@ -34,11 +34,12 @@ export class WirelineCalcs {
     if (!this.currentCable || !this.cableWeight()) return 0;
     let cableWeight = this.cableWeight();
     // converting input to English
-    if (this.unitSystem.weightUnits === Weight.KG) cableWeight /= 0.45;
+    // if (this.unitSystem.weightUnits === Weight.KG) cableWeight *= 0.45;
+    console.log(cableWeight);
     let maxWPstrength = Math.round(this.currentCable.maxTension - cableWeight);
     // converting output
 
-    if (this.unitSystem.weightUnits === Weight.KG) maxWPstrength *= 0.45;
+    // if (this.unitSystem.weightUnits === Weight.KG) maxWPstrength *= 0.45;
     return maxWPstrength;
   }
 
@@ -47,7 +48,7 @@ export class WirelineCalcs {
 
     let maxWPstrength = this.maxWPstrength();
     // converting input to English
-    if (this.unitSystem.weightUnits === Weight.KG) maxWPstrength /= 0.45;
+    // if (this.unitSystem.weightUnits === Weight.KG) maxWPstrength /= 0.45;
     let outersRehead = maxWPstrength / this.currentCable.outerArmorBS;
     // add armors in cone - max rehead wires ???
     // in max number of armors to rehead should not exceed it

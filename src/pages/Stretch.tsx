@@ -6,33 +6,35 @@ import { StoreState } from '../store';
 import InputData from '../components/InputData';
 import { changeDepth } from '../store';
 import TableRow from '../components/TableRow';
+import { useStretchCalc } from '../logics/useStretchCalc';
 
 const Stretch = () => {
   const [tension, setTension] = useState<number>(0);
 
-  const { breakingStrength, depth, weightUnits, depthUnits } = useSelector(
-    (store: StoreState) => {
-      const { breakingStrength } = store.weakPoint.currentCable;
+  const { stretchCoeff, depth, weightUnits, depthUnits, unitSystem } =
+    useSelector((store: StoreState) => {
+      const { stretchCoeff } = store.weakPoint.currentCable;
       const depth = store.weakPoint.depth;
       const { weightUnits, depthUnits } = store.unitSystem;
-      return { breakingStrength, depth, weightUnits, depthUnits };
-    }
-  );
+      const unitSystem = store.unitSystem;
+      return { stretchCoeff, depth, weightUnits, depthUnits, unitSystem };
+    });
+
   const dispatch = useDispatch();
+
+  const stretch = useStretchCalc(depth, tension, stretchCoeff, unitSystem);
 
   return (
     <>
       <NavHeader>Stretch</NavHeader>
       <CableSelector />
-
       <table className="table">
         <tbody>
-          <TableRow data={breakingStrength} units={weightUnits}>
-            CABLE BREAKING STRENGTH
+          <TableRow data={stretchCoeff} units={depthUnits}>
+            CABLE STRETCH / (1Kft*1Klbs)
           </TableRow>
         </tbody>
       </table>
-
       <InputData
         typeId={'maxTension'}
         unit={weightUnits}
@@ -49,6 +51,13 @@ const Stretch = () => {
       >
         Depth:
       </InputData>
+      <table className="table">
+        <tbody>
+          <TableRow data={stretch} units={depthUnits}>
+            TOTAL CABLE STRETCH
+          </TableRow>
+        </tbody>
+      </table>
     </>
   );
 };

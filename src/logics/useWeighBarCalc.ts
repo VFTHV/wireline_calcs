@@ -1,7 +1,7 @@
 import { UnitSystemState } from '../store';
 import { useConvertUnits } from './useConvertUnits';
 
-const { revertToEnglish, convertToMetric } = useConvertUnits();
+const { revertToEnglish } = useConvertUnits();
 
 export const useWeightBarCalc = (
   diameter: number,
@@ -17,7 +17,7 @@ export const useWeightBarCalc = (
 
     let balanceWeight = (convPressure * Math.PI * convDiameter ** 2) / 4;
     // converting output
-    balanceWeight = convertToMetric(balanceWeight, units.weightUnits);
+    // balanceWeight = convertToMetric(balanceWeight, units.weightUnits);
     return Math.round(balanceWeight);
   }
 
@@ -31,7 +31,7 @@ export const useWeightBarCalc = (
     const balanceWeight = (convPressure * Math.PI * convDiameter ** 2) / 4;
     let finalWeight = balanceWeight * multiplier;
     // converting output
-    finalWeight = convertToMetric(finalWeight, units.weightUnits);
+    // finalWeight = convertToMetric(finalWeight, units.weightUnits);
     return Math.round(finalWeight);
   }
 
@@ -47,7 +47,7 @@ export const useWeightBarCalc = (
     let sinkerBarWeight = finalWeight - toolWeight;
 
     // converting output
-    sinkerBarWeight = convertToMetric(sinkerBarWeight, units.weightUnits);
+    // sinkerBarWeight = convertToMetric(sinkerBarWeight, units.weightUnits);
     return Math.round(sinkerBarWeight);
   }
 

@@ -1,4 +1,4 @@
-import { Diameter, Pressure, Weight } from '../store/slices/types';
+import { Diameter, Pressure, Weight, Depth } from '../store/slices/types';
 import { UnitType } from '../store/slices/types';
 
 export const useConvertUnits = () => {
@@ -10,6 +10,8 @@ export const useConvertUnits = () => {
         return (input *= 14.7);
       case Diameter.INCH:
         return (input /= 25.4);
+      case Depth.FT:
+        return (input /= 0.3048);
       default:
         return input;
     }
@@ -22,6 +24,8 @@ export const useConvertUnits = () => {
         return (input *= 14.7);
       case Diameter.MM:
         return (input /= 25.4);
+      case Depth.M:
+        return (input /= 0.3048);
       default:
         return input;
     }
@@ -34,6 +38,8 @@ export const useConvertUnits = () => {
         return (input /= 14.7);
       case Diameter.MM:
         return (input *= 25.4);
+      case Depth.M:
+        return (input *= 0.3048);
       default:
         return input;
     }
@@ -46,6 +52,8 @@ export const useConvertUnits = () => {
         return (input /= 14.7);
       case Diameter.INCH:
         return (input *= 25.4);
+      case Depth.FT:
+        return (input *= 0.3048);
       default:
         return input;
     }
