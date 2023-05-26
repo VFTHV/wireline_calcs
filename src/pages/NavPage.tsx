@@ -1,5 +1,6 @@
 import NavItem from '../components/NavItem';
 import { AiOutlineMail } from 'react-icons/ai';
+import { BsExclamationTriangle } from 'react-icons/bs';
 
 const NavPage = () => {
   return (
@@ -11,6 +12,9 @@ const NavPage = () => {
         <NavItem to="/stretch">Cable Stretch Calculator</NavItem>
         <NavItem to="/feedback" icon={<AiOutlineMail />}>
           Report a Problem
+        </NavItem>
+        <NavItem to="/disclaimer" icon={<BsExclamationTriangle />}>
+          Disclaimer
         </NavItem>
       </ul>
     </nav>

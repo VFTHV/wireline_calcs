@@ -6,6 +6,7 @@ import Stretch from './pages/Stretch';
 import UnitsPage from './pages/UnitsPage';
 import ReportProblemForm from './pages/ReportProblemForm';
 import PageNotFound from './pages/PageNotFound';
+import Disclaimer from './pages/Disclaimer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/weightbar" element={<WeightBar />} />
         <Route path="/stretch" element={<Stretch />} />
         <Route path="/feedback" element={<ReportProblemForm />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>

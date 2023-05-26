@@ -1,6 +1,10 @@
 @import 'variables';
 @import 'basic_styles';
 
+.container {
+  padding: $spacing-default;
+}
+
 .navigation {
   padding: 0 $spacing-default;
 
