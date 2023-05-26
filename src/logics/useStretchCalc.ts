@@ -1,7 +1,7 @@
 import { useConvertUnits } from './useConvertUnits';
 import { UnitSystemState } from '../store';
 
-const { revertToEnglish, convertToMetric } = useConvertUnits();
+const { revertToEnglish } = useConvertUnits();
 
 export const useStretchCalc = (
   depth: number,
