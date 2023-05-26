@@ -8,7 +8,7 @@
     padding: $spacing-default;
     display: flex;
     justify-content: space-between;
-    border-bottom: solid 2px $dark-blue;
+    border-bottom: solid 2px $dark-color;
   }
 }
 
@@ -93,7 +93,7 @@
   input {
     display: none;
     &:checked + .label-container {
-      background-color: $light-blue;
+      background-color: $light-color;
       color: #fff;
       font-weight: 700;
     }

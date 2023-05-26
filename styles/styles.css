@@ -17,7 +17,7 @@ a {
 }
 
 body {
-  background-color: rgb(1, 82, 234);
+  background-color: rgb(15, 147, 71);
   color: rgb(255, 255, 255);
   font-family: "Outfit", sans-serif;
   padding: 1rem 0;
@@ -30,7 +30,7 @@ body {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
-  border-bottom: solid 2px rgb(0, 65, 216);
+  border-bottom: solid 2px rgb(22, 85, 38);
 }
 
 .nav-header {
@@ -60,7 +60,7 @@ body {
   align-items: center;
 }
 .t-row .t-head {
-  color: rgb(1, 82, 234);
+  color: rgb(15, 147, 71);
 }
 .t-row .t-data {
   color: black;
@@ -114,12 +114,12 @@ body {
   display: none;
 }
 .radio-container input:checked + .label-container {
-  background-color: rgb(1, 121, 234);
+  background-color: rgb(43, 219, 24);
   color: #fff;
   font-weight: 700;
 }
 .radio-container label {
-  color: rgb(1, 82, 234);
+  color: rgb(15, 147, 71);
   width: 50%;
   cursor: pointer;
 }
