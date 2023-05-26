@@ -22,7 +22,7 @@
       engineer enters the logging tool length, OD of weight bars and type (tungsten, lead, regular), 
       lubricator spacing - software calculates total lubricator length required
   
-  Cable stretch calculator:
+  DONE - Cable stretch calculator:
     engineer chooses cable type, enters current depth, environment (oil, gas, water), current tension - 
       software calculates current wireline stretch
   
@@ -38,7 +38,7 @@
     engineer enters the tool OD, casing ID, fluid type, tx-rx spacing (3 or 5 ft). 
     program caculates PPT in usec/ft or usec/m
 
-  Form to submit bugs
+  DONE - Form to submit bugs
 
 - Technologies to use:
 
@@ -76,5 +76,5 @@ Ideas:
 - refactor those input elements where I had to prefix with '+' to make
   it a number
 
-  - in CurrentCableSpecs input all the specs with descriptions. But create props
+  - DONE - in CurrentCableSpecs input all the specs with descriptions. But create props
   that will allow which ones to choose. Same for CableManualEntrance

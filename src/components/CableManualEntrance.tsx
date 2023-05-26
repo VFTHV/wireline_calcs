@@ -4,6 +4,7 @@ import {
   changeWeightInAir,
   changeMaxTension,
   StoreState,
+  changeStretchCoef,
 } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import InputData from './InputData';
@@ -15,7 +16,7 @@ interface CableManualEntranceProps {
 
 const CableManualEntrance: FC<CableManualEntranceProps> = ({ specs }) => {
   const dispatch = useDispatch();
-  const { outerArmorBS, weightInAir, maxTension } = useSelector(
+  const { outerArmorBS, weightInAir, maxTension, stretchCoeff } = useSelector(
     (state: StoreState) => state.weakPoint.currentCable
   );
   const unitSystem = useSelector((state: StoreState) => state.unitSystem);
@@ -23,7 +24,16 @@ const CableManualEntrance: FC<CableManualEntranceProps> = ({ specs }) => {
   const content: { [key in CableSpecsKey]: ReactNode } = {
     type: <>TBD for developer</>,
     diameter: <>TBD for developer</>,
-    stretchCoeff: <>TBD for developer</>,
+    stretchCoeff: (
+      <InputData
+        onChange={(e) => dispatch(changeStretchCoef(+e.target.value))}
+        typeId={'stretchCoef'}
+        value={stretchCoeff}
+        unit={unitSystem.depthUnits}
+      >
+        CABLE STRETCH / (1Kft*1Klbs)
+      </InputData>
+    ),
     breakingStrength: <>TBD for developer</>,
     maxTension: (
       <InputData

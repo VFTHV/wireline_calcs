@@ -19,4 +19,5 @@ export const maxInputValues: Record<
   outerBS: { [Weight.LBS]: 700, [Weight.KG]: 315 },
   weightInAir: { [Weight.LBS]: 250, [Weight.KG]: 113 },
   maxTension: { [Weight.LBS]: 15000, [Weight.KG]: 6750 },
+  stretchCoef: { [Depth.FT]: 20, [Depth.M]: 6 },
 };

@@ -31,7 +31,7 @@ const Stretch = () => {
 
   return (
     <>
-      <NavHeader>Stretch</NavHeader>
+      <NavHeader>Cable Stretch Calculator</NavHeader>
       <CableSelector />
       {currentCable.type === 'MANUAL' ? (
         <CableManualEntrance specs={['stretchCoeff']} />

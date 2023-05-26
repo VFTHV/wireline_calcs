@@ -1,3 +1,4 @@
+import { ChangeEvent, useEffect } from 'react';
 import NavHeader from '../components/NavHeader';
 import RadioDualInput from '../components/RadioDualInput';
 import { Depth, Weight, Diameter, Pressure } from '../store/slices/types';
@@ -9,6 +10,7 @@ import {
   changePressureUnits,
 } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 
 const UnitsPage = () => {
   const dispatch = useDispatch();
@@ -16,27 +18,43 @@ const UnitsPage = () => {
     (state: StoreState) => state.unitSystem
   );
 
+  useEffect(() => {
+    dispatch(changeDepthUnits(localStorage.getItem('depth')));
+    dispatch(changePressureUnits(localStorage.getItem('pressure')));
+    dispatch(changeDiameterUnits(localStorage.getItem('diameter')));
+    dispatch(changeWeightUnits(localStorage.getItem('weight')));
+  }, []);
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement>,
+    action: ActionCreatorWithPayload<any>,
+    name: string
+  ) => {
+    dispatch(action(e.target.value));
+    localStorage.setItem(name, e.target.value);
+  };
+
   return (
     <>
-      <NavHeader>Measurement Units</NavHeader>
+      <NavHeader>Change Measurement Units</NavHeader>
       <RadioDualInput
         values={[Depth.FT, Depth.M]}
-        onChange={(e) => dispatch(changeDepthUnits(e.target.value))}
+        onChange={(e) => handleChange(e, changeDepthUnits, 'depth')}
         currentValue={depthUnits}
       />
       <RadioDualInput
         values={[Pressure.PSI, Pressure.ATM]}
-        onChange={(e) => dispatch(changePressureUnits(e.target.value))}
+        onChange={(e) => handleChange(e, changePressureUnits, 'pressure')}
         currentValue={pressureUnits}
       />
       <RadioDualInput
         values={[Diameter.INCH, Diameter.MM]}
-        onChange={(e) => dispatch(changeDiameterUnits(e.target.value))}
+        onChange={(e) => handleChange(e, changeDiameterUnits, 'diameter')}
         currentValue={diameterUnits}
       />
       <RadioDualInput
         values={[Weight.LBS, Weight.KG]}
-        onChange={(e) => dispatch(changeWeightUnits(e.target.value))}
+        onChange={(e) => handleChange(e, changeWeightUnits, 'weight')}
         currentValue={weightUnits}
       />
     </>

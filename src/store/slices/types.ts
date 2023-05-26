@@ -55,7 +55,8 @@ export type MeasurementType =
   | 'diameter'
   | 'outerBS'
   | 'weightInAir'
-  | 'maxTension';
+  | 'maxTension'
+  | 'stretchCoef';
 
 export type UnitType =
   | 'lbs'

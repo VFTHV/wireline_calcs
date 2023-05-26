@@ -34,6 +34,9 @@ const weakPointSlice = createSlice({
     changeMaxTension(state, action: { payload: number }) {
       state.currentCable.maxTension = action.payload;
     },
+    changeStretchCoef(state, action: { payload: number }) {
+      state.currentCable.stretchCoeff = action.payload;
+    },
     changeToolWeight(state, action: { payload: number }) {
       state.toolWeight = action.payload;
     },
@@ -54,5 +57,6 @@ export const {
   changeOuterBS,
   changeWeightInAir,
   changeMaxTension,
+  changeStretchCoef,
 } = weakPointSlice.actions;
 export const weakPointReducer = weakPointSlice.reducer;
