@@ -1,3 +1,4 @@
+import { FC, ReactNode, Fragment } from 'react';
 import {
   changeOuterBS,
   changeWeightInAir,
@@ -6,32 +7,25 @@ import {
 } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import InputData from './InputData';
+import { CableSpecsKey } from '../database/cables';
 
-const CableManualEntrance = () => {
+interface CableManualEntranceProps {
+  specs: CableSpecsKey[];
+}
+
+const CableManualEntrance: FC<CableManualEntranceProps> = ({ specs }) => {
   const dispatch = useDispatch();
   const { outerArmorBS, weightInAir, maxTension } = useSelector(
     (state: StoreState) => state.weakPoint.currentCable
   );
   const unitSystem = useSelector((state: StoreState) => state.unitSystem);
 
-  return (
-    <>
-      <InputData
-        onChange={(e) => dispatch(changeOuterBS(+e.target.value))}
-        typeId={'outerBS'}
-        value={outerArmorBS}
-        unit={unitSystem.weightUnits}
-      >
-        OUTER BREAKING STRENGTH
-      </InputData>
-      <InputData
-        onChange={(e) => dispatch(changeWeightInAir(+e.target.value))}
-        typeId={'weightInAir'}
-        value={weightInAir}
-        unit={unitSystem.weightUnits}
-      >
-        WEIGHT IN AIR
-      </InputData>
+  const content: { [key in CableSpecsKey]: ReactNode } = {
+    type: <>TBD for developer</>,
+    diameter: <>TBD for developer</>,
+    stretchCoeff: <>TBD for developer</>,
+    breakingStrength: <>TBD for developer</>,
+    maxTension: (
       <InputData
         onChange={(e) => dispatch(changeMaxTension(+e.target.value))}
         typeId={'maxTension'}
@@ -40,6 +34,38 @@ const CableManualEntrance = () => {
       >
         MAX. RECOMMENDED TENSION
       </InputData>
+    ),
+    conductorResistance: <>TBD for developer</>,
+    inners: <>TBD for developer</>,
+    outers: <>TBD for developer</>,
+    innerArmorBS: <>TBD for developer</>,
+    outerArmorBS: (
+      <InputData
+        onChange={(e) => dispatch(changeOuterBS(+e.target.value))}
+        typeId={'outerBS'}
+        value={outerArmorBS}
+        unit={unitSystem.weightUnits}
+      >
+        OUTER BREAKING STRENGTH
+      </InputData>
+    ),
+    weightInAir: (
+      <InputData
+        onChange={(e) => dispatch(changeWeightInAir(+e.target.value))}
+        typeId={'weightInAir'}
+        value={weightInAir}
+        unit={unitSystem.weightUnits}
+      >
+        WEIGHT IN AIR
+      </InputData>
+    ),
+  };
+
+  return (
+    <>
+      {specs.map((spec) => {
+        return <Fragment key={spec}>{content[spec]}</Fragment>;
+      })}
     </>
   );
 };

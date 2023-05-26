@@ -35,10 +35,9 @@ export class WirelineCalcs {
     let cableWeight = this.cableWeight();
     // converting input to English
     // if (this.unitSystem.weightUnits === Weight.KG) cableWeight *= 0.45;
-    console.log(cableWeight);
+
     let maxWPstrength = Math.round(this.currentCable.maxTension - cableWeight);
     // converting output
-
     // if (this.unitSystem.weightUnits === Weight.KG) maxWPstrength *= 0.45;
     return maxWPstrength;
   }
@@ -66,9 +65,9 @@ export class WirelineCalcs {
       toolWeight /= 0.45;
       maxWPstrength /= 0.45;
     }
-
     const toolWeightVsWeakpt = Math.round((toolWeight / maxWPstrength) * 100);
     const danger = toolWeightVsWeakpt > 50 ? 'risk ' : '';
-    return danger + +toolWeightVsWeakpt;
+
+    return danger + toolWeightVsWeakpt;
   }
 }

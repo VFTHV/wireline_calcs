@@ -35,9 +35,18 @@ const WeakPoint = () => {
       <NavHeader>Weakpoint</NavHeader>
       <CableSelector />
       {currentCable.type === 'MANUAL' ? (
-        <CableManualEntrance />
+        <CableManualEntrance
+          specs={['outerArmorBS', 'weightInAir', 'maxTension']}
+        />
       ) : (
-        <CurrentCableSpecs />
+        <CurrentCableSpecs
+          specs={[
+            'breakingStrength',
+            'outerArmorBS',
+            'weightInAir',
+            'maxTension',
+          ]}
+        />
       )}
       <RadioDualInput
         values={[Environment.FLUID, Environment.GAS]}
@@ -77,7 +86,7 @@ const WeakPoint = () => {
           <TableRow data={calcData.outersRehead()} units="">
             NUMBER OF OUTER WIRES
           </TableRow>
-          <TableRow data={+calcData.toolWeightVsWeakpt()} units="%">
+          <TableRow data={calcData.toolWeightVsWeakpt()} units="%">
             TOOL WEIGHT % OF WEAKPOINT
           </TableRow>
         </tbody>

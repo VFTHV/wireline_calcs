@@ -14,6 +14,8 @@ export interface CableSpecs {
   // in max number of armors to rehead should not exceed it
 }
 
+export type CableSpecsKey = keyof CableSpecs;
+
 export const cablesData: CableSpecs[] = [
   {
     type: 'MANUAL',

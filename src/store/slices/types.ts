@@ -66,4 +66,5 @@ export type UnitType =
   | 'mm'
   | 'psi'
   | 'atm'
+  | ''
   | '%';
