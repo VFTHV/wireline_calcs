@@ -19,10 +19,18 @@ const UnitsPage = () => {
   );
 
   useEffect(() => {
-    dispatch(changeDepthUnits(localStorage.getItem('depth')));
-    dispatch(changePressureUnits(localStorage.getItem('pressure')));
-    dispatch(changeDiameterUnits(localStorage.getItem('diameter')));
-    dispatch(changeWeightUnits(localStorage.getItem('weight')));
+    if (localStorage.getItem('depth')) {
+      dispatch(changeDepthUnits(localStorage.getItem('depth')));
+    }
+    if (localStorage.getItem('pressure')) {
+      dispatch(changePressureUnits(localStorage.getItem('pressure')));
+    }
+    if (localStorage.getItem('diameter')) {
+      dispatch(changeDiameterUnits(localStorage.getItem('diameter')));
+    }
+    if (localStorage.getItem('weight')) {
+      dispatch(changeWeightUnits(localStorage.getItem('weight')));
+    }
   }, []);
 
   const handleChange = (
