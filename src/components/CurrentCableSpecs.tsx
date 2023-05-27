@@ -1,7 +1,7 @@
 import { FC, ReactNode, Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { StoreState } from '../store';
-import TableRow from './TableRow';
+import { TableRow } from '../components/AllComponents';
 import { CableSpecsKey } from '../database/cables';
 
 interface CurrentCableSpecsProps {

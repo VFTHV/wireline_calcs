@@ -1,6 +1,12 @@
-import NavHeader from '../components/NavHeader';
-import TableRow from '../components/TableRow';
-import InputData from '../components/InputData';
+import {
+  NavHeader,
+  TableRow,
+  InputData,
+  RadioDualInput,
+  CableSelector,
+  CableManualEntrance,
+  CurrentCableSpecs,
+} from '../components/AllComponents';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   changeToolWeight,
@@ -10,10 +16,6 @@ import {
 import { StoreState } from '../store';
 import { WirelineCalcs } from '../logics/wirelineCalcs';
 import { Environment } from '../store/slices/types';
-import RadioDualInput from '../components/RadioDualInput';
-import CableSelector from '../components/CableSelector';
-import CableManualEntrance from '../components/CableManualEntrance';
-import CurrentCableSpecs from '../components/CurrentCableSpecs';
 
 const WeakPoint = () => {
   const dispatch = useDispatch();

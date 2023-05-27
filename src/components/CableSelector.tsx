@@ -1,10 +1,9 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { StoreState } from '../store';
+import { StoreState, changeCable } from '../store';
 import { cablesData } from '../database/cables';
-import { changeCable } from '../store';
 
-const CableSelector = () => {
+const CableSelector: FC = () => {
   const dispatch = useDispatch();
   const { currentCable } = useSelector((state: StoreState) => state.weakPoint);
 

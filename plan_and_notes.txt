@@ -73,8 +73,5 @@ Ideas:
 
 - Add tubing database
 
-- refactor those input elements where I had to prefix with '+' to make
-  it a number
-
   - DONE - in CurrentCableSpecs input all the specs with descriptions. But create props
   that will allow which ones to choose. Same for CableManualEntrance

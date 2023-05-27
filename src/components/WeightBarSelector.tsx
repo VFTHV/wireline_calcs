@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import { weightBarsData } from '../database/weightBars';
-import TableRow from './TableRow';
+import { TableRow } from '../components/AllComponents';
 
-const WeightBarSelector = () => {
+const WeightBarSelector: FC = () => {
   const weightBarODs = [...new Set(weightBarsData.map((bar) => bar.od))];
   const [od, setOd] = useState(weightBarODs[0]);
 

@@ -1,16 +1,18 @@
-import InputData from '../components/InputData';
-import NavHeader from '../components/NavHeader';
+import {
+  NavHeader,
+  InputData,
+  TableRow,
+  WeightBarSelector,
+} from '../components/AllComponents';
 import { useDispatch, useSelector } from 'react-redux';
-import { StoreState } from '../store';
 import {
   changeDiameter,
   changePressure,
   changeWeight,
   changePercentOverBalance,
+  StoreState,
 } from '../store';
-import TableRow from '../components/TableRow';
 import { useWeightBarCalc } from '../logics/useWeighBarCalc';
-import WeightBarSelector from '../components/WeightBarSelector';
 
 const WeightBar = () => {
   const dispatch = useDispatch();
