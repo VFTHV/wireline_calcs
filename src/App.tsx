@@ -7,6 +7,7 @@ import UnitsPage from './pages/UnitsPage';
 import ReportProblemForm from './pages/ReportProblemForm';
 import PageNotFound from './pages/PageNotFound';
 import Disclaimer from './pages/Disclaimer';
+import TensionAtDepth from './pages/TensionAtDepth';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/weakpoint" element={<WeakPoint />} />
         <Route path="/weightbar" element={<WeightBar />} />
         <Route path="/stretch" element={<Stretch />} />
+        <Route path="/tension-at-depth" element={<TensionAtDepth />} />
         <Route path="/feedback" element={<ReportProblemForm />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="*" element={<PageNotFound />} />
