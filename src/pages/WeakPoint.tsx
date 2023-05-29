@@ -15,7 +15,7 @@ import {
 } from '../store/slices/weakPointSlice';
 import { StoreState } from '../store';
 import { WirelineCalcs } from '../logics/wirelineCalcs';
-import { Environment } from '../store/slices/types';
+import { EnvironmentUnits } from '../store/slices/types';
 
 const WeakPoint = () => {
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const WeakPoint = () => {
         />
       )}
       <RadioDualInput
-        values={[Environment.FLUID, Environment.GAS]}
+        values={[EnvironmentUnits.FLUID, EnvironmentUnits.GAS]}
         onChange={(e) => dispatch(changeEnvironment(e.target.value))}
         currentValue={environment}
       />

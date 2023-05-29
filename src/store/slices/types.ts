@@ -1,48 +1,50 @@
-export interface EnvironmentType {
+export type EnvironmentType = 'fluid' | 'gas';
+
+interface Environment {
   FLUID: 'fluid';
   GAS: 'gas';
 }
-export const Environment: EnvironmentType = {
+export const EnvironmentUnits: Environment = {
   FLUID: 'fluid',
   GAS: 'gas',
 };
 
-interface DepthType {
+interface Depth {
   FT: 'ft';
   M: 'm';
 }
 
-interface WeightType {
+interface Weight {
   LBS: 'lbs';
   KG: 'kg';
 }
 
-interface DiameterType {
+interface Diameter {
   INCH: 'in';
   MM: 'mm';
 }
 
-interface PressureType {
+interface Pressure {
   PSI: 'psi';
   ATM: 'atm';
 }
 
-export const Depth: DepthType = {
+export const DepthUnits: Depth = {
   FT: 'ft',
   M: 'm',
 };
 
-export const Weight: WeightType = {
+export const WeightUnits: Weight = {
   LBS: 'lbs',
   KG: 'kg',
 };
 
-export const Diameter: DiameterType = {
+export const DiameterUnits: Diameter = {
   INCH: 'in',
   MM: 'mm',
 };
 
-export const Pressure: PressureType = {
+export const PressureUnits: Pressure = {
   PSI: 'psi',
   ATM: 'atm',
 };
@@ -56,7 +58,8 @@ export type MeasurementType =
   | 'outerBS'
   | 'weightInAir'
   | 'maxTension'
-  | 'stretchCoef';
+  | 'stretchCoef'
+  | 'outersUsed';
 
 export type UnitType =
   | 'lbs'

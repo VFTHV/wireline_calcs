@@ -1,12 +1,15 @@
 import { NavItem } from '../components/AllComponents';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsExclamationTriangle } from 'react-icons/bs';
+import { FiSettings } from 'react-icons/fi';
 
 const NavPage = () => {
   return (
     <nav className="navigation">
       <ul>
-        <NavItem to="/units">Change Measurement Units</NavItem>
+        <NavItem to="/units" icon={<FiSettings />}>
+          Change Measurement Units
+        </NavItem>
         <NavItem to="/weakpoint">Weak Point Calculator</NavItem>
         <NavItem to="/weightbar">Sinker Bar Weight Calculator</NavItem>
         <NavItem to="/stretch">Cable Stretch Calculator</NavItem>

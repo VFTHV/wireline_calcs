@@ -1,16 +1,21 @@
-import { Diameter, Pressure, Weight, Depth } from '../store/slices/types';
+import {
+  DiameterUnits,
+  PressureUnits,
+  WeightUnits,
+  DepthUnits,
+} from '../store/slices/types';
 import { UnitType } from '../store/slices/types';
 
 export const useConvertUnits = () => {
   function convertToEnglish(input: number, unitType: UnitType): number {
     switch (unitType) {
-      case Weight.LBS:
+      case WeightUnits.LBS:
         return (input /= 0.45);
-      case Pressure.PSI:
+      case PressureUnits.PSI:
         return (input *= 14.7);
-      case Diameter.INCH:
+      case DiameterUnits.INCH:
         return (input /= 25.4);
-      case Depth.FT:
+      case DepthUnits.FT:
         return (input /= 0.3048);
       default:
         return input;
@@ -18,13 +23,13 @@ export const useConvertUnits = () => {
   }
   function revertToEnglish(input: number, unitType: UnitType): number {
     switch (unitType) {
-      case Weight.KG:
+      case WeightUnits.KG:
         return (input /= 0.45);
-      case Pressure.ATM:
+      case PressureUnits.ATM:
         return (input *= 14.7);
-      case Diameter.MM:
+      case DiameterUnits.MM:
         return (input /= 25.4);
-      case Depth.M:
+      case DepthUnits.M:
         return (input /= 0.3048);
       default:
         return input;
@@ -32,13 +37,13 @@ export const useConvertUnits = () => {
   }
   function convertToMetric(input: number, unitType: UnitType): number {
     switch (unitType) {
-      case Weight.KG:
+      case WeightUnits.KG:
         return (input *= 0.45);
-      case Pressure.ATM:
+      case PressureUnits.ATM:
         return (input /= 14.7);
-      case Diameter.MM:
+      case DiameterUnits.MM:
         return (input *= 25.4);
-      case Depth.M:
+      case DepthUnits.M:
         return (input *= 0.3048);
       default:
         return input;
@@ -46,13 +51,13 @@ export const useConvertUnits = () => {
   }
   function revertToMetric(input: number, unitType: UnitType): number {
     switch (unitType) {
-      case Weight.LBS:
+      case WeightUnits.LBS:
         return (input *= 0.45);
-      case Pressure.PSI:
+      case PressureUnits.PSI:
         return (input /= 14.7);
-      case Diameter.INCH:
+      case DiameterUnits.INCH:
         return (input *= 25.4);
-      case Depth.FT:
+      case DepthUnits.FT:
         return (input *= 0.3048);
       default:
         return input;

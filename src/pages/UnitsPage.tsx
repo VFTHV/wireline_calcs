@@ -1,6 +1,11 @@
 import { ChangeEvent, useEffect } from 'react';
 import { NavHeader, RadioDualInput } from '../components/AllComponents';
-import { Depth, Weight, Diameter, Pressure } from '../store/slices/types';
+import {
+  DepthUnits,
+  WeightUnits,
+  DiameterUnits,
+  PressureUnits,
+} from '../store/slices/types';
 import {
   StoreState,
   changeDepthUnits,
@@ -45,22 +50,22 @@ const UnitsPage = () => {
     <>
       <NavHeader>Change Measurement Units</NavHeader>
       <RadioDualInput
-        values={[Depth.FT, Depth.M]}
+        values={[DepthUnits.FT, DepthUnits.M]}
         onChange={(e) => handleChange(e, changeDepthUnits, 'depth')}
         currentValue={depthUnits}
       />
       <RadioDualInput
-        values={[Pressure.PSI, Pressure.ATM]}
+        values={[PressureUnits.PSI, PressureUnits.ATM]}
         onChange={(e) => handleChange(e, changePressureUnits, 'pressure')}
         currentValue={pressureUnits}
       />
       <RadioDualInput
-        values={[Diameter.INCH, Diameter.MM]}
+        values={[DiameterUnits.INCH, DiameterUnits.MM]}
         onChange={(e) => handleChange(e, changeDiameterUnits, 'diameter')}
         currentValue={diameterUnits}
       />
       <RadioDualInput
-        values={[Weight.LBS, Weight.KG]}
+        values={[WeightUnits.LBS, WeightUnits.KG]}
         onChange={(e) => handleChange(e, changeWeightUnits, 'weight')}
         currentValue={weightUnits}
       />

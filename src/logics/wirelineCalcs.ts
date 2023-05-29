@@ -1,12 +1,17 @@
 import { CableSpecs } from '../database/cables';
-import { Environment, Depth, Weight } from '../store/slices/types';
+import {
+  EnvironmentUnits,
+  EnvironmentType,
+  DepthUnits,
+  WeightUnits,
+} from '../store/slices/types';
 import { UnitSystemState } from '../store';
 
 export class WirelineCalcs {
   constructor(
     public currentCable: CableSpecs | undefined,
     public depth: number,
-    public environment: 'fluid' | 'gas',
+    public environment: EnvironmentType,
     public unitSystem: UnitSystemState,
     public toolWeight?: number
   ) {}
@@ -15,10 +20,10 @@ export class WirelineCalcs {
     if (!this.currentCable) return 0;
     // converting inputs to English
     let depth = this.depth;
-    if (this.unitSystem.depthUnits === Depth.M) depth /= 0.3048;
+    if (this.unitSystem.depthUnits === DepthUnits.M) depth /= 0.3048;
 
     let envCoeff = 1;
-    if (this.environment === Environment.FLUID) envCoeff = 0.83;
+    if (this.environment === EnvironmentUnits.FLUID) envCoeff = 0.83;
 
     let cableWeight = Math.round(
       envCoeff * this.currentCable.weightInAir * (depth / 1000)
@@ -61,7 +66,7 @@ export class WirelineCalcs {
     if (!this.toolWeight || !this.maxWPstrength()) return 0;
     let toolWeight = this.toolWeight;
     let maxWPstrength = this.maxWPstrength();
-    if (this.unitSystem.weightUnits === Weight.KG) {
+    if (this.unitSystem.weightUnits === WeightUnits.KG) {
       toolWeight /= 0.45;
       maxWPstrength /= 0.45;
     }

@@ -18,7 +18,7 @@ const CableSelector: FC = () => {
 
   return (
     <div className="input-group">
-      <label htmlFor="cable">Cable Type:</label>
+      <label htmlFor="cable">Choose Cable Type:</label>
       <select
         className="input-item"
         id="cable"
