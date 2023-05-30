@@ -15,9 +15,7 @@ import { EnvironmentUnits } from '../store/slices/types';
 
 export const TensionAtDepth = () => {
   const { currentCable } = useSelector((state: StoreState) => state.weakPoint);
-  const { weightUnits, depthUnits } = useSelector(
-    (state: StoreState) => state.unitSystem
-  );
+  const { unitSystem } = useSelector((state: StoreState) => state);
   const { depth, environment } = useSelector(
     (state: StoreState) => state.weakPoint
   );
@@ -31,7 +29,8 @@ export const TensionAtDepth = () => {
     percentPull,
     outersUsed,
     currentCable,
-    environment
+    environment,
+    unitSystem
   );
 
   return (
@@ -54,7 +53,7 @@ export const TensionAtDepth = () => {
         onChange={(e) => dispatch(changeDepth(+e.target.value))}
         typeId={'depth'}
         value={depth}
-        unit={depthUnits}
+        unit={unitSystem.depthUnits}
       >
         Depth:
       </InputData>
@@ -76,10 +75,10 @@ export const TensionAtDepth = () => {
       </InputData>
       <table className="table">
         <tbody>
-          <TableRow data={conservativeMaxPull} units={weightUnits}>
+          <TableRow data={conservativeMaxPull} units={unitSystem.weightUnits}>
             Conservative Max Tension
           </TableRow>
-          <TableRow data={maxPull} units={weightUnits}>
+          <TableRow data={maxPull} units={unitSystem.weightUnits}>
             Max Tension
           </TableRow>
         </tbody>

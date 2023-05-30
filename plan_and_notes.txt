@@ -11,7 +11,7 @@
     engineer enters depth and toolstring weight in order to determine the maximum number
       of wires for rehead and pullout at this depth
 
-  Max Pull calculator
+  DONE: Max Pull calculator
     additionally percentage of pullout at certain depth: engineer enters the depth and percentage,
       software calculates the pull in lbs
   
@@ -45,7 +45,7 @@
   React: rendering
   React-router: routing
   Redux-toolkit: state management
-  JS Classes: calculations
+  JS Classes, custom hooks: calculations
   TypeScript: types assistance for calculations
   SASS: styling
 
@@ -63,9 +63,6 @@ Ideas:
 - DONE: Add 'Choose Units' page where engineer chooses depth, pressure etc. units. then
   to use all these units for calculations. Special conversion function needs to be
   created
-
-- those items that are not shared between components -> move to useState
-  like changeDepth to useState
 
 - Add number of holes in cone for rehead for each cable type for calculations of max rehead
 
