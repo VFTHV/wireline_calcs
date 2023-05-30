@@ -16,7 +16,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 
-const UnitsPage = () => {
+export const UnitsPage = () => {
   const dispatch = useDispatch();
   const { depthUnits, weightUnits, diameterUnits, pressureUnits } = useSelector(
     (state: StoreState) => state.unitSystem
@@ -72,5 +72,3 @@ const UnitsPage = () => {
     </>
   );
 };
-
-export default UnitsPage;

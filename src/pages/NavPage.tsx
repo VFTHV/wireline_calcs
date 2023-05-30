@@ -3,7 +3,7 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { BsExclamationTriangle } from 'react-icons/bs';
 import { FiSettings } from 'react-icons/fi';
 
-const NavPage = () => {
+export const NavPage = () => {
   return (
     <nav className="navigation">
       <ul>
@@ -24,5 +24,3 @@ const NavPage = () => {
     </nav>
   );
 };
-
-export default NavPage;

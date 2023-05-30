@@ -8,7 +8,7 @@ interface CurrentCableSpecsProps {
   specs: CableSpecsKey[];
 }
 
-const CurrentCableSpecs: FC<CurrentCableSpecsProps> = ({ specs }) => {
+export const CurrentCableSpecs: FC<CurrentCableSpecsProps> = ({ specs }) => {
   const { weightUnits, depthUnits, diameterUnits, currentCable } = useSelector(
     (state: StoreState) => {
       return {
@@ -20,7 +20,7 @@ const CurrentCableSpecs: FC<CurrentCableSpecsProps> = ({ specs }) => {
     }
   );
 
-  export const content: { [key in CableSpecsKey]: ReactNode } = {
+  const content: { [key in CableSpecsKey]: ReactNode } = {
     type: (
       <TableRow data={currentCable.breakingStrength} units={''}>
         CABLE TYPE

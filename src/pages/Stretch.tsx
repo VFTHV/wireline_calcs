@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { changeDepth, StoreState } from '../store';
 import { useStretchCalc } from '../logics/useStretchCalc';
 
-const Stretch = () => {
+export const Stretch = () => {
   const [tension, setTension] = useState<number>(0);
 
   const { currentCable, depth } = useSelector(
@@ -62,5 +62,3 @@ const Stretch = () => {
     </>
   );
 };
-
-export default Stretch;

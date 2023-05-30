@@ -14,7 +14,7 @@ import {
 } from '../store';
 import { useWeightBarCalc } from '../logics/useWeighBarCalc';
 
-const WeightBar = () => {
+export const WeightBar = () => {
   const dispatch = useDispatch();
   const { diameter, wellPressure, weight, percentOverBalance } = useSelector(
     (state: StoreState) => state.weightBar
@@ -81,5 +81,3 @@ const WeightBar = () => {
     </>
   );
 };
-
-export default WeightBar;

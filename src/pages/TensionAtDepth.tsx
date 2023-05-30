@@ -13,7 +13,7 @@ import { StoreState, changeDepth, changeEnvironment } from '../store';
 import { useMaxPullCalc } from '../logics/useMaxPullCalc';
 import { EnvironmentUnits } from '../store/slices/types';
 
-const TensionAtDepth = () => {
+export const TensionAtDepth = () => {
   const { currentCable } = useSelector((state: StoreState) => state.weakPoint);
   const { weightUnits, depthUnits } = useSelector(
     (state: StoreState) => state.unitSystem
@@ -87,5 +87,3 @@ const TensionAtDepth = () => {
     </>
   );
 };
-
-export default TensionAtDepth;

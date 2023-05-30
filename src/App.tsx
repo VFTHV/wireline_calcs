@@ -1,13 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
-import NavPage from './pages/NavPage';
-import WeakPoint from './pages/WeakPoint';
-import WeightBar from './pages/WeightBar';
-import Stretch from './pages/Stretch';
-import UnitsPage from './pages/UnitsPage';
-import ReportProblemForm from './pages/ReportProblemForm';
-import PageNotFound from './pages/PageNotFound';
-import Disclaimer from './pages/Disclaimer';
-import TensionAtDepth from './pages/TensionAtDepth';
+import {
+  NavPage,
+  UnitsPage,
+  WeakPoint,
+  WeightBar,
+  Stretch,
+  TensionAtDepth,
+  Disclaimer,
+  PageNotFound,
+  ReportProblemForm,
+} from './components/AllComponents';
 
 function App() {
   return (

@@ -17,7 +17,7 @@ import { StoreState } from '../store';
 import { WirelineCalcs } from '../logics/wirelineCalcs';
 import { EnvironmentUnits } from '../store/slices/types';
 
-const WeakPoint = () => {
+export const WeakPoint = () => {
   const dispatch = useDispatch();
   const { currentCable, toolWeight, depth, environment } = useSelector(
     (state: StoreState) => state.weakPoint
@@ -96,5 +96,3 @@ const WeakPoint = () => {
     </>
   );
 };
-
-export default WeakPoint;

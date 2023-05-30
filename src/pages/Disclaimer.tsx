@@ -1,6 +1,6 @@
 import { NavHeader } from '../components/AllComponents';
 
-const Disclaimer = () => {
+export const Disclaimer = () => {
   return (
     <>
       <NavHeader>Disclaimer</NavHeader>
@@ -36,5 +36,3 @@ const Disclaimer = () => {
     </>
   );
 };
-
-export default Disclaimer;

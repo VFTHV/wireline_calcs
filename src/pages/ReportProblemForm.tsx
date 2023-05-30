@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { NavHeader } from '../components/AllComponents';
 
-const ReportProblemForm = () => {
+export const ReportProblemForm = () => {
   const [state, handleSubmit] = useForm('xrgvvznv');
   const [section, setSection] = useState('');
   const [name, setName] = useState('');
@@ -67,5 +67,3 @@ const ReportProblemForm = () => {
     </>
   );
 };
-
-export default ReportProblemForm;
