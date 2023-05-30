@@ -2,7 +2,7 @@ import { useState, FC } from 'react';
 import { weightBarsData } from '../database/weightBars';
 import { TableRow } from '../components/AllComponents';
 
-const WeightBarSelector: FC = () => {
+export const WeightBarSelector: FC = () => {
   const weightBarODs = [...new Set(weightBarsData.map((bar) => bar.od))];
   const [od, setOd] = useState(weightBarODs[0]);
 
@@ -54,5 +54,3 @@ const WeightBarSelector: FC = () => {
     </>
   );
 };
-
-export default WeightBarSelector;

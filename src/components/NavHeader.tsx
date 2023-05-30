@@ -7,7 +7,7 @@ interface NavHeaderProps {
   children: string;
 }
 
-const NavHeader: FC<NavHeaderProps> = ({ children }) => {
+export const NavHeader: FC<NavHeaderProps> = ({ children }) => {
   return (
     <>
       <header>
@@ -22,5 +22,3 @@ const NavHeader: FC<NavHeaderProps> = ({ children }) => {
     </>
   );
 };
-
-export default NavHeader;

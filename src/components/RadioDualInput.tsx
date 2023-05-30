@@ -6,7 +6,7 @@ interface RadioDualInputProps {
   currentValue: string;
 }
 
-const RadioDualInput: FC<RadioDualInputProps> = ({
+export const RadioDualInput: FC<RadioDualInputProps> = ({
   values,
   onChange,
   currentValue,
@@ -38,5 +38,3 @@ const RadioDualInput: FC<RadioDualInputProps> = ({
     </form>
   );
 };
-
-export default RadioDualInput;

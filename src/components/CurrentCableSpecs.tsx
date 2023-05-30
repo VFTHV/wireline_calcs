@@ -20,7 +20,7 @@ const CurrentCableSpecs: FC<CurrentCableSpecsProps> = ({ specs }) => {
     }
   );
 
-  const content: { [key in CableSpecsKey]: ReactNode } = {
+  export const content: { [key in CableSpecsKey]: ReactNode } = {
     type: (
       <TableRow data={currentCable.breakingStrength} units={''}>
         CABLE TYPE
@@ -86,5 +86,3 @@ const CurrentCableSpecs: FC<CurrentCableSpecsProps> = ({ specs }) => {
     </>
   );
 };
-
-export default CurrentCableSpecs;

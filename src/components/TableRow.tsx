@@ -8,7 +8,7 @@ interface TableRowProps {
   units: UnitType;
 }
 
-const TableRow: FC<TableRowProps> = ({ children, data, units }) => {
+export const TableRow: FC<TableRowProps> = ({ children, data, units }) => {
   const { convertToMetric } = useConvertUnits();
 
   const displayData = () => {
@@ -33,5 +33,3 @@ const TableRow: FC<TableRowProps> = ({ children, data, units }) => {
     </tr>
   );
 };
-
-export default TableRow;

@@ -9,7 +9,7 @@ interface NavItemProps {
   icon?: ReactNode;
 }
 
-const NavItem: FC<NavItemProps> = ({ to, children, icon }) => {
+export const NavItem: FC<NavItemProps> = ({ to, children, icon }) => {
   return (
     <NavLink to={to}>
       <li className="navitem">
@@ -20,5 +20,3 @@ const NavItem: FC<NavItemProps> = ({ to, children, icon }) => {
     </NavLink>
   );
 };
-
-export default NavItem;

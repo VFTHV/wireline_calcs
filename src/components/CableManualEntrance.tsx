@@ -14,7 +14,9 @@ interface CableManualEntranceProps {
   specs: CableSpecsKey[];
 }
 
-const CableManualEntrance: FC<CableManualEntranceProps> = ({ specs }) => {
+export const CableManualEntrance: FC<CableManualEntranceProps> = ({
+  specs,
+}) => {
   const dispatch = useDispatch();
   const { outerArmorBS, weightInAir, maxTension, stretchCoeff } = useSelector(
     (state: StoreState) => state.weakPoint.currentCable
@@ -79,5 +81,3 @@ const CableManualEntrance: FC<CableManualEntranceProps> = ({ specs }) => {
     </>
   );
 };
-
-export default CableManualEntrance;

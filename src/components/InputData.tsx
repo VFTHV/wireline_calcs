@@ -10,7 +10,7 @@ interface InputDataProps {
   unit: UnitType;
 }
 
-const InputData: FC<InputDataProps> = ({
+export const InputData: FC<InputDataProps> = ({
   children,
   onChange,
   typeId,
@@ -47,5 +47,3 @@ const InputData: FC<InputDataProps> = ({
     </div>
   );
 };
-
-export default InputData;

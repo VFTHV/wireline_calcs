@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { StoreState, changeCable } from '../store';
 import { cablesData } from '../database/cables';
 
-const CableSelector: FC = () => {
+export const CableSelector: FC = () => {
   const dispatch = useDispatch();
   const { currentCable } = useSelector((state: StoreState) => state.weakPoint);
 
@@ -37,5 +37,3 @@ const CableSelector: FC = () => {
     </div>
   );
 };
-
-export default CableSelector;
