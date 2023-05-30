@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   NavHeader,
   CableSelector,
@@ -9,21 +8,26 @@ import {
   RadioDualInput,
 } from '../components/AllComponents';
 import { useSelector, useDispatch } from 'react-redux';
-import { StoreState, changeDepth, changeEnvironment } from '../store';
+import {
+  StoreState,
+  changeDepth,
+  changeEnvironment,
+  changePercetPull,
+  changeOutersUsed,
+  changeInnersUsed,
+} from '../store';
 import { useMaxPullCalc } from '../logics/useMaxPullCalc';
 import { EnvironmentUnits } from '../store/slices/types';
 
-export const TensionAtDepth = () => {
-  const { currentCable } = useSelector((state: StoreState) => state.weakPoint);
+export const MaxPull = () => {
   const { unitSystem } = useSelector((state: StoreState) => state);
-  const { depth, environment } = useSelector(
+  const { depth, environment, currentCable } = useSelector(
     (state: StoreState) => state.weakPoint
   );
+  const { percentPull, outersUsed, innersUsed } = useSelector(
+    (state: StoreState) => state.maxPull
+  );
   const dispatch = useDispatch();
-
-  const [percentPull, setPercentPull] = useState<number>(0);
-  const [outersUsed, setOutersUsed] = useState<number>(0);
-  const [innersUsed, setInnersUsed] = useState<number>(0);
 
   const { maxPull, conservativePull } = useMaxPullCalc(
     depth,
@@ -45,7 +49,7 @@ export const TensionAtDepth = () => {
         />
       ) : (
         <CurrentCableSpecs
-          specs={['outerArmorBS', 'innerArmorBS', 'weightInAir']}
+          specs={['maxTension', 'outerArmorBS', 'innerArmorBS', 'weightInAir']}
         />
       )}
 
@@ -66,7 +70,7 @@ export const TensionAtDepth = () => {
       <InputData
         value={outersUsed}
         unit=""
-        onChange={(e) => setOutersUsed(+e.target.value)}
+        onChange={(e) => dispatch(changeOutersUsed(+e.target.value))}
         typeId={'outersUsed'}
       >
         Number of Outer Armors Used
@@ -74,7 +78,7 @@ export const TensionAtDepth = () => {
       <InputData
         value={innersUsed}
         unit=""
-        onChange={(e) => setInnersUsed(+e.target.value)}
+        onChange={(e) => dispatch(changeInnersUsed(+e.target.value))}
         typeId={'outersUsed'}
       >
         Number of Inner Armors Used
@@ -82,7 +86,7 @@ export const TensionAtDepth = () => {
       <InputData
         value={percentPull}
         unit="%"
-        onChange={(e) => setPercentPull(+e.target.value)}
+        onChange={(e) => dispatch(changePercetPull(+e.target.value))}
         typeId={'overBalance'}
       >
         Percent of Weak Point Breaking Strength
@@ -91,12 +95,12 @@ export const TensionAtDepth = () => {
         <tbody>
           <TableRow data={conservativePull} units={unitSystem.weightUnits}>
             {percentPull && depth
-              ? `Conservative ${percentPull} % pull @ ${depth} ${unitSystem.depthUnits}`
+              ? `Conservative ${percentPull} % WP pull @ ${depth} ${unitSystem.depthUnits}`
               : 'Conservative pull'}
           </TableRow>
           <TableRow data={maxPull} units={unitSystem.weightUnits}>
             {percentPull && depth
-              ? `Max ${percentPull} % pull @ ${depth} ${unitSystem.depthUnits}`
+              ? `Max ${percentPull} % WP pull @ ${depth} ${unitSystem.depthUnits}`
               : 'Max pull'}
           </TableRow>
         </tbody>

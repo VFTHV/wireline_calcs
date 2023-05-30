@@ -28,6 +28,9 @@ const weakPointSlice = createSlice({
     changeOuterBS(state, action: { payload: number }) {
       state.currentCable.outerArmorBS = action.payload;
     },
+    changeInnerBS(state, action: { payload: number }) {
+      state.currentCable.innerArmorBS = action.payload;
+    },
     changeWeightInAir(state, action: { payload: number }) {
       state.currentCable.weightInAir = action.payload;
     },
@@ -55,6 +58,7 @@ export const {
   changeToolWeight,
   changeEnvironment,
   changeOuterBS,
+  changeInnerBS,
   changeWeightInAir,
   changeMaxTension,
   changeStretchCoef,

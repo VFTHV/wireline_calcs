@@ -7,6 +7,7 @@ import {
   changeMaxTension,
   StoreState,
   changeStretchCoef,
+  changeInnerBS,
 } from '../store';
 import { CableSpecsKey } from '../database/cables';
 
@@ -18,9 +19,8 @@ export const CableManualEntrance: FC<CableManualEntranceProps> = ({
   specs,
 }) => {
   const dispatch = useDispatch();
-  const { outerArmorBS, weightInAir, maxTension, stretchCoeff } = useSelector(
-    (state: StoreState) => state.weakPoint.currentCable
-  );
+  const { outerArmorBS, innerArmorBS, weightInAir, maxTension, stretchCoeff } =
+    useSelector((state: StoreState) => state.weakPoint.currentCable);
   const unitSystem = useSelector((state: StoreState) => state.unitSystem);
 
   const content: { [key in CableSpecsKey]: ReactNode } = {
@@ -50,7 +50,16 @@ export const CableManualEntrance: FC<CableManualEntranceProps> = ({
     conductorResistance: <>TBD for developer</>,
     inners: <>TBD for developer</>,
     outers: <>TBD for developer</>,
-    innerArmorBS: <>TBD for developer</>,
+    innerArmorBS: (
+      <InputData
+        onChange={(e) => dispatch(changeInnerBS(+e.target.value))}
+        typeId={'outerBS'}
+        value={innerArmorBS}
+        unit={unitSystem.weightUnits}
+      >
+        INNER BREAKING STRENGTH
+      </InputData>
+    ),
     outerArmorBS: (
       <InputData
         onChange={(e) => dispatch(changeOuterBS(+e.target.value))}

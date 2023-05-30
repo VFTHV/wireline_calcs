@@ -5,7 +5,7 @@ import {
   WeakPoint,
   WeightBar,
   Stretch,
-  TensionAtDepth,
+  MaxPull,
   Disclaimer,
   PageNotFound,
   ReportProblemForm,
@@ -20,7 +20,7 @@ function App() {
         <Route path="/weakpoint" element={<WeakPoint />} />
         <Route path="/weightbar" element={<WeightBar />} />
         <Route path="/stretch" element={<Stretch />} />
-        <Route path="/tension-at-depth" element={<TensionAtDepth />} />
+        <Route path="/tension-at-depth" element={<MaxPull />} />
         <Route path="/feedback" element={<ReportProblemForm />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="*" element={<PageNotFound />} />

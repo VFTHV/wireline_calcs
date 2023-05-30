@@ -12,7 +12,7 @@ export * from '../pages/UnitsPage';
 export * from '../pages/WeakPoint';
 export * from '../pages/WeightBar';
 export * from '../pages/Stretch';
-export * from '../pages/TensionAtDepth';
+export * from '../pages/MaxPull';
 export * from '../pages/Disclaimer';
 export * from '../pages/PageNotFound';
 export * from '../pages/ReportProblemForm';

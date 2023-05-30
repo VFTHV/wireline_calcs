@@ -13,7 +13,7 @@ export const NavPage = () => {
         <NavItem to="/weakpoint">Weak Point Calculator</NavItem>
         <NavItem to="/weightbar">Sinker Bar Weight Calculator</NavItem>
         <NavItem to="/stretch">Cable Stretch Calculator</NavItem>
-        <NavItem to="/tension-at-depth">Max. Pullout at Depth</NavItem>
+        <NavItem to="/tension-at-depth">Max. Tension at Depth</NavItem>
         <NavItem to="/feedback" icon={<AiOutlineMail />}>
           Report a Problem
         </NavItem>
