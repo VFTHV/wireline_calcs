@@ -1,6 +1,5 @@
 import { CableSpecs } from '../database/cables';
 import {
-  EnvironmentUnits,
   EnvironmentType,
   DepthUnits,
   WeightUnits,
@@ -22,8 +21,7 @@ export class WirelineCalcs {
     let depth = this.depth;
     if (this.unitSystem.depthUnits === DepthUnits.M) depth /= 0.3048;
 
-    let envCoeff = 1;
-    if (this.environment === EnvironmentUnits.FLUID) envCoeff = 0.83;
+    const envCoeff = this.environment === 'fluid' ? 0.83 : 1;
 
     let cableWeight = Math.round(
       envCoeff * this.currentCable.weightInAir * (depth / 1000)

@@ -23,11 +23,13 @@ export const TensionAtDepth = () => {
 
   const [percentPull, setPercentPull] = useState<number>(0);
   const [outersUsed, setOutersUsed] = useState<number>(0);
+  const [innersUsed, setInnersUsed] = useState<number>(0);
 
-  const { maxPull, conservativeMaxPull } = useMaxPullCalc(
+  const { maxPull, conservativePull } = useMaxPullCalc(
     depth,
     percentPull,
     outersUsed,
+    innersUsed,
     currentCable,
     environment,
     unitSystem
@@ -38,9 +40,13 @@ export const TensionAtDepth = () => {
       <NavHeader>Max. Tension at Depth</NavHeader>
       <CableSelector />
       {currentCable.type === 'MANUAL' ? (
-        <CableManualEntrance specs={['outerArmorBS', 'weightInAir']} />
+        <CableManualEntrance
+          specs={['outerArmorBS', 'innerArmorBS', 'weightInAir']}
+        />
       ) : (
-        <CurrentCableSpecs specs={['outerArmorBS', 'weightInAir']} />
+        <CurrentCableSpecs
+          specs={['outerArmorBS', 'innerArmorBS', 'weightInAir']}
+        />
       )}
 
       <RadioDualInput
@@ -66,6 +72,14 @@ export const TensionAtDepth = () => {
         Number of Outer Armors Used
       </InputData>
       <InputData
+        value={innersUsed}
+        unit=""
+        onChange={(e) => setInnersUsed(+e.target.value)}
+        typeId={'outersUsed'}
+      >
+        Number of Inner Armors Used
+      </InputData>
+      <InputData
         value={percentPull}
         unit="%"
         onChange={(e) => setPercentPull(+e.target.value)}
@@ -75,11 +89,15 @@ export const TensionAtDepth = () => {
       </InputData>
       <table className="table">
         <tbody>
-          <TableRow data={conservativeMaxPull} units={unitSystem.weightUnits}>
-            Conservative Max Tension
+          <TableRow data={conservativePull} units={unitSystem.weightUnits}>
+            {percentPull && depth
+              ? `Conservative ${percentPull} % pull @ ${depth} ${unitSystem.depthUnits}`
+              : 'Conservative pull'}
           </TableRow>
           <TableRow data={maxPull} units={unitSystem.weightUnits}>
-            Max Tension
+            {percentPull && depth
+              ? `Max ${percentPull} % pull @ ${depth} ${unitSystem.depthUnits}`
+              : 'Max pull'}
           </TableRow>
         </tbody>
       </table>

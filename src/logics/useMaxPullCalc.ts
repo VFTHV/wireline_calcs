@@ -9,34 +9,30 @@ export const useMaxPullCalc = (
   depth: number,
   percentPull: number,
   outersUsed: number,
+  innersUsed: number,
   currentCable: CableSpecs,
   environment: EnvironmentType,
   units: UnitSystemState
-) => {
-  function maxPull(): number {
-    if (!outersUsed || !percentPull) return 0;
-    const envCoeff = environment === 'fluid' ? 0.83 : 1;
-    const convDepth = revertToEnglish(depth, units.depthUnits);
-
-    const cableWeight =
-      (currentCable.weightInAir * convDepth * envCoeff) / 1000;
-    const weakPointPull =
-      (outersUsed * currentCable.outerArmorBS * percentPull) / 100;
-    // add danger message if more than currentCable.maxtension
-    return Math.floor(cableWeight + weakPointPull);
+): { maxPull: number; conservativePull: number } => {
+  if (!(outersUsed + innersUsed) || !percentPull) {
+    return { maxPull: 0, conservativePull: 0 };
   }
+  const envCoeff = environment === 'fluid' ? 0.83 : 1;
+  const convDepth = revertToEnglish(depth, units.depthUnits);
 
-  function conservativeMaxPull(): number {
-    if (!outersUsed || !percentPull) return 0;
-    const envCoeff = environment === 'fluid' ? 0.83 : 1;
-    const convDepth = revertToEnglish(depth, units.depthUnits);
+  const {
+    weightInAir: weight,
+    outerArmorBS: outer,
+    innerArmorBS: inner,
+  } = currentCable;
 
-    const cableWeight =
-      (currentCable.weightInAir * convDepth * envCoeff) / 1000;
-    const weakPointPull =
-      (0.8 * outersUsed * currentCable.outerArmorBS * percentPull) / 100;
-    return Math.floor(cableWeight + weakPointPull);
-  }
+  const cableWeight = (weight * convDepth * envCoeff) / 1000;
+  const maxAtWeakPoint =
+    (outersUsed * outer + innersUsed * inner) * (percentPull / 100);
+  const conservativeAtWakPoint = maxAtWeakPoint * 0.8;
+  const maxPull = Math.floor(cableWeight + maxAtWeakPoint);
+  const conservativePull = Math.floor(cableWeight + conservativeAtWakPoint);
+  // add danger message if more than currentCable.maxtension
 
-  return { maxPull: maxPull(), conservativeMaxPull: conservativeMaxPull() };
+  return { maxPull, conservativePull };
 };
