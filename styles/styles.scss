@@ -152,4 +152,11 @@
 
 .pointer {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.styled-list {
+  list-style-type: initial;
+  list-style-position: inside;
 }

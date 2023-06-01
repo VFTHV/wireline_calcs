@@ -34,7 +34,7 @@ export const WeakPoint = () => {
 
   return (
     <>
-      <NavHeader>Weakpoint</NavHeader>
+      <NavHeader>Weak Point</NavHeader>
       <CableSelector />
       {currentCable.type === 'MANUAL' ? (
         <CableManualEntrance

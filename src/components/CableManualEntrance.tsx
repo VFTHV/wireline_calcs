@@ -57,7 +57,7 @@ export const CableManualEntrance: FC<CableManualEntranceProps> = ({
         value={innerArmorBS}
         unit={unitSystem.weightUnits}
       >
-        INNER BREAKING STRENGTH
+        INNER ARMOR BREAKING STRENGTH
       </InputData>
     ),
     outerArmorBS: (
@@ -67,7 +67,7 @@ export const CableManualEntrance: FC<CableManualEntranceProps> = ({
         value={outerArmorBS}
         unit={unitSystem.weightUnits}
       >
-        OUTER BREAKING STRENGTH
+        OUTER ARMOR BREAKING STRENGTH
       </InputData>
     ),
     weightInAir: (
@@ -77,7 +77,7 @@ export const CableManualEntrance: FC<CableManualEntranceProps> = ({
         value={weightInAir}
         unit={unitSystem.weightUnits}
       >
-        WEIGHT IN AIR
+        CABLE WEIGHT IN AIR
       </InputData>
     ),
   };
