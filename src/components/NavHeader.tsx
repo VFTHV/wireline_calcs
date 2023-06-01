@@ -10,7 +10,7 @@ interface NavHeaderProps {
 
 export const NavHeader: FC<NavHeaderProps> = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  console.log(isModalOpen);
+
   return (
     <>
       <header>
@@ -18,8 +18,8 @@ export const NavHeader: FC<NavHeaderProps> = ({ children }) => {
           <NavLink to="/">
             <GoChevronLeft />
           </NavLink>
-          <div>{children}</div>
-          <div onClick={() => setIsModalOpen(true)}>
+          <h4>{children}</h4>
+          <div className="pointer" onClick={() => setIsModalOpen(true)}>
             <AiOutlineQuestionCircle />
           </div>
         </nav>

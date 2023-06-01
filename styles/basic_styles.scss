@@ -8,7 +8,6 @@ ul {
 body {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
   background-color: $primary-color;
   color: $secondary-color;
   font-family: 'Outfit', sans-serif;
@@ -17,4 +16,13 @@ body {
 a {
   text-decoration: none;
   color: $secondary-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }

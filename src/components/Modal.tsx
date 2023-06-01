@@ -15,11 +15,13 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
 
   return createPortal(
     <div className="modal">
-      <div onClick={() => onClose(false)}>
-        <AiOutlineClose />
-      </div>
+      <header className="modal-header">
+        <h4 className="modal-title">Modal Title</h4>
+        <div className="pointer" onClick={() => onClose(false)}>
+          <AiOutlineClose />
+        </div>
+      </header>
       <div className="modal-content">
-        <h2>Modal Title</h2>
         <p>Modal Content</p>
       </div>
     </div>,
