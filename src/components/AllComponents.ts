@@ -7,6 +7,7 @@ export * from './NavItem';
 export * from './RadioDualInput';
 export * from './TableRow';
 export * from './WeightBarSelector';
+export * from './Modal';
 export * from '../pages/NavPage';
 export * from '../pages/UnitsPage';
 export * from '../pages/WeakPoint';
