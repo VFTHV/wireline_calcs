@@ -14,7 +14,7 @@ import {
   changeEnvironment,
 } from '../store/slices/weakPointSlice';
 import { StoreState } from '../store';
-import { WirelineCalcs } from '../logics/wirelineCalcs';
+import { useWeakPointCalc } from '../logics/useWeakPointCalc';
 import { EnvironmentUnits } from '../store/slices/types';
 
 export const WeakPoint = () => {
@@ -24,13 +24,8 @@ export const WeakPoint = () => {
   );
   const unitSystem = useSelector((state: StoreState) => state.unitSystem);
 
-  const calcData = new WirelineCalcs(
-    currentCable,
-    depth,
-    environment,
-    unitSystem,
-    toolWeight
-  );
+  const { cableWeight, maxWPstrength, outersRehead, toolWeightVsWeakpt } =
+    useWeakPointCalc(currentCable, depth, environment, unitSystem, toolWeight);
 
   return (
     <>
@@ -73,22 +68,16 @@ export const WeakPoint = () => {
       </InputData>
       <table className="table">
         <tbody>
-          <TableRow
-            data={calcData.cableWeight()}
-            units={unitSystem.weightUnits}
-          >
+          <TableRow data={cableWeight} units={unitSystem.weightUnits}>
             TOTAL CABLE WEIGHT
           </TableRow>
-          <TableRow
-            data={calcData.maxWPstrength()}
-            units={unitSystem.weightUnits}
-          >
+          <TableRow data={maxWPstrength} units={unitSystem.weightUnits}>
             MAX WEAKPOINT STRENGTH
           </TableRow>
-          <TableRow data={calcData.outersRehead()} units="">
+          <TableRow data={outersRehead} units="">
             NUMBER OF OUTER WIRES
           </TableRow>
-          <TableRow data={calcData.toolWeightVsWeakpt()} units="%">
+          <TableRow data={toolWeightVsWeakpt} units="%">
             TOOL WEIGHT % OF WEAKPOINT
           </TableRow>
         </tbody>
