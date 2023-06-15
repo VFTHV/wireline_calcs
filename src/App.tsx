@@ -10,6 +10,7 @@ import {
   PageNotFound,
   ReportProblemForm,
 } from './components/AllComponents';
+import CasingDetails from './pages/CasingSpecs';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/weightbar" element={<WeightBar />} />
         <Route path="/stretch" element={<Stretch />} />
         <Route path="/tension-at-depth" element={<MaxPull />} />
+        <Route path="/csg-specs" element={<CasingDetails />} />
         <Route path="/feedback" element={<ReportProblemForm />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="*" element={<PageNotFound />} />
