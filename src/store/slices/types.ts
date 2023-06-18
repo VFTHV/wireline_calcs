@@ -29,6 +29,11 @@ interface Pressure {
   ATM: 'atm';
 }
 
+interface Capacity {
+  BBL: 'bbl/100ft';
+  M3: 'cu.m/m';
+}
+
 export const DepthUnits: Depth = {
   FT: 'ft',
   M: 'm',
@@ -49,14 +54,20 @@ export const PressureUnits: Pressure = {
   ATM: 'atm',
 };
 
+export const CapacityUnits: Capacity = {
+  BBL: 'bbl/100ft',
+  M3: 'cu.m/m',
+};
+
 export type MeasurementType =
-  | 'pressure'
-  | 'toolWeight'
-  | 'overBalance'
   | 'depth'
-  | 'diameter'
-  | 'outerBS'
   | 'weightInAir'
+  | 'toolWeight'
+  | 'diameter'
+  | 'pressure'
+  | 'capacity'
+  | 'overBalance'
+  | 'outerBS'
   | 'maxTension'
   | 'stretchCoef'
   | 'outersUsed';
@@ -70,5 +81,7 @@ export type UnitType =
   | 'mm'
   | 'psi'
   | 'atm'
+  | 'bbl/100ft'
+  | 'cu.m/m'
   | ''
   | '%';

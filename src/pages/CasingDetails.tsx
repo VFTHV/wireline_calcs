@@ -5,7 +5,7 @@ import { TableRow } from '../components/TableRow';
 import { useSelector } from 'react-redux';
 import { StoreState } from '../store';
 
-const CasingDetails: FC = () => {
+export const CasingDetails: FC = () => {
   const casingODs = [...new Set(casingData.map((csg) => csg.diameter))];
   const [od, setOd] = useState<number>(casingODs[0]);
 
@@ -64,17 +64,22 @@ const CasingDetails: FC = () => {
           })}
         </select>
       </div>
-      <TableRow data={selectedCsg?.id} units={unitSystem.diameterUnits}>
-        Casing ID
-      </TableRow>
-      <TableRow data={selectedCsg?.drift} units={unitSystem.diameterUnits}>
-        Casing Drift
-      </TableRow>
-      <TableRow data={selectedCsg?.capacity} units={unitSystem.diameterUnits}>
-        Casing Capacity
-      </TableRow>
+      <table className="table">
+        <tbody>
+          <TableRow data={selectedCsg?.id} units={unitSystem.diameterUnits}>
+            Casing ID
+          </TableRow>
+          <TableRow data={selectedCsg?.drift} units={unitSystem.diameterUnits}>
+            Casing Drift
+          </TableRow>
+          <TableRow
+            data={selectedCsg?.capacity}
+            units={unitSystem.capacityUnits}
+          >
+            Casing Capacity
+          </TableRow>
+        </tbody>
+      </table>
     </>
   );
 };
-
-export default CasingDetails;

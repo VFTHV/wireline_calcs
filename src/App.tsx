@@ -9,8 +9,8 @@ import {
   Disclaimer,
   PageNotFound,
   ReportProblemForm,
+  CasingDetails,
 } from './components/AllComponents';
-import CasingDetails from './pages/CasingSpecs';
 
 function App() {
   return (

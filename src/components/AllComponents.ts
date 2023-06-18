@@ -17,3 +17,4 @@ export * from '../pages/MaxPull';
 export * from '../pages/Disclaimer';
 export * from '../pages/PageNotFound';
 export * from '../pages/ReportProblemForm';
+export * from '../pages/CasingDetails';

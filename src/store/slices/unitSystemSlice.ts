@@ -1,11 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { DepthUnits, WeightUnits, DiameterUnits, PressureUnits } from './types';
+import {
+  DepthUnits,
+  WeightUnits,
+  DiameterUnits,
+  PressureUnits,
+  CapacityUnits,
+} from './types';
 
 export interface UnitSystemState {
   depthUnits: 'ft' | 'm';
   weightUnits: 'lbs' | 'kg';
   diameterUnits: 'in' | 'mm';
   pressureUnits: 'psi' | 'atm';
+  capacityUnits: 'bbl/100ft' | 'cu.m/m';
 }
 
 const initialState: UnitSystemState = {
@@ -13,6 +20,7 @@ const initialState: UnitSystemState = {
   weightUnits: WeightUnits.LBS,
   diameterUnits: DiameterUnits.INCH,
   pressureUnits: PressureUnits.PSI,
+  capacityUnits: CapacityUnits.BBL,
 };
 
 const unitSystemSlice = createSlice({
@@ -31,6 +39,9 @@ const unitSystemSlice = createSlice({
     changePressureUnits(state, action) {
       state.pressureUnits = action.payload;
     },
+    changeCapacityUnits(state, action) {
+      state.capacityUnits = action.payload;
+    },
   },
 });
 
@@ -39,5 +50,6 @@ export const {
   changeDiameterUnits,
   changeWeightUnits,
   changePressureUnits,
+  changeCapacityUnits,
 } = unitSystemSlice.actions;
 export const unitSystemReducer = unitSystemSlice.reducer;

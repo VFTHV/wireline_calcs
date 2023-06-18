@@ -5,6 +5,7 @@ import {
   WeightUnits,
   DiameterUnits,
   PressureUnits,
+  CapacityUnits,
 } from '../store/slices/types';
 import {
   StoreState,
@@ -12,15 +13,20 @@ import {
   changeWeightUnits,
   changeDiameterUnits,
   changePressureUnits,
+  changeCapacityUnits,
 } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 
 export const UnitsPage = () => {
   const dispatch = useDispatch();
-  const { depthUnits, weightUnits, diameterUnits, pressureUnits } = useSelector(
-    (state: StoreState) => state.unitSystem
-  );
+  const {
+    depthUnits,
+    weightUnits,
+    diameterUnits,
+    pressureUnits,
+    capacityUnits,
+  } = useSelector((state: StoreState) => state.unitSystem);
 
   useEffect(() => {
     if (localStorage.getItem('depth')) {
@@ -34,6 +40,9 @@ export const UnitsPage = () => {
     }
     if (localStorage.getItem('weight')) {
       dispatch(changeWeightUnits(localStorage.getItem('weight')));
+    }
+    if (localStorage.getItem('capacity')) {
+      dispatch(changeCapacityUnits(localStorage.getItem('capacity')));
     }
   }, []);
 
@@ -68,6 +77,11 @@ export const UnitsPage = () => {
         values={[WeightUnits.LBS, WeightUnits.KG]}
         onChange={(e) => handleChange(e, changeWeightUnits, 'weight')}
         currentValue={weightUnits}
+      />
+      <RadioDualInput
+        values={[CapacityUnits.BBL, CapacityUnits.M3]}
+        onChange={(e) => handleChange(e, changeCapacityUnits, 'capacity')}
+        currentValue={capacityUnits}
       />
     </>
   );
