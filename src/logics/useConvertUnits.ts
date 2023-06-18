@@ -43,15 +43,15 @@ export const useConvertUnits = () => {
   function convertToMetric(input: number, unitType: UnitType): number {
     switch (unitType) {
       case DepthUnits.M:
-        return (input *= 0.3048);
+        return +(input *= 0.3048).toFixed(0);
       case WeightUnits.KG:
-        return (input *= 0.45);
+        return +(input *= 0.45).toFixed(0);
       case DiameterUnits.MM:
-        return (input *= 25.4);
+        return +(input *= 25.4).toFixed(2);
       case PressureUnits.ATM:
-        return (input /= 14.7);
+        return +(input /= 14.7).toFixed(0);
       case CapacityUnits.M3:
-        return (input *= 0.158987294928);
+        return +(input *= 0.158987294928).toFixed(2);
       default:
         return input;
     }
@@ -59,15 +59,15 @@ export const useConvertUnits = () => {
   function revertToMetric(input: number, unitType: UnitType): number {
     switch (unitType) {
       case DepthUnits.FT:
-        return (input *= 0.3048);
+        return +(input *= 0.3048).toFixed(0);
       case WeightUnits.LBS:
-        return (input *= 0.45);
+        return +(input *= 0.45).toFixed(0);
       case DiameterUnits.INCH:
-        return (input *= 25.4);
+        return +(input *= 25.4).toFixed(2);
       case PressureUnits.PSI:
-        return (input /= 14.7);
+        return +(input /= 14.7).toFixed(0);
       case CapacityUnits.BBL:
-        return (input *= 0.158987294928);
+        return +(input *= 0.158987294928).toFixed(2);
       default:
         return input;
     }

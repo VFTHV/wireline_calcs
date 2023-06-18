@@ -6,11 +6,11 @@ import { useSelector } from 'react-redux';
 import { StoreState } from '../store';
 
 export const CasingDetails: FC = () => {
-  const casingODs = [...new Set(casingData.map((csg) => csg.diameter))];
-  const [od, setOd] = useState<number>(casingODs[0]);
+  const casingODs = [...new Set(casingData.map((csg) => csg.od))];
+  const [od, setOd] = useState<string>(casingODs[0]);
 
   const casingWeights = casingData
-    .filter((csg) => csg.diameter === od)
+    .filter((csg) => csg.od === od)
     .map((csg) => csg.weight);
 
   const [weight, setWeight] = useState<number>(casingWeights[0]);
@@ -20,7 +20,7 @@ export const CasingDetails: FC = () => {
   }, [od]);
 
   const selectedCsg = casingData.find(
-    (csg) => csg.diameter === od && csg.weight === weight
+    (csg) => csg.od === od && csg.weight === weight
   );
 
   const { unitSystem } = useSelector((state: StoreState) => state);
@@ -35,7 +35,7 @@ export const CasingDetails: FC = () => {
           id="casing-od"
           name="casing-od"
           value={od}
-          onChange={(e) => setOd(+e.target.value)}
+          onChange={(e) => setOd(e.target.value)}
         >
           {casingODs.map((od) => {
             return (

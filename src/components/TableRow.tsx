@@ -16,11 +16,12 @@ export const TableRow: FC<TableRowProps> = ({ children, data, units }) => {
     if (typeof data === 'number') {
       let convData = convertToMetric(data, units);
 
-      if (convData < 10) {
-        convData = +convData.toFixed(2);
-      } else {
-        convData = Math.round(convData);
-      }
+      // added .toFixed() to convertToMetric formula
+      // if (convData < 10) {
+      //   convData = +convData.toFixed(2);
+      // } else {
+      //   convData = Math.round(convData);
+      // }
       return `${convData} ${units}`;
     }
     return data;
