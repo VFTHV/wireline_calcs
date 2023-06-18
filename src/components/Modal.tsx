@@ -208,10 +208,35 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
       textContent.title = 'Disclaimer Help';
       textContent.content = (
         <article>
-          <h1>
-            <strong>WE HOPE YOU LIKE THIS APP!!!</strong>
-          </h1>
+          <p>
+            <strong>Report Any Issue.</strong> If you see any issue with
+            calculations, page display, user interface responsiveness, error
+            messages, data accuracy, feature functionality, or any other aspect
+            of the application, please don't hesitate to let us know. Your
+            feedback is invaluable in helping us improve the project and provide
+            a better experience for all users
+          </p>
+          <p>
+            <strong>Provide Feedback:</strong> We value your input and would
+            love to hear your thoughts on this application. Whether you have
+            suggestions for improvements, feature requests, or simply want to
+            share what you like or dislike about the project, we appreciate all
+            feedback. Your feedback helps us understand your needs better and
+            allows us to continuously enhance the application to meet your
+            expectations. Together, we can make this project even better!
+          </p>
         </article>
+      );
+    } else if (pathname.includes('csg-specs')) {
+      textContent.title = 'Casing Specs Help';
+      textContent.content = (
+        <p>
+          <strong>API Casing Specs</strong> The API (American Petroleum
+          Institute) casing sizes are standard measurements used in the oil and
+          gas industry to specify the diameter and wall thickness of casings.
+          These sizes are essential for ensuring compatibility and proper
+          functioning of wellbore equipment.
+        </p>
       );
     }
     return textContent;
