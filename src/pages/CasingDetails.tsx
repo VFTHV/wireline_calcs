@@ -7,13 +7,13 @@ import { StoreState } from '../store';
 
 export const CasingDetails: FC = () => {
   const casingODs = [...new Set(casingData.map((csg) => csg.od))];
-  const [od, setOd] = useState<string>(casingODs[0]);
+  const [od, setOd] = useState<string>('');
 
   const casingWeights = casingData
     .filter((csg) => csg.od === od)
     .map((csg) => csg.weight);
 
-  const [weight, setWeight] = useState<number>(casingWeights[0]);
+  const [weight, setWeight] = useState<number>();
 
   useEffect(() => {
     setWeight(casingWeights[0]);
@@ -24,6 +24,10 @@ export const CasingDetails: FC = () => {
   );
 
   const { unitSystem } = useSelector((state: StoreState) => state);
+
+  const odNum = od.split(' ').reduce((acc, curr) => acc + eval(curr), 0);
+  const wallThickness =
+    selectedCsg && +((odNum - selectedCsg?.id) / 2).toFixed(3);
 
   return (
     <>
@@ -37,6 +41,7 @@ export const CasingDetails: FC = () => {
           value={od}
           onChange={(e) => setOd(e.target.value)}
         >
+          <option value={''}>Choose Casing OD</option>
           {casingODs.map((od) => {
             return (
               <option key={Math.random()} value={od}>
@@ -64,22 +69,30 @@ export const CasingDetails: FC = () => {
           })}
         </select>
       </div>
-      <table className="table">
-        <tbody>
-          <TableRow data={selectedCsg?.id} units={unitSystem.diameterUnits}>
-            Casing ID
-          </TableRow>
-          <TableRow data={selectedCsg?.drift} units={unitSystem.diameterUnits}>
-            Casing Drift
-          </TableRow>
-          <TableRow
-            data={selectedCsg?.capacity}
-            units={unitSystem.capacityUnits}
-          >
-            Casing Capacity
-          </TableRow>
-        </tbody>
-      </table>
+      {selectedCsg && (
+        <table className="table">
+          <tbody>
+            <TableRow data={selectedCsg?.id} units={unitSystem.diameterUnits}>
+              Casing ID
+            </TableRow>
+            <TableRow
+              data={selectedCsg?.drift}
+              units={unitSystem.diameterUnits}
+            >
+              Casing Drift
+            </TableRow>
+            <TableRow
+              data={selectedCsg?.capacity}
+              units={unitSystem.capacityUnits}
+            >
+              Casing Capacity
+            </TableRow>
+            <TableRow data={wallThickness} units={unitSystem.diameterUnits}>
+              Casing Thickness
+            </TableRow>
+          </tbody>
+        </table>
+      )}
     </>
   );
 };
