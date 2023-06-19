@@ -1,6 +1,6 @@
 import { FC, ReactNode, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { InputData } from '../components/AllComponents';
+import { InputData } from '.';
 import {
   changeOuterBS,
   changeWeightInAir,

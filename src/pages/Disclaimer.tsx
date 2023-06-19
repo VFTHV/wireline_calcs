@@ -1,4 +1,4 @@
-import { NavHeader } from '../components/AllComponents';
+import { NavHeader } from '../components';
 
 export const Disclaimer = () => {
   return (

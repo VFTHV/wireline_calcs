@@ -15,21 +15,14 @@ export const TableRow: FC<TableRowProps> = ({ children, data, units }) => {
     if (!data) return '';
     if (typeof data === 'number') {
       let convData = convertToMetric(data, units);
-
-      // added .toFixed() to convertToMetric formula
-      // if (convData < 10) {
-      //   convData = +convData.toFixed(2);
-      // } else {
-      //   convData = Math.round(convData);
-      // }
-      return `${convData} ${units}`;
+      return convData;
     }
     return data;
   };
 
   return (
     <tr className="t-row">
-      <th className="t-head">{children}</th>
+      <th className="t-head">{`${children}, ${units}`}</th>
       <td className="t-data">{displayData()}</td>
     </tr>
   );

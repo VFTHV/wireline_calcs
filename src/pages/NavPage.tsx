@@ -1,4 +1,4 @@
-import { NavItem } from '../components/AllComponents';
+import { NavItem } from '../components';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsExclamationTriangle } from 'react-icons/bs';
 import { FiSettings } from 'react-icons/fi';

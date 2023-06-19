@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
-import { NavHeader } from '../components/AllComponents';
+import { NavHeader } from '../components';
 
 export const ReportProblemForm = () => {
   const [state, handleSubmit] = useForm('xrgvvznv');

@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { GoChevronLeft } from 'react-icons/go';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
-import { Modal } from './AllComponents';
+import { Modal } from '.';
 
 interface NavHeaderProps {
   children: string;

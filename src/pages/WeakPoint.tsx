@@ -6,7 +6,7 @@ import {
   CableSelector,
   CableManualEntrance,
   CurrentCableSpecs,
-} from '../components/AllComponents';
+} from '../components';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   changeToolWeight,

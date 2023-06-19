@@ -6,7 +6,7 @@ import {
   InputData,
   TableRow,
   RadioDualInput,
-} from '../components/AllComponents';
+} from '../components';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   StoreState,

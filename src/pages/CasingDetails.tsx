@@ -1,7 +1,6 @@
 import { FC, useState, useEffect } from 'react';
-import { casingData } from '../database/casings';
-import { NavHeader } from '../components/NavHeader';
-import { TableRow } from '../components/TableRow';
+import { casingData } from '../database/casingsTubings';
+import { NavHeader, TableRow } from '../components';
 import { useSelector } from 'react-redux';
 import { StoreState } from '../store';
 

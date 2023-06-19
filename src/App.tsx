@@ -10,7 +10,7 @@ import {
   PageNotFound,
   ReportProblemForm,
   CasingDetails,
-} from './components/AllComponents';
+} from './components';
 
 function App() {
   return (

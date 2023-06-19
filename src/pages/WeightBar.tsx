@@ -3,7 +3,7 @@ import {
   InputData,
   TableRow,
   WeightBarSelector,
-} from '../components/AllComponents';
+} from '../components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   changeDiameter,

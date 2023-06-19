@@ -6,7 +6,7 @@ import {
   InputData,
   NavHeader,
   TableRow,
-} from '../components/AllComponents';
+} from '../components';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeDepth, StoreState } from '../store';
 import { useStretchCalc } from '../logics/useStretchCalc';

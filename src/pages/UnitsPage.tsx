@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect } from 'react';
-import { NavHeader, RadioDualInput } from '../components/AllComponents';
+import { NavHeader, RadioDualInput } from '../components';
 import {
   DepthUnits,
   WeightUnits,

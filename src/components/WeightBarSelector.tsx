@@ -1,6 +1,6 @@
 import { useState, FC } from 'react';
 import { weightBarsData } from '../database/weightBars';
-import { TableRow } from '../components/AllComponents';
+import { TableRow } from '.';
 
 export const WeightBarSelector: FC = () => {
   const weightBarODs = [...new Set(weightBarsData.map((bar) => bar.od))];
