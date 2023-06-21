@@ -3,7 +3,7 @@ import { CableSpecs, cablesData } from '../../database/cables';
 import { EnvironmentType, EnvironmentUnits } from './types';
 
 export interface WeakPointState {
-  cablesData: CableSpecs[];
+  // cablesData: CableSpecs[];
   currentCable: CableSpecs;
   depth: number;
   toolWeight: number;
@@ -11,7 +11,7 @@ export interface WeakPointState {
 }
 
 const initialState: WeakPointState = {
-  cablesData,
+  // cablesData,
   currentCable: cablesData[0],
   depth: 0,
   toolWeight: 0,

@@ -1,0 +1,76 @@
+import { FC, useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+import { changeCasing, changeTubing } from '../store';
+import { PipeSpecs } from '../database/casingsTubings';
+
+interface PipeSelectorProps {
+  pipeData: PipeSpecs[];
+  typeId: 'casing' | 'tubing';
+}
+
+export const PipeSelector: FC<PipeSelectorProps> = ({ pipeData, typeId }) => {
+  const ODs = [...new Set(pipeData.map((pipe) => pipe.od))];
+  const [od, setOd] = useState<string>('');
+
+  const pipeWeights = pipeData
+    .filter((pipe) => pipe.od === od)
+    .map((pipe) => pipe.weight);
+
+  const [weight, setWeight] = useState<number>(pipeWeights[0]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const selectedPipe = pipeData.find(
+      (csg) => csg.od === od && csg.weight === weight
+    );
+    dispatch(action(selectedPipe));
+  }, [od, weight]);
+
+  const action: ActionCreatorWithPayload<PipeSpecs | undefined> =
+    typeId === 'casing' ? changeCasing : changeTubing;
+
+  const pipeWord = typeId.charAt(0).toUpperCase() + typeId.slice(1);
+
+  return (
+    <>
+      <div className="input-group">
+        <label htmlFor={`${typeId}-od`}>{pipeWord} OD:</label>
+        <select
+          className="input-item"
+          id={`${typeId}-od`}
+          name={`${typeId}-od`}
+          value={od}
+          onChange={(e) => setOd(e.target.value)}
+        >
+          <option value={''}>Choose {pipeWord} OD</option>
+          {ODs.map((od) => {
+            return (
+              <option key={Math.random()} value={od}>
+                {od}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+      <div className="input-group">
+        <label htmlFor="casing-od">{pipeWord} Weight:</label>
+        <select
+          className="input-item"
+          id="casing-weight"
+          name="casing-weight"
+          value={weight}
+          onChange={(e) => setWeight(+e.target.value)}
+        >
+          <option value={''}>Choose {pipeWord} Weight PPF</option>
+          {pipeWeights.map((weight) => {
+            return (
+              <option key={Math.random()} value={weight}>
+                {weight}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+    </>
+  );
+};

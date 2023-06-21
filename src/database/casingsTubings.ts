@@ -1,4 +1,4 @@
-interface CasingSpecs {
+export interface PipeSpecs {
   od: string;
   weight: number;
   id: number;
@@ -6,7 +6,7 @@ interface CasingSpecs {
   capacity: number;
 }
 
-export const casingData: CasingSpecs[] = [
+export const casingData: PipeSpecs[] = [
   { od: '4 1/2', weight: 9.5, id: 4.09, drift: 3.965, capacity: 1.63 },
   { od: '4 1/2', weight: 10.5, id: 4.052, drift: 3.927, capacity: 1.59 },
   { od: '4 1/2', weight: 11.6, id: 4.0, drift: 3.875, capacity: 1.55 },
