@@ -13,20 +13,20 @@ export const PipeSpecsDisplay: FC<PipeSpecsDisplayProps> = ({ typeId }) => {
 
   const selectedPipe = typeId === 'casing' ? casing : tubing;
 
+  const pipeWord =
+    typeId.charAt(0).toUpperCase() + typeId.slice(1).toLowerCase();
+
   if (!selectedPipe) return <></>;
 
-  const odNum = selectedPipe.od
-    .split(' ')
-    .reduce((acc, curr) => acc + eval(curr), 0);
   const wallThickness =
-    selectedPipe && +((odNum - selectedPipe?.id) / 2).toFixed(3);
+    selectedPipe && +((selectedPipe.od - selectedPipe?.id) / 2).toFixed(3);
 
   const renderSpecs = () => {
     return (
       <table className="table">
         <tbody>
           <TableRow data={selectedPipe?.id} units={unitSystem.diameterUnits}>
-            Casing ID
+            {`${pipeWord} ID`}
           </TableRow>
           <TableRow data={selectedPipe?.drift} units={unitSystem.diameterUnits}>
             Casing Drift
@@ -35,10 +35,10 @@ export const PipeSpecsDisplay: FC<PipeSpecsDisplayProps> = ({ typeId }) => {
             data={selectedPipe?.capacity}
             units={unitSystem.capacityUnits}
           >
-            Casing Capacity
+            {`${pipeWord} Capacity`}
           </TableRow>
           <TableRow data={wallThickness} units={unitSystem.diameterUnits}>
-            Casing Thickness
+            {`${pipeWord} Thickness`}
           </TableRow>
         </tbody>
       </table>

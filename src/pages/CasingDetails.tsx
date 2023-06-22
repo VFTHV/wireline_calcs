@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { casingData } from '../database/casingsTubings';
+import { casingData, tubingData } from '../database/casingsTubings';
 import { NavHeader, PipeSelector, PipeSpecsDisplay } from '../components';
 
 export const CasingDetails: FC = () => {
@@ -8,7 +8,7 @@ export const CasingDetails: FC = () => {
       <NavHeader>Casing/Tubing Specs</NavHeader>
       <PipeSelector pipeData={casingData} typeId="casing" />
       <PipeSpecsDisplay typeId="casing" />
-      <PipeSelector pipeData={casingData} typeId="tubing" />
+      <PipeSelector pipeData={tubingData} typeId="tubing" />
       <PipeSpecsDisplay typeId="tubing" />
     </>
   );

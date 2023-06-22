@@ -10,21 +10,21 @@ interface PipeSelectorProps {
 }
 
 export const PipeSelector: FC<PipeSelectorProps> = ({ pipeData, typeId }) => {
-  const ODs = [...new Set(pipeData.map((pipe) => pipe.od))];
-  const [od, setOd] = useState<string>('');
+  const ODs = [...new Set(pipeData.map((pipe) => pipe.nom))];
+  const [nom, setNom] = useState<string>('');
 
   const pipeWeights = pipeData
-    .filter((pipe) => pipe.od === od)
+    .filter((pipe) => pipe.nom === nom)
     .map((pipe) => pipe.weight);
 
   const [weight, setWeight] = useState<number>(pipeWeights[0]);
   const dispatch = useDispatch();
   useEffect(() => {
     const selectedPipe = pipeData.find(
-      (csg) => csg.od === od && csg.weight === weight
+      (csg) => csg.nom === nom && csg.weight === weight
     );
     dispatch(action(selectedPipe));
-  }, [od, weight]);
+  }, [nom, weight]);
 
   const action: ActionCreatorWithPayload<PipeSpecs | undefined> =
     typeId === 'casing' ? changeCasing : changeTubing;
@@ -39,8 +39,8 @@ export const PipeSelector: FC<PipeSelectorProps> = ({ pipeData, typeId }) => {
           className="input-item"
           id={`${typeId}-od`}
           name={`${typeId}-od`}
-          value={od}
-          onChange={(e) => setOd(e.target.value)}
+          value={nom}
+          onChange={(e) => setNom(e.target.value)}
         >
           <option value={''}>Choose {pipeWord} OD</option>
           {ODs.map((od) => {
