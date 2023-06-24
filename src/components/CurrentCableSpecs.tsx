@@ -9,16 +9,10 @@ interface CurrentCableSpecsProps {
 }
 
 export const CurrentCableSpecs: FC<CurrentCableSpecsProps> = ({ specs }) => {
-  const { weightUnits, depthUnits, diameterUnits, currentCable } = useSelector(
-    (state: StoreState) => {
-      return {
-        weightUnits: state.unitSystem.weightUnits,
-        depthUnits: state.unitSystem.depthUnits,
-        diameterUnits: state.unitSystem.diameterUnits,
-        currentCable: state.weakPoint.currentCable,
-      };
-    }
-  );
+  const { weightUnits, depthUnits, diameterUnits, resistivityUnits } =
+    useSelector((state: StoreState) => state.unitSystem);
+
+  const { currentCable } = useSelector((state: StoreState) => state.weakPoint);
 
   const content: { [key in CableSpecsKey]: ReactNode } = {
     type: (
@@ -46,7 +40,14 @@ export const CurrentCableSpecs: FC<CurrentCableSpecsProps> = ({ specs }) => {
         MAX. RECOMMENDED TENSION
       </TableRow>
     ),
-    conductorResistance: <>TBD for developer</>,
+    conductorResistance: (
+      <TableRow
+        data={currentCable.conductorResistance}
+        units={resistivityUnits}
+      >
+        CONDUCTOR RESISTANCE @ 68 degF
+      </TableRow>
+    ),
     inners: (
       <TableRow data={currentCable.inners} units={''}>
         NUMBER OF INNER ARMORS

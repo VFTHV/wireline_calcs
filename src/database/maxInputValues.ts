@@ -7,6 +7,7 @@ import {
   MeasurementType,
   UnitType,
   TempUnits,
+  ResistivityUnits,
 } from '../store/slices/types';
 
 export const maxInputValues: Record<
@@ -25,4 +26,8 @@ export const maxInputValues: Record<
   stretchCoef: { [DepthUnits.FT]: 20, [DepthUnits.M]: 6 },
   outersUsed: { '': 25 },
   temperature: { [TempUnits.DEGF]: 500, [TempUnits.DEGC]: 260 },
+  resistivity: {
+    [ResistivityUnits.OHM_KFT]: 10,
+    [ResistivityUnits.OHM_KM]: 30,
+  },
 };

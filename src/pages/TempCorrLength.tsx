@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { InputData, NavHeader } from '../components';
+import {
+  CableSelector,
+  CurrentCableSpecs,
+  InputData,
+  NavHeader,
+} from '../components';
 import { useSelector } from 'react-redux';
 import { StoreState } from '../store';
 
@@ -18,6 +23,8 @@ export const TempCorrLength = () => {
       >
         Ambient Temperature
       </InputData>
+      <CableSelector />
+      <CurrentCableSpecs specs={['conductorResistance']} />
     </>
   );
 };

@@ -39,6 +39,11 @@ interface Temperature {
   DEGC: 'degC';
 }
 
+interface Resistivity {
+  OHM_KFT: 'Ohm/Kft';
+  OHM_KM: 'Ohm/Km';
+}
+
 export const DepthUnits: Depth = {
   FT: 'ft',
   M: 'm',
@@ -69,6 +74,11 @@ export const TempUnits: Temperature = {
   DEGC: 'degC',
 };
 
+export const ResistivityUnits: Resistivity = {
+  OHM_KFT: 'Ohm/Kft',
+  OHM_KM: 'Ohm/Km',
+};
+
 export type MeasurementType =
   | 'depth'
   | 'weightInAir'
@@ -81,7 +91,8 @@ export type MeasurementType =
   | 'maxTension'
   | 'stretchCoef'
   | 'outersUsed'
-  | 'temperature';
+  | 'temperature'
+  | 'resistivity';
 
 export type UnitType =
   | 'lbs'
@@ -97,4 +108,6 @@ export type UnitType =
   | ''
   | '%'
   | 'degF'
-  | 'degC';
+  | 'degC'
+  | 'Ohm/Kft'
+  | 'Ohm/Km';

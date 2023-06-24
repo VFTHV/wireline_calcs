@@ -6,6 +6,9 @@ import {
   DiameterUnits,
   PressureUnits,
   CapacityUnits,
+  TempUnits,
+  ResistivityUnits,
+  MeasurementType,
 } from '../store/slices/types';
 import {
   StoreState,
@@ -14,6 +17,8 @@ import {
   changeDiameterUnits,
   changePressureUnits,
   changeCapacityUnits,
+  changeTempUnits,
+  changeResistivityUnits,
 } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
@@ -26,6 +31,8 @@ export const UnitsPage = () => {
     diameterUnits,
     pressureUnits,
     capacityUnits,
+    tempUnits,
+    resistivityUnits,
   } = useSelector((state: StoreState) => state.unitSystem);
 
   useEffect(() => {
@@ -38,18 +45,24 @@ export const UnitsPage = () => {
     if (localStorage.getItem('diameter')) {
       dispatch(changeDiameterUnits(localStorage.getItem('diameter')));
     }
-    if (localStorage.getItem('weight')) {
-      dispatch(changeWeightUnits(localStorage.getItem('weight')));
+    if (localStorage.getItem('toolWeight')) {
+      dispatch(changeWeightUnits(localStorage.getItem('toolWeight')));
     }
     if (localStorage.getItem('capacity')) {
       dispatch(changeCapacityUnits(localStorage.getItem('capacity')));
+    }
+    if (localStorage.getItem('temperature')) {
+      dispatch(changeTempUnits(localStorage.getItem('temperature')));
+    }
+    if (localStorage.getItem('resistivity')) {
+      dispatch(changeResistivityUnits(localStorage.getItem('resistivity')));
     }
   }, []);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement>,
     action: ActionCreatorWithPayload<any>,
-    name: string
+    name: MeasurementType
   ) => {
     dispatch(action(e.target.value));
     localStorage.setItem(name, e.target.value);
@@ -75,13 +88,23 @@ export const UnitsPage = () => {
       />
       <RadioDualInput
         values={[WeightUnits.LBS, WeightUnits.KG]}
-        onChange={(e) => handleChange(e, changeWeightUnits, 'weight')}
+        onChange={(e) => handleChange(e, changeWeightUnits, 'toolWeight')}
         currentValue={weightUnits}
       />
       <RadioDualInput
         values={[CapacityUnits.BBL, CapacityUnits.M3]}
         onChange={(e) => handleChange(e, changeCapacityUnits, 'capacity')}
         currentValue={capacityUnits}
+      />
+      <RadioDualInput
+        values={[TempUnits.DEGF, TempUnits.DEGC]}
+        onChange={(e) => handleChange(e, changeTempUnits, 'temperature')}
+        currentValue={tempUnits}
+      />
+      <RadioDualInput
+        values={[ResistivityUnits.OHM_KFT, ResistivityUnits.OHM_KM]}
+        onChange={(e) => handleChange(e, changeResistivityUnits, 'resistivity')}
+        currentValue={resistivityUnits}
       />
     </>
   );

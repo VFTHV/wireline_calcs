@@ -6,6 +6,7 @@ import {
   PressureUnits,
   CapacityUnits,
   TempUnits,
+  ResistivityUnits,
 } from './types';
 
 export interface UnitSystemState {
@@ -15,6 +16,7 @@ export interface UnitSystemState {
   pressureUnits: 'psi' | 'atm';
   capacityUnits: 'bbl/100ft' | 'cu.m/m';
   tempUnits: 'degF' | 'degC';
+  resistivityUnits: 'Ohm/Kft' | 'Ohm/Km';
 }
 
 const initialState: UnitSystemState = {
@@ -24,6 +26,7 @@ const initialState: UnitSystemState = {
   pressureUnits: PressureUnits.PSI,
   capacityUnits: CapacityUnits.BBL,
   tempUnits: TempUnits.DEGF,
+  resistivityUnits: ResistivityUnits.OHM_KFT,
 };
 
 const unitSystemSlice = createSlice({
@@ -48,6 +51,9 @@ const unitSystemSlice = createSlice({
     changeTempUnits(state, action) {
       state.tempUnits = action.payload;
     },
+    changeResistivityUnits(state, action) {
+      state.resistivityUnits = action.payload;
+    },
   },
 });
 
@@ -57,5 +63,7 @@ export const {
   changeWeightUnits,
   changePressureUnits,
   changeCapacityUnits,
+  changeTempUnits,
+  changeResistivityUnits,
 } = unitSystemSlice.actions;
 export const unitSystemReducer = unitSystemSlice.reducer;

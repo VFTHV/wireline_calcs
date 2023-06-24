@@ -5,6 +5,7 @@ import {
   DepthUnits,
   CapacityUnits,
   TempUnits,
+  ResistivityUnits,
 } from '../store/slices/types';
 import { UnitType } from '../store/slices/types';
 
@@ -23,6 +24,8 @@ export const useConvertUnits = () => {
         return (input /= 0.158987294928);
       case TempUnits.DEGF:
         return (5 * (input - 32)) / 9;
+      case ResistivityUnits.OHM_KFT:
+        return (input /= 0.3048);
       default:
         return input;
     }
@@ -41,6 +44,8 @@ export const useConvertUnits = () => {
         return (input /= 0.158987294928);
       case TempUnits.DEGC:
         return (5 * (input - 32)) / 9;
+      case ResistivityUnits.OHM_KM:
+        return (input /= 0.3048);
       default:
         return input;
     }
@@ -59,6 +64,8 @@ export const useConvertUnits = () => {
         return +(input *= 0.158987294928).toFixed(2);
       case TempUnits.DEGC:
         return +((9 * input) / 5 + 32).toFixed(2);
+      case ResistivityUnits.OHM_KM:
+        return +(input *= 0.3048).toFixed(2);
       default:
         return input;
     }
@@ -77,6 +84,8 @@ export const useConvertUnits = () => {
         return +(input *= 0.158987294928).toFixed(2);
       case TempUnits.DEGF:
         return +((9 * input) / 5 + 32).toFixed(2);
+      case ResistivityUnits.OHM_KFT:
+        return +(input *= 0.3048).toFixed(2);
       default:
         return input;
     }
