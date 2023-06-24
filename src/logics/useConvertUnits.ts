@@ -4,6 +4,7 @@ import {
   WeightUnits,
   DepthUnits,
   CapacityUnits,
+  TempUnits,
 } from '../store/slices/types';
 import { UnitType } from '../store/slices/types';
 
@@ -20,6 +21,8 @@ export const useConvertUnits = () => {
         return (input *= 14.7);
       case CapacityUnits.BBL:
         return (input /= 0.158987294928);
+      case TempUnits.DEGF:
+        return (5 * (input - 32)) / 9;
       default:
         return input;
     }
@@ -36,6 +39,8 @@ export const useConvertUnits = () => {
         return (input *= 14.7);
       case CapacityUnits.M3:
         return (input /= 0.158987294928);
+      case TempUnits.DEGC:
+        return (5 * (input - 32)) / 9;
       default:
         return input;
     }
@@ -52,6 +57,8 @@ export const useConvertUnits = () => {
         return +(input /= 14.7).toFixed(0);
       case CapacityUnits.M3:
         return +(input *= 0.158987294928).toFixed(2);
+      case TempUnits.DEGC:
+        return +((9 * input) / 5 + 32).toFixed(2);
       default:
         return input;
     }
@@ -68,6 +75,8 @@ export const useConvertUnits = () => {
         return +(input /= 14.7).toFixed(0);
       case CapacityUnits.BBL:
         return +(input *= 0.158987294928).toFixed(2);
+      case TempUnits.DEGF:
+        return +((9 * input) / 5 + 32).toFixed(2);
       default:
         return input;
     }

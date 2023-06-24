@@ -34,6 +34,11 @@ interface Capacity {
   M3: 'cu.m/m';
 }
 
+interface Temperature {
+  DEGF: 'degF';
+  DEGC: 'degC';
+}
+
 export const DepthUnits: Depth = {
   FT: 'ft',
   M: 'm',
@@ -59,6 +64,11 @@ export const CapacityUnits: Capacity = {
   M3: 'cu.m/m',
 };
 
+export const TempUnits: Temperature = {
+  DEGF: 'degF',
+  DEGC: 'degC',
+};
+
 export type MeasurementType =
   | 'depth'
   | 'weightInAir'
@@ -70,7 +80,8 @@ export type MeasurementType =
   | 'outerBS'
   | 'maxTension'
   | 'stretchCoef'
-  | 'outersUsed';
+  | 'outersUsed'
+  | 'temperature';
 
 export type UnitType =
   | 'lbs'
@@ -84,4 +95,6 @@ export type UnitType =
   | 'bbl/100ft'
   | 'cu.m/m'
   | ''
-  | '%';
+  | '%'
+  | 'degF'
+  | 'degC';

@@ -5,6 +5,7 @@ import {
   DiameterUnits,
   PressureUnits,
   CapacityUnits,
+  TempUnits,
 } from './types';
 
 export interface UnitSystemState {
@@ -13,6 +14,7 @@ export interface UnitSystemState {
   diameterUnits: 'in' | 'mm';
   pressureUnits: 'psi' | 'atm';
   capacityUnits: 'bbl/100ft' | 'cu.m/m';
+  tempUnits: 'degF' | 'degC';
 }
 
 const initialState: UnitSystemState = {
@@ -21,6 +23,7 @@ const initialState: UnitSystemState = {
   diameterUnits: DiameterUnits.INCH,
   pressureUnits: PressureUnits.PSI,
   capacityUnits: CapacityUnits.BBL,
+  tempUnits: TempUnits.DEGF,
 };
 
 const unitSystemSlice = createSlice({
@@ -41,6 +44,9 @@ const unitSystemSlice = createSlice({
     },
     changeCapacityUnits(state, action) {
       state.capacityUnits = action.payload;
+    },
+    changeTempUnits(state, action) {
+      state.tempUnits = action.payload;
     },
   },
 });

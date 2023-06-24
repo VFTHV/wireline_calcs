@@ -10,6 +10,7 @@ import {
   PageNotFound,
   ReportProblemForm,
   CasingDetails,
+  TempCorrLength,
 } from './components';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/stretch" element={<Stretch />} />
         <Route path="/tension-at-depth" element={<MaxPull />} />
         <Route path="/csg-specs" element={<CasingDetails />} />
+        <Route path="/temp-corr-length" element={<TempCorrLength />} />
         <Route path="/feedback" element={<ReportProblemForm />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="*" element={<PageNotFound />} />

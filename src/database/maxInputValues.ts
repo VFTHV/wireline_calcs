@@ -6,6 +6,7 @@ import {
   CapacityUnits,
   MeasurementType,
   UnitType,
+  TempUnits,
 } from '../store/slices/types';
 
 export const maxInputValues: Record<
@@ -23,4 +24,5 @@ export const maxInputValues: Record<
   maxTension: { [WeightUnits.LBS]: 15000, [WeightUnits.KG]: 6750 },
   stretchCoef: { [DepthUnits.FT]: 20, [DepthUnits.M]: 6 },
   outersUsed: { '': 25 },
+  temperature: { [TempUnits.DEGF]: 500, [TempUnits.DEGC]: 260 },
 };
