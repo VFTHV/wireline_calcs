@@ -44,6 +44,10 @@ interface Resistivity {
   OHM_KM: 'Ohm/Km';
 }
 
+interface Resistance {
+  OHM: 'Ohm';
+}
+
 export const DepthUnits: Depth = {
   FT: 'ft',
   M: 'm',
@@ -79,6 +83,10 @@ export const ResistivityUnits: Resistivity = {
   OHM_KM: 'Ohm/Km',
 };
 
+export const ResistanceUnits: Resistance = {
+  OHM: 'Ohm',
+};
+
 export type MeasurementType =
   | 'depth'
   | 'weightInAir'
@@ -92,7 +100,8 @@ export type MeasurementType =
   | 'stretchCoef'
   | 'outersUsed'
   | 'temperature'
-  | 'resistivity';
+  | 'resistivity'
+  | 'resistance';
 
 export type UnitType =
   | 'lbs'
@@ -110,4 +119,5 @@ export type UnitType =
   | 'degF'
   | 'degC'
   | 'Ohm/Kft'
-  | 'Ohm/Km';
+  | 'Ohm/Km'
+  | 'Ohm';

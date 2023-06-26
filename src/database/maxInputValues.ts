@@ -8,6 +8,7 @@ import {
   UnitType,
   TempUnits,
   ResistivityUnits,
+  ResistanceUnits,
 } from '../store/slices/types';
 
 export const maxInputValues: Record<
@@ -30,4 +31,5 @@ export const maxInputValues: Record<
     [ResistivityUnits.OHM_KFT]: 10,
     [ResistivityUnits.OHM_KM]: 30,
   },
+  resistance: { [ResistanceUnits.OHM]: 300 },
 };

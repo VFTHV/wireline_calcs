@@ -7,6 +7,7 @@ import {
   CapacityUnits,
   TempUnits,
   ResistivityUnits,
+  ResistanceUnits,
 } from './types';
 
 export interface UnitSystemState {
@@ -17,6 +18,7 @@ export interface UnitSystemState {
   capacityUnits: 'bbl/100ft' | 'cu.m/m';
   tempUnits: 'degF' | 'degC';
   resistivityUnits: 'Ohm/Kft' | 'Ohm/Km';
+  resistanceUnits: 'Ohm';
 }
 
 const initialState: UnitSystemState = {
@@ -27,6 +29,7 @@ const initialState: UnitSystemState = {
   capacityUnits: CapacityUnits.BBL,
   tempUnits: TempUnits.DEGF,
   resistivityUnits: ResistivityUnits.OHM_KFT,
+  resistanceUnits: ResistanceUnits.OHM,
 };
 
 const unitSystemSlice = createSlice({
