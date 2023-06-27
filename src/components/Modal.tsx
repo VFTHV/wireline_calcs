@@ -251,8 +251,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
             you measured between cablehead and collector ring in Ohms
           </p>
           <p>
-            <strong>Step 3.</strong> Enter the total wireline resistance that
-            you measured between cablehead and collector ring in Ohms
+            <strong>Step 3.</strong> Choose the cable type you are using
           </p>
           <p>
             <strong>Step 4.</strong> Choose the type of cable you are using
