@@ -45,7 +45,7 @@ export const CurrentCableSpecs: FC<CurrentCableSpecsProps> = ({ specs }) => {
         data={currentCable.conductorResistance}
         units={resistivityUnits}
       >
-        CONDUCTOR RESISTANCE @ 68 degF
+        NOM. CONDUCTOR RESISTIVITY
       </TableRow>
     ),
     inners: (
@@ -73,6 +73,7 @@ export const CurrentCableSpecs: FC<CurrentCableSpecsProps> = ({ specs }) => {
         AVG. CABLE WEIGHT IN AIR
       </TableRow>
     ),
+    tempCorrResist: <>TDB for developer</>,
   };
 
   return (

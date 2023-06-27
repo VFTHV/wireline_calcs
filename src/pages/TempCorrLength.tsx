@@ -4,9 +4,11 @@ import {
   CurrentCableSpecs,
   InputData,
   NavHeader,
+  TableRow,
 } from '../components';
 import { useSelector } from 'react-redux';
 import { StoreState } from '../store';
+import { useTempLengthCalc } from '../logics/useTempLengthCalc';
 
 export const TempCorrLength = () => {
   const [temp, setTemp] = useState(68);
@@ -15,27 +17,15 @@ export const TempCorrLength = () => {
     (state: StoreState) => state.unitSystem
   );
 
-  const getDeltaR = (
-    length: number,
-    R: number,
-    Rnom: number,
-    Tcurr: number
-  ): number => {
-    const deltaR = ((1000 * R) / length - Rnom) / (Tcurr - 68);
-    return deltaR;
-  };
+  const { currentCable } = useSelector((state: StoreState) => state.weakPoint);
+  const { unitSystem } = useSelector((state: StoreState) => state);
 
-  const getLength = (
-    Rnom: number,
-    deltaR: number,
-    R: number,
-    Tcurr: number
-  ): number => {
-    const length = (R / (Rnom + deltaR * (Tcurr - 68))) * 1000;
-    return length;
-  };
-
-  console.log(getLength(4.1, 0.008951961773260741, 250, 85));
+  const { length } = useTempLengthCalc(
+    resistance,
+    currentCable,
+    temp,
+    unitSystem
+  );
 
   return (
     <>
@@ -58,6 +48,13 @@ export const TempCorrLength = () => {
       </InputData>
       <CableSelector />
       <CurrentCableSpecs specs={['conductorResistance']} />
+      <table className="table">
+        <tbody>
+          <TableRow data={length} units={unitSystem.depthUnits}>
+            Temperature Corrected Cable Length
+          </TableRow>
+        </tbody>
+      </table>
     </>
   );
 };

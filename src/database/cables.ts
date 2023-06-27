@@ -10,6 +10,7 @@ export interface CableSpecs {
   innerArmorBS: number;
   outerArmorBS: number;
   weightInAir: number;
+  tempCorrResist: number;
   // add armors in cone - max rehead wires ???
   // in max number of armors to rehead should not exceed it
 }
@@ -29,6 +30,7 @@ export const cablesData: CableSpecs[] = [
     innerArmorBS: 0,
     outerArmorBS: 0,
     weightInAir: 0,
+    tempCorrResist: 0,
   },
   {
     type: '1N10 (1/10")',
@@ -42,6 +44,7 @@ export const cablesData: CableSpecs[] = [
     innerArmorBS: 42,
     outerArmorBS: 42,
     weightInAir: 19,
+    tempCorrResist: 0.045851554025018386,
   },
   {
     type: '1K22 (7/32")',
@@ -55,6 +58,7 @@ export const cablesData: CableSpecs[] = [
     innerArmorBS: 132,
     outerArmorBS: 286,
     weightInAir: 95,
+    tempCorrResist: 0.008951965450480628,
   },
   {
     type: '1N22 (7/32")',
@@ -68,6 +72,7 @@ export const cablesData: CableSpecs[] = [
     innerArmorBS: 215,
     outerArmorBS: 215,
     weightInAir: 96,
+    tempCorrResist: 0.008951965450480628,
   },
   {
     type: '1N25 (1/4")',
@@ -81,6 +86,7 @@ export const cablesData: CableSpecs[] = [
     innerArmorBS: 286,
     outerArmorBS: 286,
     weightInAir: 125,
+    tempCorrResist: 0.008951965450480628,
   },
   {
     type: '1N29 (9/32")',
@@ -94,6 +100,7 @@ export const cablesData: CableSpecs[] = [
     innerArmorBS: 393,
     outerArmorBS: 393,
     weightInAir: 157,
+    tempCorrResist: 0.006113537639492509,
   },
   {
     type: '1Q29-EHS-LT (9/32")',
@@ -107,6 +114,7 @@ export const cablesData: CableSpecs[] = [
     innerArmorBS: 602,
     outerArmorBS: 236,
     weightInAir: 162,
+    tempCorrResist: 0.006331878483806315,
   },
   {
     type: '1N32 (5/16")',
@@ -120,6 +128,7 @@ export const cablesData: CableSpecs[] = [
     innerArmorBS: 442,
     outerArmorBS: 442,
     weightInAir: 194,
+    tempCorrResist: 0.006113537639492509,
   },
   {
     type: '1N32-EEHS (5/16")',
@@ -133,6 +142,7 @@ export const cablesData: CableSpecs[] = [
     innerArmorBS: 564,
     outerArmorBS: 564,
     weightInAir: 194,
+    tempCorrResist: 0.006113537639492509,
   },
   {
     type: '1Q32-EEHS-LT (5/16")',
@@ -146,5 +156,6 @@ export const cablesData: CableSpecs[] = [
     innerArmorBS: 769,
     outerArmorBS: 342,
     weightInAir: 199,
+    tempCorrResist: 0.005240174942186858,
   },
 ];
