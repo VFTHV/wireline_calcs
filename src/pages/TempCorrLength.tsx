@@ -11,7 +11,7 @@ import { StoreState } from '../store';
 import { useTempLengthCalc } from '../logics/useTempLengthCalc';
 
 export const TempCorrLength = () => {
-  const [temp, setTemp] = useState(68);
+  const [temp, setTemp] = useState(0);
   const [resistance, setResistance] = useState(0);
   const { tempUnits, resistanceUnits } = useSelector(
     (state: StoreState) => state.unitSystem
@@ -50,7 +50,10 @@ export const TempCorrLength = () => {
       <CurrentCableSpecs specs={['conductorResistance']} />
       <table className="table">
         <tbody>
-          <TableRow data={length} units={unitSystem.depthUnits}>
+          <TableRow
+            data={length === Infinity ? 0 : length}
+            units={unitSystem.depthUnits}
+          >
             Temperature Corrected Cable Length
           </TableRow>
         </tbody>

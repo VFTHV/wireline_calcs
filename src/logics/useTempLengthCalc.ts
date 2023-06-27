@@ -12,7 +12,6 @@ export const useTempLengthCalc = (
 ) => {
   const { conductorResistance: Rnom, tempCorrResist: deltaR } = currentCable;
   const convTemp = revertToEnglish(temperature, unitSystem.tempUnits);
-  console.log(convTemp);
   const length = Math.round(
     (measResistance / (Rnom + deltaR * (convTemp - 68))) * 1000
   );

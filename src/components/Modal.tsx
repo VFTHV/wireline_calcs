@@ -238,7 +238,29 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           functioning of wellbore equipment.
         </p>
       );
+    } else if (pathname.includes('temp-corr-length')) {
+      textContent.title = 'Temp. Corrected Length';
+      textContent.content = (
+        <article>
+          <p>
+            <strong>Step 1.</strong> Enter current environment temperature in
+            degF or degC
+          </p>
+          <p>
+            <strong>Step 2.</strong> Enter the total wireline resistance that
+            you measured between cablehead and collector ring in Ohms
+          </p>
+          <p>
+            <strong>Step 3.</strong> Enter the total wireline resistance that
+            you measured between cablehead and collector ring in Ohms
+          </p>
+          <p>
+            <strong>Step 4.</strong> Choose the type of cable you are using
+          </p>
+        </article>
+      );
     }
+
     return textContent;
   };
 
