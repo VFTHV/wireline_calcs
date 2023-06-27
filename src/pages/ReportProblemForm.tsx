@@ -41,6 +41,9 @@ export const ReportProblemForm = () => {
             <option value={'weakPoint'}>Weak Point Calculator</option>
             <option value={'sinkerBar'}>Sinker Bar Weight Calculator</option>
             <option value={'cableStretch'}>Cable Stretch Calculator</option>
+            <option value={'maxTension'}>Max. Tension at Depth</option>
+            <option value={'casingTubing'}>Casing Tubing Specs</option>
+            <option value={'tempCorrLength'}>Temp. Corrected Length</option>
           </select>
         </div>
         <div className="input-group">
