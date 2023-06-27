@@ -50,6 +50,7 @@ export const CableManualEntrance: FC<CableManualEntranceProps> = ({
     conductorResistance: <>TBD for developer</>,
     inners: <>TBD for developer</>,
     outers: <>TBD for developer</>,
+    tempCorrResist: <>TBD for developer</>,
     innerArmorBS: (
       <InputData
         onChange={(e) => dispatch(changeInnerBS(+e.target.value))}
