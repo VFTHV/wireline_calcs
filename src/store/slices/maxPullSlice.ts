@@ -3,13 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 export interface MaxPullState {
   percentPull: number;
   outersUsed: number;
-  innersUsed: number;
 }
 
 const initialState: MaxPullState = {
   percentPull: 0,
   outersUsed: 0,
-  innersUsed: 0,
 };
 
 const maxPullSlice = createSlice({
@@ -22,12 +20,8 @@ const maxPullSlice = createSlice({
     changeOutersUsed(state, action: { payload: number }) {
       state.outersUsed = action.payload;
     },
-    changeInnersUsed(state, action: { payload: number }) {
-      state.innersUsed = action.payload;
-    },
   },
 });
 
-export const { changePercetPull, changeOutersUsed, changeInnersUsed } =
-  maxPullSlice.actions;
+export const { changePercetPull, changeOutersUsed } = maxPullSlice.actions;
 export const maxPullReducer = maxPullSlice.reducer;

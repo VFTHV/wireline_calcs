@@ -14,7 +14,6 @@ import {
   changeEnvironment,
   changePercetPull,
   changeOutersUsed,
-  changeInnersUsed,
 } from '../store';
 import { useMaxPullCalc } from '../logics/useMaxPullCalc';
 import { EnvironmentUnits } from '../store/slices/types';
@@ -24,7 +23,7 @@ export const MaxPull = () => {
   const { depth, environment, currentCable } = useSelector(
     (state: StoreState) => state.weakPoint
   );
-  const { percentPull, outersUsed, innersUsed } = useSelector(
+  const { percentPull, outersUsed } = useSelector(
     (state: StoreState) => state.maxPull
   );
   const dispatch = useDispatch();
@@ -33,7 +32,6 @@ export const MaxPull = () => {
     depth,
     percentPull,
     outersUsed,
-    innersUsed,
     currentCable,
     environment,
     unitSystem
@@ -74,14 +72,6 @@ export const MaxPull = () => {
         typeId={'outersUsed'}
       >
         Number of Outer Armors Used
-      </InputData>
-      <InputData
-        value={innersUsed}
-        unit=""
-        onChange={(e) => dispatch(changeInnersUsed(+e.target.value))}
-        typeId={'outersUsed'}
-      >
-        Number of Inner Armors Used
       </InputData>
       <InputData
         value={percentPull}

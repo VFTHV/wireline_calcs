@@ -253,9 +253,6 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           <p>
             <strong>Step 3.</strong> Choose the cable type you are using
           </p>
-          <p>
-            <strong>Step 4.</strong> Choose the type of cable you are using
-          </p>
         </article>
       );
     }
