@@ -7,6 +7,8 @@ export interface PipeSpecs {
   capacity: number;
 }
 
+export type PipeSpecsKey = keyof PipeSpecs;
+
 export const tubingData: PipeSpecs[] = [
   {
     nom: '3/4',

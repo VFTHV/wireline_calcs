@@ -16,6 +16,7 @@ export const NavPage = () => {
         <NavItem to="/tension-at-depth">Max. Tension at Depth</NavItem>
         <NavItem to="/csg-specs">Casing/Tubing Specs</NavItem>
         <NavItem to="/temp-corr-length">Temp. Corrected Length</NavItem>
+        <NavItem to="/cbl">Cement Bond Log Calcs</NavItem>
         <NavItem to="/feedback" icon={<AiOutlineMail />}>
           Report a Problem
         </NavItem>

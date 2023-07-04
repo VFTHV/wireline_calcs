@@ -22,3 +22,4 @@ export * from '../pages/ReportProblemForm';
 export * from '../pages/CasingDetails';
 export * from '../pages/CasingDetails';
 export * from '../pages/TempCorrLength';
+export * from '../pages/CBL';
