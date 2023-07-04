@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 *.pdf
+
+cbl_sheets
