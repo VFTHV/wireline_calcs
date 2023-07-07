@@ -32,4 +32,5 @@ export const maxInputValues: Record<
     [ResistivityUnits.OHM_KM]: 30,
   },
   resistance: { [ResistanceUnits.OHM]: 300 },
+  toolOd: { [DiameterUnits.INCH]: 7, [DiameterUnits.MM]: 180 },
 };

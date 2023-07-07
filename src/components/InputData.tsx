@@ -8,6 +8,7 @@ interface InputDataProps {
   typeId: MeasurementType;
   value: number;
   unit: UnitType;
+  placeholder?: string;
 }
 
 export const InputData: FC<InputDataProps> = ({
@@ -16,6 +17,7 @@ export const InputData: FC<InputDataProps> = ({
   typeId,
   value,
   unit,
+  placeholder,
 }) => {
   const renderError = () => {
     const maxInput = maxInputValues[typeId][unit];
@@ -40,6 +42,7 @@ export const InputData: FC<InputDataProps> = ({
           value={value ? Math.abs(value) : ''}
           type="number"
           onChange={onChange}
+          placeholder={placeholder}
         />
         <span>{unit}</span>
       </div>

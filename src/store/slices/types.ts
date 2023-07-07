@@ -101,7 +101,8 @@ export type MeasurementType =
   | 'outersUsed'
   | 'temperature'
   | 'resistivity'
-  | 'resistance';
+  | 'resistance'
+  | 'toolOd';
 
 export type UnitType =
   | 'lbs'
@@ -120,4 +121,5 @@ export type UnitType =
   | 'degC'
   | 'Ohm/Kft'
   | 'Ohm/Km'
-  | 'Ohm';
+  | 'Ohm'
+  | 'usec';

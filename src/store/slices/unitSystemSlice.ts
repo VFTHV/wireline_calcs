@@ -19,6 +19,7 @@ export interface UnitSystemState {
   tempUnits: 'degF' | 'degC';
   resistivityUnits: 'Ohm/Kft' | 'Ohm/Km';
   resistanceUnits: 'Ohm';
+  microSecUnits: 'usec';
 }
 
 const initialState: UnitSystemState = {
@@ -30,6 +31,7 @@ const initialState: UnitSystemState = {
   tempUnits: TempUnits.DEGF,
   resistivityUnits: ResistivityUnits.OHM_KFT,
   resistanceUnits: ResistanceUnits.OHM,
+  microSecUnits: 'usec',
 };
 
 const unitSystemSlice = createSlice({
