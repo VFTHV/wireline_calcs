@@ -4,10 +4,10 @@ import { PipeSpecs } from '../database/casingsTubings';
 // or play with tools id to match table Travel Time
 
 export const useCblCalcs = (
-  csg: PipeSpecs,
+  csg: PipeSpecs | undefined,
   toolOd: number
 ): { ppt3ft: number; ppt5ft: number } | undefined => {
-  if (!csg || !toolOd) return;
+  if (!csg || !toolOd || csg.od < toolOd * 1.43) return;
   const dTsilicone = 226;
   const dTfrWater = 205.9;
   const dTcsg = 57;

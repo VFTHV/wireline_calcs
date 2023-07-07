@@ -25,6 +25,10 @@ export const CBL = () => {
   const renderPPT = () => {
     if (!casing || !toolOd) return;
 
+    if (casing.od < toolOd * 1.43) {
+      return <>THIS CASING SIZE IS OUTSIDE OF TOOL'S OPERATING RANGE</>;
+    }
+
     return (
       <table className="table">
         <tbody>
@@ -46,7 +50,7 @@ export const CBL = () => {
     <>
       <NavHeader>Cement Bond Log Calcs</NavHeader>
       <PipeSelector pipeData={casingData} typeId="casing" />
-      {/* add tool selector */}
+
       <InputData
         onChange={(e) => setToolOd(+e.target.value)}
         value={toolOd}
