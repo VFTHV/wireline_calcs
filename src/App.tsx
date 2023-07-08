@@ -1,3 +1,4 @@
+import { useLocalStorageSet } from './logics/useLocalStorageSet';
 import { Routes, Route } from 'react-router-dom';
 import {
   NavPage,
@@ -15,6 +16,8 @@ import {
 } from './components';
 
 function App() {
+  useLocalStorageSet();
+
   return (
     <>
       <Routes>
