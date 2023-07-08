@@ -1,4 +1,5 @@
 import { PipeSpecs } from '../database/casingsTubings';
+import { FluidSpecs } from '../database/cbl';
 import { UnitSystemState } from '../store';
 import { useConvertUnits } from './useConvertUnits';
 
@@ -7,25 +8,26 @@ const { revertToEnglish } = useConvertUnits();
 export const useCblCalcs = (
   csg: PipeSpecs | undefined,
   toolOd: number,
-  unitSystem: UnitSystemState
+  unitSystem: UnitSystemState,
+  fluid: FluidSpecs
 ): { ppt3ft: number; ppt5ft: number } | undefined => {
   if (!csg || !toolOd) return;
 
   const convToolOd = revertToEnglish(toolOd, unitSystem.diameterUnits);
 
   const dTsilicone = 226;
-  const dTfrWater = 205.9;
+  // const dTfrWater = 205.9;
   const dTcsg = 57;
   const toolId = 0.53 * convToolOd;
   const ttTool: number = (dTsilicone * ((convToolOd - toolId) / 2)) / 12;
 
   const normalDistance = ((csg.id - convToolOd) * 0.5) / 12;
   // FLUID calcs
-  const asin = Math.asin(dTcsg / dTfrWater);
+  const asin = Math.asin(dTcsg / fluid.slowness);
   const angle = Math.atan(asin);
   // const degrees = (angle * 180) / Math.PI;
   const fluidPath = normalDistance / Math.cos(angle);
-  const ttFluid = fluidPath * dTfrWater;
+  const ttFluid = fluidPath * fluid.slowness;
 
   // CASING calcs
   const csgReduction = normalDistance * Math.tan(angle);

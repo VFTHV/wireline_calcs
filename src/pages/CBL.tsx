@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  FluidSelector,
   InputData,
   NavHeader,
   PipeSelector,
@@ -14,11 +15,11 @@ import { useConvertUnits } from '../logics/useConvertUnits';
 
 export const CBL = () => {
   const [toolOd, setToolOd] = useState<number>(0);
-  const { casing } = useSelector((store: StoreState) => store.cbl);
+  const { casing, fluid } = useSelector((state: StoreState) => state.cbl);
   const { unitSystem } = useSelector((state: StoreState) => state);
   const { microSecUnits, diameterUnits } = unitSystem;
 
-  const ppt = useCblCalcs(casing, toolOd, unitSystem);
+  const ppt = useCblCalcs(casing, toolOd, unitSystem, fluid);
   const { revertToEnglish } = useConvertUnits();
 
   const renderPPT = () => {
@@ -27,11 +28,7 @@ export const CBL = () => {
     const convToolOd = revertToEnglish(toolOd, diameterUnits);
 
     if (casing.id < convToolOd * 1.43) {
-      return (
-        <h3 className="err-header">
-          THIS CASING SIZE IS OUTSIDE OF TOOL'S OPERATING RANGE
-        </h3>
-      );
+      return <h3 className="err-header">TOOL SIZE TOO LARGE FOR CASING ID</h3>;
     }
 
     return (
@@ -66,6 +63,7 @@ export const CBL = () => {
         Enter CBL tool OD
       </InputData>
       {/* add fluid  selector */}
+      <FluidSelector />
       <PipeSpecsDisplay typeId="casing" specs={['id']} pipeThck />
       {renderPPT()}
     </>

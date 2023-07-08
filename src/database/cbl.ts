@@ -1,4 +1,4 @@
-interface FluidSpecs {
+export interface FluidSpecs {
   type: string;
   slowness: number;
   density: number;

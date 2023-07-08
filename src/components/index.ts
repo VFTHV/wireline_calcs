@@ -8,6 +8,7 @@ export * from './RadioDualInput';
 export * from './TableRow';
 export * from './WeightBarSelector';
 export * from './Modal';
+export * from './FluidSelector';
 export * from './PipeSelector';
 export * from './PipeSpecsDisplay';
 export * from '../pages/NavPage';
