@@ -1,24 +1,25 @@
 import { PipeSpecs } from '../database/casingsTubings';
+import { UnitSystemState } from '../store';
+import { useConvertUnits } from './useConvertUnits';
 
-// find out the id of 4.5 tool
-// or play with tools id to match table Travel Time
+const { revertToEnglish } = useConvertUnits();
 
 export const useCblCalcs = (
   csg: PipeSpecs | undefined,
-  toolOd: number
+  toolOd: number,
+  unitSystem: UnitSystemState
 ): { ppt3ft: number; ppt5ft: number } | undefined => {
-  if (!csg || !toolOd || csg.od < toolOd * 1.43) return;
+  if (!csg || !toolOd) return;
+
+  const convToolOd = revertToEnglish(toolOd, unitSystem.diameterUnits);
+
   const dTsilicone = 226;
   const dTfrWater = 205.9;
   const dTcsg = 57;
+  const toolId = 0.53 * convToolOd;
+  const ttTool: number = (dTsilicone * ((convToolOd - toolId) / 2)) / 12;
 
-  const toolId = 0.53 * toolOd;
-
-  const ttTool: number = (dTsilicone * ((toolOd - toolId) / 2)) / 12;
-
-  // create validation: if csg id is smaller than (tool OD + certain value),
-
-  const normalDistance = ((csg.id - toolOd) * 0.5) / 12;
+  const normalDistance = ((csg.id - convToolOd) * 0.5) / 12;
   // FLUID calcs
   const asin = Math.asin(dTcsg / dTfrWater);
   const angle = Math.atan(asin);
@@ -36,8 +37,6 @@ export const useCblCalcs = (
   const csg5ftPath = 5 - csgReduction * 2;
   const ttCsg5ft = dTcsg * csg5ftPath;
   const ppt5ft = Math.round(2 * ttTool + ttCsg5ft + 2 * ttFluid);
-  console.log('ppt3ft: ', ppt3ft);
-  console.log('ppt5ft: ', ppt5ft);
 
   return { ppt3ft, ppt5ft };
 };

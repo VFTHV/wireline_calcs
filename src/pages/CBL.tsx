@@ -10,23 +10,28 @@ import { casingData } from '../database/casingsTubings';
 import { useCblCalcs } from '../logics/useCblCalcs';
 import { useSelector } from 'react-redux';
 import { StoreState } from '../store';
-import { DiameterUnits } from '../store/slices/types';
+import { useConvertUnits } from '../logics/useConvertUnits';
 
 export const CBL = () => {
   const [toolOd, setToolOd] = useState<number>(0);
   const { casing } = useSelector((store: StoreState) => store.cbl);
-  const { microSecUnits } = useSelector(
-    (store: StoreState) => store.unitSystem
-  );
-  console.clear();
+  const { unitSystem } = useSelector((state: StoreState) => state);
+  const { microSecUnits, diameterUnits } = unitSystem;
 
-  const ppt = useCblCalcs(casing, toolOd);
+  const ppt = useCblCalcs(casing, toolOd, unitSystem);
+  const { revertToEnglish } = useConvertUnits();
 
   const renderPPT = () => {
     if (!casing || !toolOd) return;
 
-    if (casing.od < toolOd * 1.43) {
-      return <>THIS CASING SIZE IS OUTSIDE OF TOOL'S OPERATING RANGE</>;
+    const convToolOd = revertToEnglish(toolOd, diameterUnits);
+
+    if (casing.id < convToolOd * 1.43) {
+      return (
+        <h3 className="err-header">
+          THIS CASING SIZE IS OUTSIDE OF TOOL'S OPERATING RANGE
+        </h3>
+      );
     }
 
     return (
@@ -55,7 +60,7 @@ export const CBL = () => {
         onChange={(e) => setToolOd(+e.target.value)}
         value={toolOd}
         typeId="toolOd"
-        unit={DiameterUnits.INCH}
+        unit={diameterUnits}
         placeholder='E.g. 1-11/16" is 1.69" or 43 mm'
       >
         Enter CBL tool OD

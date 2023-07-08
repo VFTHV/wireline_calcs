@@ -160,3 +160,9 @@
   list-style-type: initial;
   list-style-position: inside;
 }
+
+.err-header {
+  margin: $spacing-default;
+  color: $warning-color;
+  text-align: center;
+}

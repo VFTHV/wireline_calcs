@@ -182,4 +182,10 @@ h6 {
 .styled-list {
   list-style-type: initial;
   list-style-position: inside;
+}
+
+.err-header {
+  margin: 1rem;
+  color: rgba(255, 0, 0, 0.616);
+  text-align: center;
 }/*# sourceMappingURL=styles.css.map */
