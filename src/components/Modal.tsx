@@ -255,6 +255,34 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           </p>
         </article>
       );
+    } else if (pathname.includes('cbl')) {
+      textContent.title = 'Cement Bond Log Calcs';
+      textContent.content = (
+        <article>
+          <p>
+            <strong>Purpose.</strong> Use this calculator to determine Travel
+            Times for E1 peak of 3ft and 5ft waveforms
+          </p>
+          <p>
+            <strong>Step 1.</strong> Choose Casing OD
+          </p>
+          <p>
+            <strong>Step 2.</strong> Choose Casing Weight
+          </p>
+          <p>
+            <strong>Step 3.</strong> Enter OD the CBL tool part which contains
+            acoustic transmitters and receivers
+          </p>
+          <p>
+            <strong>Step 4.</strong> Choose Fluid Type
+          </p>
+          <p>
+            <strong>Disclaimer.</strong> Please note that calculated values are
+            approximate, since the actual Travel Time may vary and also
+            depending on tool characteristics, ambient temperature and pressure
+          </p>
+        </article>
+      );
     }
 
     return textContent;
