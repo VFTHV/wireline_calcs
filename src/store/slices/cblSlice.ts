@@ -28,7 +28,6 @@ const cblSlice = createSlice({
       const selected = fluidsData.find(
         (fluid: FluidSpecs) => fluid.type === action.payload
       );
-
       if (!selected) return;
       state.fluid = selected;
     },

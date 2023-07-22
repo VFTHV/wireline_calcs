@@ -72,3 +72,5 @@ Ideas:
 
   - DONE - in CurrentCableSpecs input all the specs with descriptions. But create props
   that will allow which ones to choose. Same for CableManualEntrance
+
+  - create const pathNames as object with all pathnames and use it in App.tsx, NavPage.tsx, Modal.tsx

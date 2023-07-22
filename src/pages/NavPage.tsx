@@ -13,6 +13,7 @@ export const NavPage = () => {
         <NavItem to="/weakpoint">Weak Point Calculator</NavItem>
         <NavItem to="/weightbar">Sinker Bar Weight Calculator</NavItem>
         <NavItem to="/stretch">Cable Stretch Calculator</NavItem>
+        <NavItem to="/keyseat">Cable Stuck Depth {`(Keyseat)`}</NavItem>
         <NavItem to="/tension-at-depth">Max. Tension at Depth</NavItem>
         <NavItem to="/csg-specs">Casing/Tubing Specs</NavItem>
         <NavItem to="/temp-corr-length">Temp. Corrected Length</NavItem>

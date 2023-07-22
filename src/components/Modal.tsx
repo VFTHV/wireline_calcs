@@ -270,16 +270,46 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
             <strong>Step 2.</strong> Choose Casing Weight
           </p>
           <p>
-            <strong>Step 3.</strong> Enter OD the CBL tool part which contains
-            acoustic transmitters and receivers
+            <strong>Step 3.</strong> Enter the OD of CBL tool transmitters and
+            receivers
           </p>
           <p>
             <strong>Step 4.</strong> Choose Fluid Type
           </p>
           <p>
             <strong>Disclaimer.</strong> Please note that calculated values are
-            approximate, since the actual Travel Time may vary and also
-            depending on tool characteristics, ambient temperature and pressure
+            approximate, since the actual Travel Time may vary depending on tool
+            characteristics, ambient temperature and pressure
+          </p>
+        </article>
+      );
+    } else if (pathname.includes('keyseat')) {
+      textContent.title = 'Cable Stuck Depth (Keyseat)';
+      textContent.content = (
+        <article>
+          <p>
+            <strong>Purpose.</strong> If you are unsure whther your cable{' '}
+            {`(not logging tools)`} got stuck then this calculator to determine
+            cable stuck depth.
+          </p>
+          <p>
+            <strong>Step 1.</strong> Choose Cable type or enter manually the
+            Cable Stretch Coefficient
+          </p>
+          <p>
+            <strong>Step 2.</strong> Choose Casing Weight
+          </p>
+          <p>
+            <strong>Step 3.</strong> Enter the OD of CBL tool transmitters and
+            receivers
+          </p>
+          <p>
+            <strong>Step 4.</strong> Choose Fluid Type
+          </p>
+          <p>
+            <strong>Disclaimer.</strong> Please note that calculated values are
+            approximate, since the actual Travel Time may vary depending on tool
+            characteristics, ambient temperature and pressure
           </p>
         </article>
       );

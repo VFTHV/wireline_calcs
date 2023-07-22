@@ -11,6 +11,6 @@ export const useStretchCalc = (
 ): number => {
   const convDepth = revertToEnglish(depth, unitSystem.depthUnits) / 1000;
   const convTension = revertToEnglish(tension, unitSystem.weightUnits) / 1000;
-  let stretch = convDepth * convTension * stretchCoeff;
+  const stretch = convDepth * convTension * stretchCoeff;
   return +stretch.toFixed(2);
 };

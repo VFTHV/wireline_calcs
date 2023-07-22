@@ -13,6 +13,7 @@ import {
   CasingDetails,
   TempCorrLength,
   CBL,
+  KeySeat,
 } from './components';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/weakpoint" element={<WeakPoint />} />
         <Route path="/weightbar" element={<WeightBar />} />
         <Route path="/stretch" element={<Stretch />} />
+        <Route path="/keyseat" element={<KeySeat />} />
         <Route path="/tension-at-depth" element={<MaxPull />} />
         <Route path="/csg-specs" element={<CasingDetails />} />
         <Route path="/temp-corr-length" element={<TempCorrLength />} />

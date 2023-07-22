@@ -5,7 +5,7 @@ import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { Modal } from '.';
 
 interface NavHeaderProps {
-  children: string;
+  children: string | string[];
 }
 
 export const NavHeader: FC<NavHeaderProps> = ({ children }) => {

@@ -5,7 +5,7 @@ import { BsCalculator } from 'react-icons/bs';
 
 interface NavItemProps {
   to: string;
-  children: string;
+  children: string | string[];
   icon?: ReactNode;
 }
 

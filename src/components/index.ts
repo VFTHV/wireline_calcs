@@ -24,3 +24,4 @@ export * from '../pages/CasingDetails';
 export * from '../pages/CasingDetails';
 export * from '../pages/TempCorrLength';
 export * from '../pages/CBL';
+export * from '../pages/KeySeat';
