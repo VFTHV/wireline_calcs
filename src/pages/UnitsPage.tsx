@@ -19,6 +19,7 @@ import {
   changeCapacityUnits,
   changeTempUnits,
   changeResistivityUnits,
+  changeAll,
 } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
@@ -33,6 +34,7 @@ export const UnitsPage = () => {
     capacityUnits,
     tempUnits,
     resistivityUnits,
+    allUnits,
   } = useSelector((state: StoreState) => state.unitSystem);
 
   const handleChange = (
@@ -47,6 +49,13 @@ export const UnitsPage = () => {
   return (
     <>
       <NavHeader>Change Measurement Units</NavHeader>
+      <h4 className="err-header">CHANGE ALL UNITS</h4>
+      <RadioDualInput
+        values={['ENGLISH', 'METRIC']}
+        onChange={(e) => dispatch(changeAll(e.target.value))}
+        currentValue={allUnits}
+      />
+      <h4 className="err-header">CHANGE UNITS ONE BY ONE</h4>
       <RadioDualInput
         values={[DepthUnits.FT, DepthUnits.M]}
         onChange={(e) => handleChange(e, changeDepthUnits, 'depth')}

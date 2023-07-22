@@ -20,6 +20,7 @@ export interface UnitSystemState {
   resistivityUnits: 'Ohm/Kft' | 'Ohm/Km';
   resistanceUnits: 'Ohm';
   microSecUnits: 'usec';
+  allUnits: 'ENGLISH' | 'METRIC';
 }
 
 const initialState: UnitSystemState = {
@@ -32,6 +33,7 @@ const initialState: UnitSystemState = {
   resistivityUnits: ResistivityUnits.OHM_KFT,
   resistanceUnits: ResistanceUnits.OHM,
   microSecUnits: 'usec',
+  allUnits: 'ENGLISH',
 };
 
 const unitSystemSlice = createSlice({
@@ -59,6 +61,26 @@ const unitSystemSlice = createSlice({
     changeResistivityUnits(state, action) {
       state.resistivityUnits = action.payload;
     },
+    changeAll(state, action) {
+      state.allUnits = action.payload;
+      if (action.payload === 'ENGLISH') {
+        state.depthUnits = DepthUnits.FT;
+        state.weightUnits = WeightUnits.LBS;
+        state.diameterUnits = DiameterUnits.INCH;
+        state.pressureUnits = PressureUnits.PSI;
+        state.capacityUnits = CapacityUnits.BBL;
+        state.tempUnits = TempUnits.DEGF;
+        state.resistivityUnits = ResistivityUnits.OHM_KFT;
+      } else {
+        state.depthUnits = DepthUnits.M;
+        state.weightUnits = WeightUnits.KG;
+        state.diameterUnits = DiameterUnits.MM;
+        state.pressureUnits = PressureUnits.ATM;
+        state.capacityUnits = CapacityUnits.M3;
+        state.tempUnits = TempUnits.DEGC;
+        state.resistivityUnits = ResistivityUnits.OHM_KM;
+      }
+    },
   },
 });
 
@@ -70,5 +92,6 @@ export const {
   changeCapacityUnits,
   changeTempUnits,
   changeResistivityUnits,
+  changeAll,
 } = unitSystemSlice.actions;
 export const unitSystemReducer = unitSystemSlice.reducer;
