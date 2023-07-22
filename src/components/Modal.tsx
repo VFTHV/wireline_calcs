@@ -2,6 +2,7 @@ import { FC, Dispatch } from 'react';
 import { createPortal } from 'react-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useLocation } from 'react-router-dom';
+import { pathNames } from '../database/routes';
 
 interface ModalProps {
   isOpen: boolean;
@@ -14,13 +15,26 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
     return null;
   }
   const { pathname } = useLocation();
+  const {
+    units,
+    weakpoint,
+    weightbar,
+    stretch,
+    keyseat,
+    tensionAtDepth,
+    tempCorrLength,
+    csgSpecs,
+    cbl,
+    feedback,
+    disclaimer,
+  } = pathNames;
 
   const renderText = () => {
     const textContent = {
       title: 'Sorry, no content',
       content: <p>Sorry, no content</p>,
     };
-    if (pathname.includes('units')) {
+    if (pathname.includes(units)) {
       textContent.title = 'Measurement Units Help';
       textContent.content = (
         <article>
@@ -34,7 +48,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           </p>
         </article>
       );
-    } else if (pathname.includes('weakpoint')) {
+    } else if (pathname.includes(weakpoint)) {
       textContent.title = 'Weak Point Help';
       textContent.content = (
         <article>
@@ -78,7 +92,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           </div>
         </article>
       );
-    } else if (pathname.includes('weightbar')) {
+    } else if (pathname.includes(weightbar)) {
       textContent.title = 'Weight Bar Help';
       textContent.content = (
         <article>
@@ -123,7 +137,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           </p>
         </article>
       );
-    } else if (pathname.includes('stretch')) {
+    } else if (pathname.includes(stretch)) {
       textContent.title = 'Cable Stretch Help';
       textContent.content = (
         <article>
@@ -145,7 +159,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           </p>
         </article>
       );
-    } else if (pathname.includes('tension-at-depth')) {
+    } else if (pathname.includes(tensionAtDepth)) {
       textContent.title = 'Max. Tension at Depth Help';
       textContent.content = (
         <article>
@@ -181,7 +195,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           </div>
         </article>
       );
-    } else if (pathname.includes('feedback')) {
+    } else if (pathname.includes(feedback)) {
       textContent.title = 'Feedback Help';
       textContent.content = (
         <article>
@@ -204,7 +218,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           </p>
         </article>
       );
-    } else if (pathname.includes('disclaimer')) {
+    } else if (pathname.includes(disclaimer)) {
       textContent.title = 'Disclaimer Help';
       textContent.content = (
         <article>
@@ -227,7 +241,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           </p>
         </article>
       );
-    } else if (pathname.includes('csg-specs')) {
+    } else if (pathname.includes(csgSpecs)) {
       textContent.title = 'Casing Specs Help';
       textContent.content = (
         <p>
@@ -238,8 +252,8 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           functioning of wellbore equipment.
         </p>
       );
-    } else if (pathname.includes('temp-corr-length')) {
-      textContent.title = 'Temp. Corrected Length';
+    } else if (pathname.includes(tempCorrLength)) {
+      textContent.title = 'Temp. Corrected Length Help';
       textContent.content = (
         <article>
           <p>
@@ -255,8 +269,8 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           </p>
         </article>
       );
-    } else if (pathname.includes('cbl')) {
-      textContent.title = 'Cement Bond Log Calcs';
+    } else if (pathname.includes(cbl)) {
+      textContent.title = 'Cement Bond Log Calcs Help';
       textContent.content = (
         <article>
           <p>
@@ -283,8 +297,8 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           </p>
         </article>
       );
-    } else if (pathname.includes('keyseat')) {
-      textContent.title = 'Cable Stuck Depth (Keyseat)';
+    } else if (pathname.includes(keyseat)) {
+      textContent.title = 'Cable Stuck Depth (Keyseat) Help';
       textContent.content = (
         <article>
           <p>
