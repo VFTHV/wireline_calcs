@@ -33,7 +33,7 @@ export const CableManualEntrance: FC<CableManualEntranceProps> = ({
         value={stretchCoeff}
         unit={unitSystem.depthUnits}
       >
-        CABLE STRETCH / (1Kft*1Klbs)
+        Cable Stretch Coef. / (1Kft*1Klbs)
       </InputData>
     ),
     breakingStrength: <>TBD for developer</>,

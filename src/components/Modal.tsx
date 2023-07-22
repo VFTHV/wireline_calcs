@@ -290,26 +290,31 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           <p>
             <strong>Purpose.</strong> If you are unsure whther your cable{' '}
             {`(not logging tools)`} got stuck then this calculator to determine
-            cable stuck depth.
+            cable stuck depth
           </p>
           <p>
             <strong>Step 1.</strong> Choose Cable type or enter manually the
             Cable Stretch Coefficient
           </p>
           <p>
-            <strong>Step 2.</strong> Choose Casing Weight
+            <strong>Step 2.</strong> Set your winch tension to approximate cable
+            + toolstring weight in the well fluid. Note your current depth and
+            tension
           </p>
           <p>
-            <strong>Step 3.</strong> Enter the OD of CBL tool transmitters and
-            receivers
+            <strong>Step 3.</strong> Pull your winch safely and note your
+            tension difference and depth change that you observed
           </p>
           <p>
-            <strong>Step 4.</strong> Choose Fluid Type
+            <strong>Step 4.</strong> Enter tension difference and depth change
+            values the into corresponding boxes on the page
           </p>
           <p>
             <strong>Disclaimer.</strong> Please note that calculated values are
-            approximate, since the actual Travel Time may vary depending on tool
-            characteristics, ambient temperature and pressure
+            linear calculations. The real cable stuck depth may differ from
+            calculation. This difference may be caused by many factors, such as
+            well curvature, temperature, wireline cable age, tension meter
+            inaccuracy etc.
           </p>
         </article>
       );
