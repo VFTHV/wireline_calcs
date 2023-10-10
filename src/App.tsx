@@ -16,6 +16,7 @@ import {
   CBL,
   KeySeat,
 } from './components';
+import FluidVelocity from './pages/FluidVelocity';
 
 function App() {
   useLocalStorageSet();
@@ -35,6 +36,8 @@ function App() {
         <Route path={pathNames.cbl} element={<CBL />} />
         <Route path={pathNames.feedback} element={<ReportProblemForm />} />
         <Route path={pathNames.disclaimer} element={<Disclaimer />} />
+        <Route path={pathNames.disclaimer} element={<Disclaimer />} />
+        <Route path={pathNames.fluidVelocity} element={<FluidVelocity />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>

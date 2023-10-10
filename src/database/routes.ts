@@ -10,4 +10,5 @@ export const pathNames = {
   cbl: '/cbl',
   feedback: '/feedback',
   disclaimer: '/disclaimer',
+  fluidVelocity: '/fluid-velocity',
 };

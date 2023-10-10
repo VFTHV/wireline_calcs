@@ -21,6 +21,7 @@ export const NavPage = () => {
         <NavItem to={pathNames.csgSpecs}>Casing/Tubing Specs</NavItem>
         <NavItem to={pathNames.tempCorrLength}>Temp. Corrected Length</NavItem>
         <NavItem to={pathNames.cbl}>Cement Bond Log Calcs</NavItem>
+        <NavItem to={pathNames.fluidVelocity}>Fluid Velocity</NavItem>
         <NavItem to={pathNames.feedback} icon={<AiOutlineMail />}>
           Report a Problem
         </NavItem>
