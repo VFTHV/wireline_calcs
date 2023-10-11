@@ -27,6 +27,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
     cbl,
     feedback,
     disclaimer,
+    fluidVelocity,
   } = pathNames;
 
   const renderText = () => {
@@ -329,6 +330,23 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
             calculation. This difference may be caused by many factors, such as
             well curvature, temperature, wireline cable age, tension meter
             inaccuracy etc.
+          </p>
+        </article>
+      );
+    } else if (pathname.includes(fluidVelocity)) {
+      textContent.title = 'Fluid Velocity Help';
+      textContent.content = (
+        <article>
+          <p>
+            <strong>Purpose.</strong> Figure out fluid velocity in certain
+            casing diameters and pump rates. This is helpful if you want to
+            determine what would be your wireline speed while pumping down.
+          </p>
+          <p>
+            <strong>Step 1.</strong> Choose casing type you are running in
+          </p>
+          <p>
+            <strong>Step 2.</strong> Set intended pumping rate
           </p>
         </article>
       );
