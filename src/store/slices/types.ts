@@ -48,6 +48,11 @@ interface Resistance {
   OHM: 'Ohm';
 }
 
+interface PumpRate {
+  BBLMIN: 'bbl/min';
+  M3MIN: 'm3/min';
+}
+
 export const DepthUnits: Depth = {
   FT: 'ft',
   M: 'm',
@@ -87,6 +92,21 @@ export const ResistanceUnits: Resistance = {
   OHM: 'Ohm',
 };
 
+export const PumpRateUnits: PumpRate = {
+  BBLMIN: 'bbl/min',
+  M3MIN: 'm3/min',
+};
+
+interface Velocity {
+  FTMIN: 'ft/min';
+  MMIN: 'm/min';
+}
+
+export const VelocityUnits: Velocity = {
+  FTMIN: 'ft/min',
+  MMIN: 'm/min',
+};
+
 export type MeasurementType =
   | 'depth'
   | 'weightInAir'
@@ -102,7 +122,9 @@ export type MeasurementType =
   | 'temperature'
   | 'resistivity'
   | 'resistance'
-  | 'toolOd';
+  | 'toolOd'
+  | 'pumpRate'
+  | 'velocity';
 
 export type UnitType =
   | 'lbs'
@@ -122,4 +144,8 @@ export type UnitType =
   | 'Ohm/Kft'
   | 'Ohm/Km'
   | 'Ohm'
-  | 'usec';
+  | 'usec'
+  | 'bbl/min'
+  | 'm3/min'
+  | 'ft/min'
+  | 'm/min';

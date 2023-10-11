@@ -8,6 +8,8 @@ import {
   TempUnits,
   ResistivityUnits,
   ResistanceUnits,
+  PumpRateUnits,
+  VelocityUnits,
 } from './types';
 
 export interface UnitSystemState {
@@ -20,6 +22,8 @@ export interface UnitSystemState {
   resistivityUnits: 'Ohm/Kft' | 'Ohm/Km';
   resistanceUnits: 'Ohm';
   microSecUnits: 'usec';
+  pumpRateUnits: 'bbl/min' | 'm3/min';
+  velocityUnits: 'ft/min' | 'm/min';
   allUnits: 'ENGLISH' | 'METRIC';
 }
 
@@ -33,6 +37,8 @@ const initialState: UnitSystemState = {
   resistivityUnits: ResistivityUnits.OHM_KFT,
   resistanceUnits: ResistanceUnits.OHM,
   microSecUnits: 'usec',
+  pumpRateUnits: PumpRateUnits.BBLMIN,
+  velocityUnits: VelocityUnits.FTMIN,
   allUnits: 'ENGLISH',
 };
 

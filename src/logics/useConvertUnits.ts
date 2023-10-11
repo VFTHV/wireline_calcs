@@ -6,6 +6,8 @@ import {
   CapacityUnits,
   TempUnits,
   ResistivityUnits,
+  PumpRateUnits,
+  VelocityUnits,
 } from '../store/slices/types';
 import { UnitType } from '../store/slices/types';
 
@@ -26,6 +28,10 @@ export const useConvertUnits = () => {
         return (9 * input) / 5 + 32;
       case ResistivityUnits.OHM_KFT:
         return (input *= 0.3048);
+      case PumpRateUnits.BBLMIN:
+        return (input /= 0.1589873);
+      case VelocityUnits.FTMIN:
+        return (input /= 0.3048);
       default:
         return input;
     }
@@ -46,6 +52,10 @@ export const useConvertUnits = () => {
         return (9 * input) / 5 + 32;
       case ResistivityUnits.OHM_KM:
         return (input *= 0.3048);
+      case PumpRateUnits.M3MIN:
+        return (input /= 0.1589873);
+      case VelocityUnits.MMIN:
+        return (input /= 0.3048);
       default:
         return input;
     }
@@ -66,6 +76,10 @@ export const useConvertUnits = () => {
         return +((5 * (input - 32)) / 9).toFixed(2);
       case ResistivityUnits.OHM_KM:
         return +(input /= 0.3048).toFixed(2);
+      case PumpRateUnits.M3MIN:
+        return +(input *= 0.1589873).toFixed(1);
+      case VelocityUnits.MMIN:
+        return +(input *= 0.3048).toFixed(0);
       default:
         return input;
     }
@@ -86,6 +100,10 @@ export const useConvertUnits = () => {
         return +((5 * (input - 32)) / 9).toFixed(2);
       case ResistivityUnits.OHM_KFT:
         return +(input /= 0.3048).toFixed(2);
+      case PumpRateUnits.BBLMIN:
+        return +(input *= 0.1589873).toFixed(1);
+      case VelocityUnits.FTMIN:
+        return +(input *= 0.3048).toFixed(0);
       default:
         return input;
     }

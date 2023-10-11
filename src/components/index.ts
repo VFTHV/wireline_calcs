@@ -25,3 +25,4 @@ export * from '../pages/CasingDetails';
 export * from '../pages/TempCorrLength';
 export * from '../pages/CBL';
 export * from '../pages/KeySeat';
+export * from '../pages/FluidVelocity';

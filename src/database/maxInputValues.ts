@@ -9,6 +9,8 @@ import {
   TempUnits,
   ResistivityUnits,
   ResistanceUnits,
+  PumpRateUnits,
+  VelocityUnits,
 } from '../store/slices/types';
 
 export const maxInputValues: Record<
@@ -33,4 +35,6 @@ export const maxInputValues: Record<
   },
   resistance: { [ResistanceUnits.OHM]: 300 },
   toolOd: { [DiameterUnits.INCH]: 7, [DiameterUnits.MM]: 180 },
+  pumpRate: { [PumpRateUnits.BBLMIN]: 50, [PumpRateUnits.M3MIN]: 8 },
+  velocity: { [VelocityUnits.FTMIN]: 1500, [VelocityUnits.MMIN]: 500 },
 };
