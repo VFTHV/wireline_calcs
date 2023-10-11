@@ -67,6 +67,12 @@ const unitSystemSlice = createSlice({
     changeResistivityUnits(state, action) {
       state.resistivityUnits = action.payload;
     },
+    changePumpRateUnits(state, action) {
+      state.pumpRateUnits = action.payload;
+    },
+    changeVelocityUnits(state, action) {
+      state.velocityUnits = action.payload;
+    },
     changeAll(state, action) {
       state.allUnits = action.payload;
       if (action.payload === 'ENGLISH') {
@@ -77,6 +83,8 @@ const unitSystemSlice = createSlice({
         state.capacityUnits = CapacityUnits.BBL;
         state.tempUnits = TempUnits.DEGF;
         state.resistivityUnits = ResistivityUnits.OHM_KFT;
+        state.pumpRateUnits = PumpRateUnits.BBLMIN;
+        state.velocityUnits = VelocityUnits.FTMIN;
       } else {
         state.depthUnits = DepthUnits.M;
         state.weightUnits = WeightUnits.KG;
@@ -85,6 +93,8 @@ const unitSystemSlice = createSlice({
         state.capacityUnits = CapacityUnits.M3;
         state.tempUnits = TempUnits.DEGC;
         state.resistivityUnits = ResistivityUnits.OHM_KM;
+        state.pumpRateUnits = PumpRateUnits.M3MIN;
+        state.velocityUnits = VelocityUnits.MMIN;
       }
     },
   },
@@ -98,6 +108,8 @@ export const {
   changeCapacityUnits,
   changeTempUnits,
   changeResistivityUnits,
+  changePumpRateUnits,
+  changeVelocityUnits,
   changeAll,
 } = unitSystemSlice.actions;
 export const unitSystemReducer = unitSystemSlice.reducer;

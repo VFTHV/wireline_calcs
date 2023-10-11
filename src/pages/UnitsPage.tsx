@@ -9,6 +9,8 @@ import {
   TempUnits,
   ResistivityUnits,
   MeasurementType,
+  PumpRateUnits,
+  VelocityUnits,
 } from '../store/slices/types';
 import {
   StoreState,
@@ -19,6 +21,8 @@ import {
   changeCapacityUnits,
   changeTempUnits,
   changeResistivityUnits,
+  changePumpRateUnits,
+  changeVelocityUnits,
   changeAll,
 } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
@@ -35,6 +39,8 @@ export const UnitsPage = () => {
     tempUnits,
     resistivityUnits,
     allUnits,
+    pumpRateUnits,
+    velocityUnits,
   } = useSelector((state: StoreState) => state.unitSystem);
 
   const handleChange = (
@@ -90,6 +96,16 @@ export const UnitsPage = () => {
         values={[ResistivityUnits.OHM_KFT, ResistivityUnits.OHM_KM]}
         onChange={(e) => handleChange(e, changeResistivityUnits, 'resistivity')}
         currentValue={resistivityUnits}
+      />
+      <RadioDualInput
+        values={[PumpRateUnits.BBLMIN, PumpRateUnits.M3MIN]}
+        onChange={(e) => handleChange(e, changePumpRateUnits, 'pumpRate')}
+        currentValue={pumpRateUnits}
+      />
+      <RadioDualInput
+        values={[VelocityUnits.FTMIN, VelocityUnits.MMIN]}
+        onChange={(e) => handleChange(e, changeVelocityUnits, 'velocity')}
+        currentValue={velocityUnits}
       />
     </>
   );
