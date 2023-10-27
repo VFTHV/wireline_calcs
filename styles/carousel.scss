@@ -1,0 +1,14 @@
+.carousel-wrapper {
+  overflow: hidden;
+  height: 30px;
+
+  .carousel-items {
+    height: 30px;
+  }
+
+  .carousel-item {
+    width: 30%;
+    height: 30px;
+    float: left;
+  }
+}

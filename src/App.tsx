@@ -17,12 +17,14 @@ import {
   KeySeat,
 } from './components';
 import FluidVelocity from './pages/FluidVelocity';
+import { Carousel } from './components/Carousel';
 
 function App() {
   useLocalStorageSet();
 
   return (
     <>
+      <Carousel />
       <Routes>
         <Route path="/" element={<NavPage />} />
         <Route path={pathNames.units} element={<UnitsPage />} />
