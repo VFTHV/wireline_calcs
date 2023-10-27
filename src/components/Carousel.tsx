@@ -1,43 +1,56 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion, useTime } from 'framer-motion';
+import { motion } from 'framer-motion';
 import '../../styles/carousel.css';
 
-export const Carousel = () => {
-  const carouselText = ['text 1', 'text 2', 'text 3'];
-  const [x, setX] = useState(0);
-  const [scrollWidth, setScrollWidth] = useState(0);
+type CarouselProps = {
+  textArr: string[];
+};
 
-  const carouselRef = useRef();
+export const Carousel = ({ textArr }: CarouselProps) => {
+  const [x, setX] = useState(0);
+  const [wrapperWidth, setWrapperWidth] = useState(0);
+  const [itemWidth, setItemWidth] = useState(0);
+  const [shiftWidth, setShiftWidth] = useState(0);
+
+  const carouselWrapperRef = useRef();
+  const carouselItemRef = useRef();
 
   useEffect(() => {
+    if (x >= (textArr.length - 2) * itemWidth && shiftWidth > 0) {
+      setShiftWidth(-itemWidth);
+    } else if (x === itemWidth && shiftWidth < 0) {
+      setShiftWidth(itemWidth);
+    }
     const timeOut = setTimeout(() => {
-      if (x >= scrollWidth) {
-        setX(0);
-      } else {
-        setX((prevX) => prevX + 10);
-      }
-    }, 100);
+      setX((prev) => prev + shiftWidth);
+    }, 3000);
 
     return () => {
       clearTimeout(timeOut);
     };
-  }, [x]);
+  }, [x, itemWidth]);
 
-  console.log(scrollWidth);
   useEffect(() => {
-    setScrollWidth(carouselRef.current.scrollWidth);
-    console.log(carouselRef.current.scrollWidth);
+    setWrapperWidth(carouselItemRef.current.offsetWidth * textArr.length + 2);
+    setItemWidth(carouselItemRef.current.offsetWidth);
+    setShiftWidth(carouselItemRef.current.offsetWidth);
   }, []);
 
   return (
-    <div ref={carouselRef} className="carousel-wrapper">
+    <div className="carousel">
       <motion.div
-        style={{ transform: `translateX(${-x}px)` }}
-        className="carousel-items"
+        ref={carouselWrapperRef}
+        animate={{ transform: `translateX(${-x}px)` }}
+        style={{ width: `${wrapperWidth}px` }}
+        className="carousel-wrapper"
       >
-        {carouselText.map((text) => {
+        {textArr.map((text) => {
           return (
-            <motion.div key={text} className="carousel-item">
+            <motion.div
+              ref={carouselItemRef}
+              key={text}
+              className="carousel-item"
+            >
               {text}
             </motion.div>
           );

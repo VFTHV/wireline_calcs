@@ -19,12 +19,14 @@ import {
 import FluidVelocity from './pages/FluidVelocity';
 import { Carousel } from './components/Carousel';
 
+const textArr = ['text 1', 'text 2', 'text 3', 'text 4', 'text 5'];
+
 function App() {
   useLocalStorageSet();
 
   return (
     <>
-      <Carousel />
+      <Carousel textArr={textArr} />
       <Routes>
         <Route path="/" element={<NavPage />} />
         <Route path={pathNames.units} element={<UnitsPage />} />

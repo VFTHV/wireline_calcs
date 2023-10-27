@@ -1,14 +1,19 @@
-.carousel-wrapper {
+@import '../styles/variables.scss';
+
+.carousel {
+  height: 32px;
+  margin-inline: $spacing-default;
+  width: calc(100vw - 2 * $spacing-default);
   overflow: hidden;
-  height: 30px;
 
-  .carousel-items {
-    height: 30px;
+  .carousel-wrapper {
+    height: 32px;
   }
-
   .carousel-item {
-    width: 30%;
-    height: 30px;
+    width: calc(100vw - 2 * $spacing-default);
+    height: 32px;
     float: left;
+    display: flex;
+    justify-content: center;
   }
 }

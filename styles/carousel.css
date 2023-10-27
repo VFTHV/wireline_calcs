@@ -1,12 +1,16 @@
-.carousel-wrapper {
+.carousel {
+  height: 32px;
+  margin-inline: 1rem;
+  width: calc(100vw - 2rem);
   overflow: hidden;
-  height: 30px;
 }
-.carousel-wrapper .carousel-items {
-  height: 30px;
+.carousel .carousel-wrapper {
+  height: 32px;
 }
-.carousel-wrapper .carousel-item {
-  width: 30%;
-  height: 30px;
+.carousel .carousel-item {
+  width: calc(100vw - 2rem);
+  height: 32px;
   float: left;
+  display: flex;
+  justify-content: center;
 }/*# sourceMappingURL=carousel.css.map */
