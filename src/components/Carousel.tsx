@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import '../../styles/carousel.css';
+import axios from 'axios';
 
 type CarouselProps = {
   textArr: string[];
@@ -12,8 +13,8 @@ export const Carousel = ({ textArr }: CarouselProps) => {
   const [itemWidth, setItemWidth] = useState(0);
   const [shiftWidth, setShiftWidth] = useState(0);
 
-  const carouselWrapperRef = useRef();
-  const carouselItemRef = useRef();
+  const carouselWrapperRef = useRef<HTMLDivElement>(null);
+  const carouselItemRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (x >= (textArr.length - 2) * itemWidth && shiftWidth > 0) {
@@ -21,19 +22,47 @@ export const Carousel = ({ textArr }: CarouselProps) => {
     } else if (x === itemWidth && shiftWidth < 0) {
       setShiftWidth(itemWidth);
     }
-    const timeOut = setTimeout(() => {
-      setX((prev) => prev + shiftWidth);
-    }, 3000);
+    if (textArr.length > 1) {
+      const timeOut = setTimeout(() => {
+        setX((prev) => prev + shiftWidth);
+      }, 3000);
 
-    return () => {
-      clearTimeout(timeOut);
-    };
+      return () => {
+        clearTimeout(timeOut);
+      };
+    }
   }, [x, itemWidth]);
 
   useEffect(() => {
-    setWrapperWidth(carouselItemRef.current.offsetWidth * textArr.length + 2);
-    setItemWidth(carouselItemRef.current.offsetWidth);
-    setShiftWidth(carouselItemRef.current.offsetWidth);
+    const ref = carouselItemRef.current;
+    if (ref) {
+      setWrapperWidth(ref.offsetWidth * textArr.length + 2);
+      setItemWidth(ref.offsetWidth);
+      setShiftWidth(ref.offsetWidth);
+    }
+  }, []);
+
+  useEffect(() => {
+    async function getOilPrice() {
+      const options = {
+        method: 'GET',
+        url: 'https://brent-crude-oil-price.p.rapidapi.com/latest',
+        headers: {
+          'X-RapidAPI-Key':
+            'ff2aab526amshbffd192064b3926p1ccb39jsn8f00748d886e',
+          'X-RapidAPI-Host': 'brent-crude-oil-price.p.rapidapi.com',
+        },
+      };
+      console.log('inside get');
+      try {
+        const response = await axios.request(options);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    getOilPrice();
   }, []);
 
   return (
