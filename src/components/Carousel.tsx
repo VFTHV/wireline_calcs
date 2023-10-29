@@ -42,29 +42,6 @@ export const Carousel = ({ textArr }: CarouselProps) => {
     }
   }, []);
 
-  useEffect(() => {
-    async function getOilPrice() {
-      const options = {
-        method: 'GET',
-        url: 'https://brent-crude-oil-price.p.rapidapi.com/latest',
-        headers: {
-          'X-RapidAPI-Key':
-            'ff2aab526amshbffd192064b3926p1ccb39jsn8f00748d886e',
-          'X-RapidAPI-Host': 'brent-crude-oil-price.p.rapidapi.com',
-        },
-      };
-      console.log('inside get');
-      try {
-        const response = await axios.request(options);
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    getOilPrice();
-  }, []);
-
   return (
     <div className="carousel">
       <motion.div
