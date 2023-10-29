@@ -51,7 +51,7 @@ export const KeySeat = () => {
       >
         Differential Stretch:
       </InputData>
-      <table className="table">
+      <table className="table" aria-label="keyseat cable stuck table group">
         <tbody>
           <TableRow data={stuckDepth} units={unitSystem.depthUnits}>
             CABLE STUCK DEPTH

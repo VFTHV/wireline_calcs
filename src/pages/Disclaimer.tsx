@@ -4,7 +4,7 @@ export const Disclaimer = () => {
   return (
     <>
       <NavHeader>Disclaimer</NavHeader>
-      <div className="container">
+      <div className="container" aria-label="disclaimer text">
         <p>
           The calculations provided by this application are intended for
           informational purposes only and should not be relied upon as

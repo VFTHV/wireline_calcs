@@ -24,7 +24,7 @@ const FluidVelocity = () => {
       >
         Pumping rate
       </InputData>
-      <table className="table">
+      <table className="table" aria-label="fluid velocity table group">
         <tbody>
           <TableRow data={fluidVelocity} units={unitSystem.velocityUnits}>
             Fluid Velocity

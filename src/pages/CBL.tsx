@@ -32,14 +32,14 @@ export const CBL = () => {
     }
 
     return (
-      <table className="table">
-        <tbody>
+      <table className="table" aria-label="Cement Bond Log table group">
+        <tbody aria-label="3ft predicted pipe time table row">
           <TableRow data={ppt?.ppt3ft} units={microSecUnits}>
             3ft Predicted Pipe Time
           </TableRow>
         </tbody>
 
-        <tbody>
+        <tbody aria-label="5ft predicted pipe time table row">
           <TableRow data={ppt?.ppt5ft} units={microSecUnits}>
             5ft Predicted Pipe Time
           </TableRow>

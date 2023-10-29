@@ -81,7 +81,7 @@ export const MaxPull = () => {
       >
         Percent of Weak Point Breaking Strength
       </InputData>
-      <table className="table">
+      <table className="table" aria-label="maximum cable pull table group">
         <tbody>
           <TableRow data={conservativePull} units={unitSystem.weightUnits}>
             {percentPull && depth

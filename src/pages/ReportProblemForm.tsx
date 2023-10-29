@@ -14,8 +14,11 @@ export const ReportProblemForm = () => {
   return (
     <>
       <NavHeader>Report a Problem</NavHeader>
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
+      <form
+        onSubmit={handleSubmit}
+        aria-label="submit form offer edit to app form"
+      >
+        <div className="input-group" aria-label="name input group">
           <label htmlFor="name">Your Name: </label>
           <input
             className="input-item"
@@ -28,7 +31,7 @@ export const ReportProblemForm = () => {
             required
           />
         </div>
-        <div className="input-group">
+        <div className="input-group" aria-label="issue selection input group">
           <label htmlFor="section">Issues with Section: </label>
           <select
             className="input-item"
@@ -46,7 +49,7 @@ export const ReportProblemForm = () => {
             <option value={'tempCorrLength'}>Temp. Corrected Length</option>
           </select>
         </div>
-        <div className="input-group">
+        <div className="input-group" aria-label="issue description input group">
           <textarea
             id="message"
             name="message"
