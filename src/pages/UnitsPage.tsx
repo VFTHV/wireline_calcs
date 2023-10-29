@@ -55,7 +55,12 @@ export const UnitsPage = () => {
   return (
     <>
       <NavHeader>Change Measurement Units</NavHeader>
-      <h4 className="err-header">CHANGE ALL UNITS</h4>
+      <h4
+        className="err-header"
+        aria-label="measurement unit change page heading"
+      >
+        CHANGE ALL UNITS
+      </h4>
       <RadioDualInput
         values={['ENGLISH', 'METRIC']}
         onChange={(e) => dispatch(changeAll(e.target.value))}

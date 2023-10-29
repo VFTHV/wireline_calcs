@@ -64,7 +64,7 @@ export const WeightBar = () => {
       >
         Percent over Balance:
       </InputData>
-      <table className="table">
+      <table className="table" aria-label="weight bar table group">
         <tbody>
           <TableRow data={balanceWeight} units={unitSystem.weightUnits}>
             BALANCE WEIGHT

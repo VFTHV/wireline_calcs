@@ -66,7 +66,7 @@ export const WeakPoint = () => {
       >
         Depth:
       </InputData>
-      <table className="table">
+      <table className="table" aria-label="weakpoint table group">
         <tbody>
           <TableRow data={cableWeight} units={unitSystem.weightUnits}>
             TOTAL CABLE WEIGHT

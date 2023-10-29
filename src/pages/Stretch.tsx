@@ -52,7 +52,7 @@ export const Stretch = () => {
       >
         Depth:
       </InputData>
-      <table className="table">
+      <table className="table" aria-label="cable stretch table group">
         <tbody>
           <TableRow data={stretch} units={unitSystem.depthUnits}>
             TOTAL CABLE STRETCH

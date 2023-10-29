@@ -48,7 +48,10 @@ export const TempCorrLength = () => {
       </InputData>
       <CableSelector />
       <CurrentCableSpecs specs={['conductorResistance']} />
-      <table className="table">
+      <table
+        className="table"
+        aria-label="temperature corrected length table group"
+      >
         <tbody>
           <TableRow
             data={length === Infinity ? 0 : length}
