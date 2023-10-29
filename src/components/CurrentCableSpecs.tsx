@@ -78,7 +78,7 @@ export const CurrentCableSpecs: FC<CurrentCableSpecsProps> = ({ specs }) => {
 
   return (
     <>
-      <table className="table">
+      <table className="table" aria-label="current cable specs table">
         <tbody>
           {specs.map((spec) => {
             return <Fragment key={spec}>{content[spec]}</Fragment>;

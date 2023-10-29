@@ -11,7 +11,9 @@ export const FluidSelector: FC = () => {
   return (
     <>
       <div className="input-group">
-        <label htmlFor="fluid">Fluid Type:</label>
+        <label htmlFor="fluid" id="fluid-type" aria-label="choose fluid type">
+          Fluid Type:
+        </label>
         <select
           className="input-item"
           id="fluid"
@@ -19,8 +21,12 @@ export const FluidSelector: FC = () => {
           value={fluid.type}
           onChange={(e) => dispatch(changeFluid(e.target.value))}
         >
-          {types.map((type) => {
-            return <option key={Math.random()}>{type}</option>;
+          {types.map((type, i) => {
+            return (
+              <option key={i} aria-labelledby="fluid-type">
+                {type}
+              </option>
+            );
           })}
         </select>
       </div>

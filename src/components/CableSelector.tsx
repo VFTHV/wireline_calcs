@@ -18,7 +18,13 @@ export const CableSelector: FC = () => {
 
   return (
     <div className="input-group">
-      <label htmlFor="cable">Choose Cable Type:</label>
+      <label
+        htmlFor="cable"
+        id="choose-cable"
+        aria-label="Choose wireline cable"
+      >
+        Choose Cable Type:
+      </label>
       <select
         className="input-item"
         id="cable"
@@ -28,7 +34,11 @@ export const CableSelector: FC = () => {
       >
         {cablesData.map((cable) => {
           return (
-            <option key={cable.type} value={cable.type}>
+            <option
+              key={cable.type}
+              value={cable.type}
+              aria-labelledby="choose-cable"
+            >
               {cable.type}
             </option>
           );
