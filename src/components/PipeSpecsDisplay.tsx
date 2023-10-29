@@ -71,7 +71,7 @@ export const PipeSpecsDisplay: FC<PipeSpecsDisplayProps> = ({
 
   return (
     <>
-      <table className="table">
+      <table className="table" aria-label="table for pipe specs display">
         <tbody>
           {specs.map((spec) => {
             return <Fragment key={spec}>{content[spec]}</Fragment>;

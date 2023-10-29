@@ -11,7 +11,10 @@ export const WeightBarSelector: FC = () => {
 
   return (
     <>
-      <div className="input-group">
+      <div
+        className="input-group"
+        aria-label="input group to choose weight bar OD"
+      >
         <label htmlFor="weightBar">Weight Bar OD:</label>
         <select
           className="input-item"
@@ -22,18 +25,22 @@ export const WeightBarSelector: FC = () => {
         >
           {weightBarODs.map((od) => {
             return (
-              <option key={Math.random()} value={od}>
+              <option
+                key={od}
+                value={od}
+                aria-label={`weight bar with ${od} OD chosen`}
+              >
                 {od}
               </option>
             );
           })}
         </select>
       </div>
-      {filteredByType.map((type) => {
+      {filteredByType.map((type, i) => {
         const capType =
           type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
         return (
-          <table className="table" key={Math.random()}>
+          <table className="table" key={i}>
             <tbody>
               <TableRow data={capType} units="">
                 Material:
@@ -42,7 +49,12 @@ export const WeightBarSelector: FC = () => {
                 .filter((bar) => bar.type === type)
                 .map((bar) => {
                   return (
-                    <TableRow data={bar.weight} units="lbs" key={Math.random()}>
+                    <TableRow
+                      data={bar.weight}
+                      units="lbs"
+                      key={bar.weight}
+                      aria-label={`${bar.weight} lbs ${bar.length} ft weight bar chosen`}
+                    >
                       {`Length ${bar.length} ft`}
                     </TableRow>
                   );

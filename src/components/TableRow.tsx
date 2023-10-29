@@ -21,7 +21,7 @@ export const TableRow: FC<TableRowProps> = ({ children, data, units }) => {
   };
 
   return (
-    <tr className="t-row">
+    <tr className="t-row" aria-label={`table group displaying in ${units}`}>
       <th className="t-head">{`${children}, ${units}`}</th>
       <td className="t-data">{displayData()}</td>
     </tr>

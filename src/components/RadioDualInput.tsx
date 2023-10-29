@@ -12,7 +12,7 @@ export const RadioDualInput: FC<RadioDualInputProps> = ({
   currentValue,
 }) => {
   return (
-    <form>
+    <form aria-label="dual input group to choose measurement units">
       <div className="radio-container">
         <label>
           <input
