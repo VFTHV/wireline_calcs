@@ -33,7 +33,13 @@ export const InputData: FC<InputDataProps> = ({
 
   return (
     <div className="input-group">
-      <label htmlFor={typeId}>{children}</label>
+      <label
+        htmlFor={typeId}
+        id={`input-for-${typeId}`}
+        aria-label={`input data for ${typeId}`}
+      >
+        {children}
+      </label>
       <div>
         <input
           className="input-item input-with-units"
@@ -43,6 +49,7 @@ export const InputData: FC<InputDataProps> = ({
           type="number"
           onChange={onChange}
           placeholder={placeholder}
+          aria-labelledby={`input-for-${typeId}`}
         />
         <span>{unit}</span>
       </div>
