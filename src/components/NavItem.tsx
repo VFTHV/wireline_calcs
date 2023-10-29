@@ -11,7 +11,7 @@ interface NavItemProps {
 
 export const NavItem: FC<NavItemProps> = ({ to, children, icon }) => {
   return (
-    <NavLink to={to}>
+    <NavLink aria-label={`link item to ${to}`} to={to}>
       <li className="navitem">
         {icon ? icon : <BsCalculator />}
         {children}

@@ -33,7 +33,10 @@ export const PipeSelector: FC<PipeSelectorProps> = ({ pipeData, typeId }) => {
 
   return (
     <>
-      <div className="input-group">
+      <div
+        className="input-group"
+        aria-label={`${pipeWord} OD selection group`}
+      >
         <label htmlFor={`${typeId}-od`}>{pipeWord} OD:</label>
         <select
           className="input-item"
@@ -45,14 +48,21 @@ export const PipeSelector: FC<PipeSelectorProps> = ({ pipeData, typeId }) => {
           <option value={''}>Choose {pipeWord} OD</option>
           {ODs.map((od) => {
             return (
-              <option key={Math.random()} value={od}>
+              <option
+                key={od}
+                value={od}
+                aria-label={`${pipeWord} ${od} OD chosen`}
+              >
                 {od}
               </option>
             );
           })}
         </select>
       </div>
-      <div className="input-group">
+      <div
+        className="input-group"
+        aria-label={`${pipeWord} weight selection group`}
+      >
         <label htmlFor="casing-od">{pipeWord} Weight:</label>
         <select
           className="input-item"
@@ -64,7 +74,11 @@ export const PipeSelector: FC<PipeSelectorProps> = ({ pipeData, typeId }) => {
           <option value={''}>Choose {pipeWord} Weight PPF</option>
           {pipeWeights.map((weight) => {
             return (
-              <option key={Math.random()} value={weight}>
+              <option
+                key={weight}
+                value={weight}
+                aria-label={`${pipeWord} ${weight} OD chosen`}
+              >
                 {weight}
               </option>
             );

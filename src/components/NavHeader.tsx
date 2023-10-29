@@ -14,7 +14,7 @@ export const NavHeader: FC<NavHeaderProps> = ({ children }) => {
   return (
     <>
       <header>
-        <nav className="nav-header">
+        <nav className="nav-header" aria-label="navigation-menu">
           <NavLink to="/">
             <GoChevronLeft />
           </NavLink>
