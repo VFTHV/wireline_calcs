@@ -38,7 +38,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
     if (pathname.includes(units)) {
       textContent.title = 'Measurement Units Help';
       textContent.content = (
-        <article>
+        <>
           <p>
             Here you can change measurement units that you will be using for
             your calculations
@@ -47,12 +47,12 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           <p>
             This preference will be saved if used on the same device and browser
           </p>
-        </article>
+        </>
       );
     } else if (pathname.includes(weakpoint)) {
       textContent.title = 'Weak Point Help';
       textContent.content = (
-        <article>
+        <>
           <p>
             <strong>Step 1.</strong>
             Choose your cable type. If MANUAL cable selection is chosen, input
@@ -91,12 +91,12 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
               </li>
             </ul>
           </div>
-        </article>
+        </>
       );
     } else if (pathname.includes(weightbar)) {
       textContent.title = 'Weight Bar Help';
       textContent.content = (
-        <article>
+        <>
           <p>
             <strong>Step 1.</strong> Input cable diameter to be used in "Cable
             Diameter" input box
@@ -136,12 +136,12 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
             <strong>Step 6.</strong> Additionally, weight bar database is
             available at the bottom of the page for your information
           </p>
-        </article>
+        </>
       );
     } else if (pathname.includes(stretch)) {
       textContent.title = 'Cable Stretch Help';
       textContent.content = (
-        <article>
+        <>
           <p>
             <strong>Step 1.</strong> Choose your cable type. If MANUAL cable
             selection is chosen, input CABLE STRETCH / (1Kft * 1Klbs) manually
@@ -158,12 +158,12 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
             <strong>Step 4.</strong> Calculator returns the TOTAL CABLE STRETCH
             amount based on inputs above
           </p>
-        </article>
+        </>
       );
     } else if (pathname.includes(tensionAtDepth)) {
       textContent.title = 'Max. Tension at Depth Help';
       textContent.content = (
-        <article>
+        <>
           <p>
             <strong>Step 1.</strong> Choose your cable type. If MANUAL cable
             selection is chosen, input OUTER ARMOR BREAKING STRENGTH, INNER
@@ -194,12 +194,12 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
               </li>
             </ul>
           </div>
-        </article>
+        </>
       );
     } else if (pathname.includes(feedback)) {
       textContent.title = 'Feedback Help';
       textContent.content = (
-        <article>
+        <>
           <p>
             <strong>Report Any Issue.</strong> If you see any issue with
             calculations, page display, user interface responsiveness, error
@@ -217,12 +217,12 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
             allows us to continuously enhance the application to meet your
             expectations. Together, we can make this project even better!
           </p>
-        </article>
+        </>
       );
     } else if (pathname.includes(disclaimer)) {
       textContent.title = 'Disclaimer Help';
       textContent.content = (
-        <article>
+        <>
           <p>
             <strong>Report Any Issue.</strong> If you see any issue with
             calculations, page display, user interface responsiveness, error
@@ -240,7 +240,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
             allows us to continuously enhance the application to meet your
             expectations. Together, we can make this project even better!
           </p>
-        </article>
+        </>
       );
     } else if (pathname.includes(csgSpecs)) {
       textContent.title = 'Casing Specs Help';
@@ -256,7 +256,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
     } else if (pathname.includes(tempCorrLength)) {
       textContent.title = 'Temp. Corrected Length Help';
       textContent.content = (
-        <article>
+        <>
           <p>
             <strong>Step 1.</strong> Enter current environment temperature in
             degF or degC
@@ -268,12 +268,12 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           <p>
             <strong>Step 3.</strong> Choose the cable type you are using
           </p>
-        </article>
+        </>
       );
     } else if (pathname.includes(cbl)) {
       textContent.title = 'Cement Bond Log Calcs Help';
       textContent.content = (
-        <article>
+        <>
           <p>
             <strong>Purpose.</strong> Use this calculator to determine Travel
             Times for E1 peak of 3ft and 5ft waveforms
@@ -296,12 +296,12 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
             approximate, since the actual Travel Time may vary depending on tool
             characteristics, ambient temperature and pressure
           </p>
-        </article>
+        </>
       );
     } else if (pathname.includes(keyseat)) {
       textContent.title = 'Cable Stuck Depth (Keyseat) Help';
       textContent.content = (
-        <article>
+        <>
           <p>
             <strong>Purpose.</strong> If you are unsure whther your cable{' '}
             {`(not logging tools)`} got stuck then this calculator to determine
@@ -331,12 +331,12 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
             well curvature, temperature, wireline cable age, tension meter
             inaccuracy etc.
           </p>
-        </article>
+        </>
       );
     } else if (pathname.includes(fluidVelocity)) {
       textContent.title = 'Fluid Velocity Help';
       textContent.content = (
-        <article>
+        <>
           <p>
             <strong>Purpose.</strong> Figure out fluid velocity in certain
             casing diameters and pump rates. This is helpful if you want to
@@ -348,7 +348,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
           <p>
             <strong>Step 2.</strong> Set intended pumping rate
           </p>
-        </article>
+        </>
       );
     }
 
@@ -358,14 +358,22 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
   const { title, content } = renderText();
 
   return createPortal(
-    <div className="modal">
+    <div aria-label="Help information window" className="modal">
       <header className="modal-header">
-        <h4 className="modal-title">{title}</h4>
+        <h4
+          className="modal-title"
+          id="modal-heading"
+          aria-label="help item heading"
+        >
+          {title}
+        </h4>
         <div className="pointer" onClick={() => onClose(false)}>
           <AiOutlineClose />
         </div>
       </header>
-      <div className="modal-content">{content}</div>
+      <article className="modal-content" aria-labelledby="modal-heading">
+        {content}
+      </article>
     </div>,
     targetElement
   );
