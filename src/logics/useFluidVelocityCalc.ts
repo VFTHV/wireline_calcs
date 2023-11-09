@@ -21,6 +21,7 @@ export const useFluidVelocityCalc = (
 
   // MANUALLY CHANGING PUMP RATE UNITS TO CONVERT BACK TO ENGLISH
   // changing here
+  // changing another item
   const metricPumpRate = 'ft/min';
 
   const convVelocity = convertToEnglish(velocity, metricPumpRate);
