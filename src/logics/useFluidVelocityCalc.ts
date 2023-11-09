@@ -20,10 +20,7 @@ export const useFluidVelocityCalc = (
   const velocity = convPumpRate / pipeXSectionArea;
 
   // MANUALLY CHANGING PUMP RATE UNITS TO CONVERT BACK TO ENGLISH
-  // changing here
-  // changing another item
-  // changing another item
-  // changing another item
+
   const metricPumpRate = 'ft/min';
 
   const convVelocity = convertToEnglish(velocity, metricPumpRate);
