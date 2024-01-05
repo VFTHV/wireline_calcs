@@ -8,12 +8,6 @@ interface CurrentCableSpecsProps {
   specs: CableSpecsKey[];
 }
 
-// additional cable specs
-// additional cable specs
-// additional cable specs
-// additional cable specs
-// additional cable specs
-
 export const CurrentCableSpecs: FC<CurrentCableSpecsProps> = ({ specs }) => {
   const { weightUnits, depthUnits, diameterUnits, resistivityUnits } =
     useSelector((state: StoreState) => state.unitSystem);
