@@ -10,6 +10,7 @@ interface CurrentCableSpecsProps {
 
 // additional cable specs
 // additional cable specs
+// additional cable specs
 
 export const CurrentCableSpecs: FC<CurrentCableSpecsProps> = ({ specs }) => {
   const { weightUnits, depthUnits, diameterUnits, resistivityUnits } =
