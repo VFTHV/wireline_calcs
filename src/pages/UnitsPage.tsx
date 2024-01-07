@@ -11,6 +11,7 @@ import {
   MeasurementType,
   PumpRateUnits,
   VelocityUnits,
+  AllUnitsType,
 } from '../store/slices/types';
 import {
   StoreState,
@@ -28,6 +29,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { measurementObject as mo } from '../store/slices/types';
+import { useLocalStorage } from '../logics/useLocalStorageSet';
 
 export const UnitsPage = () => {
   const dispatch = useDispatch();
@@ -53,6 +55,8 @@ export const UnitsPage = () => {
     localStorage.setItem(name, e.target.value);
   };
 
+  const { setAllLocalStorageUnits } = useLocalStorage();
+
   return (
     <>
       <NavHeader>Change Measurement Units</NavHeader>
@@ -64,7 +68,10 @@ export const UnitsPage = () => {
       </h4>
       <RadioDualInput
         values={['ENGLISH', 'METRIC']}
-        onChange={(e) => dispatch(changeAll(e.target.value))}
+        onChange={(e) => {
+          dispatch(changeAll(e.target.value));
+          setAllLocalStorageUnits(e.target.value as AllUnitsType);
+        }}
         currentValue={allUnits}
       />
       <h4 className="err-header">CHANGE UNITS ONE BY ONE</h4>

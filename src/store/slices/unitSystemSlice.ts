@@ -76,6 +76,7 @@ const unitSystemSlice = createSlice({
     },
     changeAll(state, action) {
       state.allUnits = action.payload;
+
       if (action.payload === 'ENGLISH') {
         state.depthUnits = DepthUnits.FT;
         state.weightUnits = WeightUnits.LBS;
