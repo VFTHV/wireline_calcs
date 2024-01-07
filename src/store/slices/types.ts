@@ -1,5 +1,7 @@
 export type EnvironmentType = 'fluid' | 'gas';
 
+export type AllUnitsType = 'ENGLISH' | 'METRIC';
+
 interface Environment {
   FLUID: 'fluid';
   GAS: 'gas';
@@ -125,6 +127,20 @@ export type MeasurementType =
   | 'toolOd'
   | 'pumpRate'
   | 'velocity';
+
+type MeasurementObject = Partial<{ [K in MeasurementType]: K }>;
+
+export const measurementObject: MeasurementObject = {
+  depth: 'depth',
+  pressure: 'pressure',
+  diameter: 'diameter',
+  toolWeight: 'toolWeight',
+  capacity: 'capacity',
+  temperature: 'temperature',
+  resistivity: 'resistivity',
+  pumpRate: 'pumpRate',
+  velocity: 'velocity',
+};
 
 export type UnitType =
   | 'lbs'

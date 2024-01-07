@@ -1,4 +1,4 @@
-import { useLocalStorageSet } from './logics/useLocalStorageSet';
+import { useLocalStorage } from './logics/useLocalStorageSet';
 import { Routes, Route } from 'react-router-dom';
 import { pathNames } from './database/routes';
 import {
@@ -19,7 +19,8 @@ import {
 import FluidVelocity from './pages/FluidVelocity';
 
 function App() {
-  useLocalStorageSet();
+  const { getAllUnits } = useLocalStorage();
+  getAllUnits();
 
   return (
     <>

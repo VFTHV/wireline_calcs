@@ -10,6 +10,7 @@ import {
   ResistanceUnits,
   PumpRateUnits,
   VelocityUnits,
+  AllUnitsType,
 } from './types';
 
 export interface UnitSystemState {
@@ -24,7 +25,7 @@ export interface UnitSystemState {
   microSecUnits: 'usec';
   pumpRateUnits: 'bbl/min' | 'm3/min';
   velocityUnits: 'ft/min' | 'm/min';
-  allUnits: 'ENGLISH' | 'METRIC';
+  allUnits: AllUnitsType;
 }
 
 const initialState: UnitSystemState = {
