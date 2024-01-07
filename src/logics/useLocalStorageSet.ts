@@ -7,6 +7,8 @@ import {
   changeCapacityUnits,
   changeTempUnits,
   changeResistivityUnits,
+  changePumpRateUnits,
+  changeVelocityUnits,
 } from '../store';
 import { useDispatch } from 'react-redux';
 import { AllUnitsType, MeasurementType } from '../store/slices/types';
@@ -35,6 +37,12 @@ export const useLocalStorage = () => {
       }
       if (localStorage.getItem('resistivity')) {
         dispatch(changeResistivityUnits(localStorage.getItem('resistivity')));
+      }
+      if (localStorage.getItem('pumpRate')) {
+        dispatch(changePumpRateUnits(localStorage.getItem('pumpRate')));
+      }
+      if (localStorage.getItem('velocity')) {
+        dispatch(changeVelocityUnits(localStorage.getItem('velocity')));
       }
     }, []);
   };
