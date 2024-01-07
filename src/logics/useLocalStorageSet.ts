@@ -11,38 +11,39 @@ import {
   changeVelocityUnits,
 } from '../store';
 import { useDispatch } from 'react-redux';
-import { AllUnitsType, MeasurementType } from '../store/slices/types';
+import { AllUnitsType } from '../store/slices/types';
+import { measurementObject as mo } from '../store/slices/types';
 
 export const useLocalStorage = () => {
   const dispatch = useDispatch();
   const getAllUnits = () => {
     useEffect(() => {
-      if (localStorage.getItem('depth')) {
-        dispatch(changeDepthUnits(localStorage.getItem('depth')));
+      if (localStorage.getItem(mo.depth)) {
+        dispatch(changeDepthUnits(localStorage.getItem(mo.depth)));
       }
-      if (localStorage.getItem('pressure')) {
-        dispatch(changePressureUnits(localStorage.getItem('pressure')));
+      if (localStorage.getItem(mo.pressure)) {
+        dispatch(changePressureUnits(localStorage.getItem(mo.pressure)));
       }
-      if (localStorage.getItem('diameter')) {
-        dispatch(changeDiameterUnits(localStorage.getItem('diameter')));
+      if (localStorage.getItem(mo.diameter)) {
+        dispatch(changeDiameterUnits(localStorage.getItem(mo.diameter)));
       }
-      if (localStorage.getItem('toolWeight')) {
-        dispatch(changeWeightUnits(localStorage.getItem('toolWeight')));
+      if (localStorage.getItem(mo.toolWeight)) {
+        dispatch(changeWeightUnits(localStorage.getItem(mo.toolWeight)));
       }
-      if (localStorage.getItem('capacity')) {
-        dispatch(changeCapacityUnits(localStorage.getItem('capacity')));
+      if (localStorage.getItem(mo.capacity)) {
+        dispatch(changeCapacityUnits(localStorage.getItem(mo.capacity)));
       }
-      if (localStorage.getItem('temperature')) {
-        dispatch(changeTempUnits(localStorage.getItem('temperature')));
+      if (localStorage.getItem(mo.temperature)) {
+        dispatch(changeTempUnits(localStorage.getItem(mo.temperature)));
       }
-      if (localStorage.getItem('resistivity')) {
-        dispatch(changeResistivityUnits(localStorage.getItem('resistivity')));
+      if (localStorage.getItem(mo.resistivity)) {
+        dispatch(changeResistivityUnits(localStorage.getItem(mo.resistivity)));
       }
-      if (localStorage.getItem('pumpRate')) {
-        dispatch(changePumpRateUnits(localStorage.getItem('pumpRate')));
+      if (localStorage.getItem(mo.pumpRate)) {
+        dispatch(changePumpRateUnits(localStorage.getItem(mo.pumpRate)));
       }
-      if (localStorage.getItem('velocity')) {
-        dispatch(changeVelocityUnits(localStorage.getItem('velocity')));
+      if (localStorage.getItem(mo.velocity)) {
+        dispatch(changeVelocityUnits(localStorage.getItem(mo.velocity)));
       }
     }, []);
   };
