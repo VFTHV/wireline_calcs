@@ -10,6 +10,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { changeDepth, StoreState } from '../store';
 import { useStretchCalc } from '../logics/useStretchCalc';
+import { LargeScreenWrapper } from '../components/LargeScreenWrapper';
 
 export const Stretch = () => {
   const [tension, setTension] = useState<number>(0);
@@ -28,7 +29,7 @@ export const Stretch = () => {
   );
 
   return (
-    <>
+    <LargeScreenWrapper>
       <NavHeader>Cable Stretch Calculator</NavHeader>
       <CableSelector />
       {currentCable.type === 'MANUAL' ? (
@@ -59,6 +60,6 @@ export const Stretch = () => {
           </TableRow>
         </tbody>
       </table>
-    </>
+    </LargeScreenWrapper>
   );
 };

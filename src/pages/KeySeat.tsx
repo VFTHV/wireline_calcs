@@ -10,6 +10,7 @@ import {
 import { useSelector } from 'react-redux';
 import { StoreState } from '../store';
 import { useKeySeatCalc } from '../logics/useKeySeatCalc';
+import { LargeScreenWrapper } from '../components/LargeScreenWrapper';
 
 export const KeySeat = () => {
   const [diffStretch, setDiffStretch] = useState(0);
@@ -27,7 +28,7 @@ export const KeySeat = () => {
   );
 
   return (
-    <>
+    <LargeScreenWrapper>
       <NavHeader>Cable Stuck Depth {`(Keyseat)`}</NavHeader>
       <CableSelector />
       {type === 'MANUAL' ? (
@@ -58,6 +59,6 @@ export const KeySeat = () => {
           </TableRow>
         </tbody>
       </table>
-    </>
+    </LargeScreenWrapper>
   );
 };

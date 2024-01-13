@@ -16,6 +16,7 @@ import {
 import { StoreState } from '../store';
 import { useWeakPointCalc } from '../logics/useWeakPointCalc';
 import { EnvironmentUnits } from '../store/slices/types';
+import { LargeScreenWrapper } from '../components/LargeScreenWrapper';
 
 export const WeakPoint = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ export const WeakPoint = () => {
     useWeakPointCalc(currentCable, depth, environment, unitSystem, toolWeight);
 
   return (
-    <>
+    <LargeScreenWrapper>
       <NavHeader>Weak Point</NavHeader>
       <CableSelector />
       {currentCable.type === 'MANUAL' ? (
@@ -82,6 +83,6 @@ export const WeakPoint = () => {
           </TableRow>
         </tbody>
       </table>
-    </>
+    </LargeScreenWrapper>
   );
 };

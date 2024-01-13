@@ -15,7 +15,6 @@ export const LargeScreenWrapper: FC<LargeScreenWrapperProps> = ({
       setScreenWidth(window.innerWidth);
     };
 
-    console.log(window.innerWidth);
     window.addEventListener('resize', updateScreenSize);
 
     return () => {
