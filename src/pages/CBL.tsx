@@ -12,6 +12,7 @@ import { useCblCalcs } from '../logics/useCblCalcs';
 import { useSelector } from 'react-redux';
 import { StoreState } from '../store';
 import { useConvertUnits } from '../logics/useConvertUnits';
+import { LargeScreenWrapper } from '../components/LargeScreenWrapper';
 
 export const CBL = () => {
   const [toolOd, setToolOd] = useState<number>(0);
@@ -49,7 +50,7 @@ export const CBL = () => {
   };
 
   return (
-    <>
+    <LargeScreenWrapper>
       <NavHeader>Cement Bond Log Calcs</NavHeader>
       <PipeSelector pipeData={casingData} typeId="casing" />
 
@@ -66,6 +67,6 @@ export const CBL = () => {
       <FluidSelector />
       <PipeSpecsDisplay typeId="casing" specs={['id']} pipeThck />
       {renderPPT()}
-    </>
+    </LargeScreenWrapper>
   );
 };

@@ -17,6 +17,7 @@ import {
 } from '../store';
 import { useMaxPullCalc } from '../logics/useMaxPullCalc';
 import { EnvironmentUnits } from '../store/slices/types';
+import { LargeScreenWrapper } from '../components/LargeScreenWrapper';
 
 export const MaxPull = () => {
   const { unitSystem } = useSelector((state: StoreState) => state);
@@ -38,7 +39,7 @@ export const MaxPull = () => {
   );
 
   return (
-    <>
+    <LargeScreenWrapper>
       <NavHeader>Max. Tension at Depth</NavHeader>
       <CableSelector />
       {currentCable.type === 'MANUAL' ? (
@@ -95,6 +96,6 @@ export const MaxPull = () => {
           </TableRow>
         </tbody>
       </table>
-    </>
+    </LargeScreenWrapper>
   );
 };

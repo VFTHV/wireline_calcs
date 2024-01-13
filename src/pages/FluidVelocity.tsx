@@ -4,6 +4,7 @@ import { casingData } from '../database/casingsTubings';
 import { useFluidVelocityCalc } from '../logics/useFluidVelocityCalc';
 import { useSelector } from 'react-redux';
 import { StoreState } from '../store';
+import { LargeScreenWrapper } from '../components/LargeScreenWrapper';
 
 const FluidVelocity = () => {
   const { casing } = useSelector((state: StoreState) => state.cbl);
@@ -13,7 +14,7 @@ const FluidVelocity = () => {
   const fluidVelocity = useFluidVelocityCalc(pumpRate, casing?.id, unitSystem);
 
   return (
-    <>
+    <LargeScreenWrapper>
       <NavHeader>Fluid Velocity</NavHeader>
       <PipeSelector pipeData={casingData} typeId="casing" />
       <InputData
@@ -31,7 +32,7 @@ const FluidVelocity = () => {
           </TableRow>
         </tbody>
       </table>
-    </>
+    </LargeScreenWrapper>
   );
 };
 
