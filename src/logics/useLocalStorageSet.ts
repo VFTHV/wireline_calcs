@@ -60,29 +60,49 @@ export const useLocalStorage = () => {
   };
 
   const setAllLocalStorageUnits = (allUnits: AllUnitsType) => {
-    if (allUnits === 'ENGLISH') {
-      mo.depth && localStorage.setItem(mo.depth, DepthUnits.FT);
-      mo.pressure && localStorage.setItem(mo.pressure, PressureUnits.PSI);
-      mo.diameter && localStorage.setItem(mo.diameter, DiameterUnits.INCH);
-      mo.toolWeight && localStorage.setItem(mo.toolWeight, WeightUnits.LBS);
-      mo.capacity && localStorage.setItem(mo.capacity, CapacityUnits.BBL);
-      mo.temperature && localStorage.setItem(mo.temperature, TempUnits.DEGF);
-      mo.resistivity &&
-        localStorage.setItem(mo.resistivity, ResistivityUnits.OHM_KFT);
-      mo.pumpRate && localStorage.setItem(mo.pumpRate, PumpRateUnits.BBLMIN);
-      mo.velocity && localStorage.setItem(mo.velocity, VelocityUnits.FTMIN);
-    } else {
-      mo.depth && localStorage.setItem(mo.depth, DepthUnits.M);
-      mo.pressure && localStorage.setItem(mo.pressure, PressureUnits.ATM);
-      mo.diameter && localStorage.setItem(mo.diameter, DiameterUnits.MM);
-      mo.toolWeight && localStorage.setItem(mo.toolWeight, WeightUnits.KG);
-      mo.capacity && localStorage.setItem(mo.capacity, CapacityUnits.M3);
-      mo.temperature && localStorage.setItem(mo.temperature, TempUnits.DEGC);
-      mo.resistivity &&
-        localStorage.setItem(mo.resistivity, ResistivityUnits.OHM_KM);
-      mo.pumpRate && localStorage.setItem(mo.pumpRate, PumpRateUnits.M3MIN);
-      mo.velocity && localStorage.setItem(mo.velocity, VelocityUnits.MMIN);
-    }
+    const isEnglish = allUnits === 'ENGLISH';
+    mo.depth &&
+      localStorage.setItem(mo.depth, isEnglish ? DepthUnits.FT : DepthUnits.M);
+    mo.pressure &&
+      localStorage.setItem(
+        mo.pressure,
+        isEnglish ? PressureUnits.PSI : PressureUnits.ATM
+      );
+    mo.diameter &&
+      localStorage.setItem(
+        mo.diameter,
+        isEnglish ? DiameterUnits.INCH : DiameterUnits.MM
+      );
+    mo.toolWeight &&
+      localStorage.setItem(
+        mo.toolWeight,
+        isEnglish ? WeightUnits.LBS : WeightUnits.KG
+      );
+    mo.capacity &&
+      localStorage.setItem(
+        mo.capacity,
+        isEnglish ? CapacityUnits.BBL : CapacityUnits.M3
+      );
+    mo.temperature &&
+      localStorage.setItem(
+        mo.temperature,
+        isEnglish ? TempUnits.DEGF : TempUnits.DEGC
+      );
+    mo.resistivity &&
+      localStorage.setItem(
+        mo.resistivity,
+        isEnglish ? ResistivityUnits.OHM_KFT : ResistivityUnits.OHM_KM
+      );
+    mo.pumpRate &&
+      localStorage.setItem(
+        mo.pumpRate,
+        isEnglish ? PumpRateUnits.BBLMIN : PumpRateUnits.M3MIN
+      );
+    mo.velocity &&
+      localStorage.setItem(
+        mo.velocity,
+        isEnglish ? VelocityUnits.FTMIN : VelocityUnits.MMIN
+      );
   };
   return { getAllUnits, setAllLocalStorageUnits };
 };
