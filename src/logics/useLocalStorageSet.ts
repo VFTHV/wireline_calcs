@@ -60,7 +60,6 @@ export const useLocalStorage = () => {
   };
 
   const setAllLocalStorageUnits = (allUnits: AllUnitsType) => {
-    console.log('running setAllLS units');
     if (allUnits === 'ENGLISH') {
       mo.depth && localStorage.setItem(mo.depth, DepthUnits.FT);
       mo.pressure && localStorage.setItem(mo.pressure, PressureUnits.PSI);
