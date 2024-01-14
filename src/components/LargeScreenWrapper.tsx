@@ -6,6 +6,7 @@ interface LargeScreenWrapperProps {
 }
 // resize event listener logics
 // resize event listener logics
+// resize event listener logics
 
 export const LargeScreenWrapper: FC<LargeScreenWrapperProps> = ({
   children,
