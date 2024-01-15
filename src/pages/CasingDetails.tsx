@@ -6,6 +6,7 @@ import { LargeScreenWrapper } from '../components/LargeScreenWrapper';
 export const CasingDetails: FC = () => {
   // New casing details
   // New casing details
+  // New casing details
   return (
     <LargeScreenWrapper>
       <NavHeader>Casing/Tubing Specs</NavHeader>
