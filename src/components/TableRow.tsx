@@ -38,7 +38,9 @@ export const TableRow: FC<TableRowProps> = ({
       <th className="t-head">{`${children}, ${units}`}</th>
       <td className="t-data">
         <div>{displayData()}</div>
-        <div className="warning">{renderWarning()}</div>
+        <div className="warning">
+          {renderWarning()} {units}
+        </div>
       </td>
     </tr>
   );
