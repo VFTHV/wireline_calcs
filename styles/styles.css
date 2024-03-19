@@ -74,6 +74,7 @@ h6 {
 .t-row .t-head .warning,
 .t-row .t-data .warning {
   font-size: 1rem;
+  color: red;
 }
 .t-row .t-head {
   color: rgb(1, 82, 234);
