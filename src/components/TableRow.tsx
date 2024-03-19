@@ -32,12 +32,6 @@ export const TableRow: FC<TableRowProps> = ({
       return `value exceeds tolerance of ${dataMaxTolerance}`;
     }
   };
-  // renderWarning
-  // renderWarning
-  // renderWarning
-  // renderWarning
-  // renderWarning
-  // renderWarning
 
   return (
     <tr className="t-row" aria-label={`table group displaying in ${units}`}>
