@@ -29,7 +29,7 @@ export const TableRow: FC<TableRowProps> = ({
   const renderWarning = () => {
     if (typeof data !== 'number' || !dataMaxTolerance) return;
     if (data > dataMaxTolerance) {
-      return `value exceeds tolerance of ${dataMaxTolerance}`;
+      return `value exceeds tolerance of ${dataMaxTolerance} ${units}`;
     }
   };
 
@@ -38,9 +38,7 @@ export const TableRow: FC<TableRowProps> = ({
       <th className="t-head">{`${children}, ${units}`}</th>
       <td className="t-data">
         <div>{displayData()}</div>
-        <div className="warning">
-          {renderWarning()} {units}
-        </div>
+        <div className="warning">{renderWarning()}</div>
       </td>
     </tr>
   );
