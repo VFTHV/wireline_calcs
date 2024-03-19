@@ -43,9 +43,7 @@ export const MaxPull = () => {
       <NavHeader>Max. Tension at Depth</NavHeader>
       <CableSelector />
       {currentCable.type === 'MANUAL' ? (
-        <CableManualEntrance
-          specs={['outerArmorBS', 'innerArmorBS', 'weightInAir']}
-        />
+        <CableManualEntrance specs={['outerArmorBS', 'weightInAir']} />
       ) : (
         <CurrentCableSpecs
           specs={['maxTension', 'outerArmorBS', 'innerArmorBS', 'weightInAir']}
