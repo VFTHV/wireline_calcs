@@ -6,9 +6,15 @@ interface TableRowProps {
   children: string;
   data: number | string | undefined;
   units: UnitType;
+  dataMaxTolerance?: number;
 }
 
-export const TableRow: FC<TableRowProps> = ({ children, data, units }) => {
+export const TableRow: FC<TableRowProps> = ({
+  children,
+  data,
+  units,
+  dataMaxTolerance,
+}) => {
   const { convertToMetric } = useConvertUnits();
 
   const displayData = () => {
@@ -20,10 +26,20 @@ export const TableRow: FC<TableRowProps> = ({ children, data, units }) => {
     return data;
   };
 
+  const renderWarning = () => {
+    if (typeof data !== 'number' || !dataMaxTolerance) return;
+    if (data > dataMaxTolerance) {
+      return `value exceeds tolerance of ${dataMaxTolerance}`;
+    }
+  };
+
   return (
     <tr className="t-row" aria-label={`table group displaying in ${units}`}>
       <th className="t-head">{`${children}, ${units}`}</th>
-      <td className="t-data">{displayData()}</td>
+      <td className="t-data">
+        <div>{displayData()}</div>
+        <div className="warning">{renderWarning()}</div>
+      </td>
     </tr>
   );
 };

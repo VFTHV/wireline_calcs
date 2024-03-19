@@ -43,10 +43,12 @@ export const MaxPull = () => {
       <NavHeader>Max. Tension at Depth</NavHeader>
       <CableSelector />
       {currentCable.type === 'MANUAL' ? (
-        <CableManualEntrance specs={['outerArmorBS', 'weightInAir']} />
+        <CableManualEntrance
+          specs={['maxTension', 'outerArmorBS', 'weightInAir']}
+        />
       ) : (
         <CurrentCableSpecs
-          specs={['maxTension', 'outerArmorBS', 'innerArmorBS', 'weightInAir']}
+          specs={['maxTension', 'outerArmorBS', 'weightInAir']}
         />
       )}
 
@@ -82,12 +84,20 @@ export const MaxPull = () => {
       </InputData>
       <table className="table" aria-label="maximum cable pull table group">
         <tbody>
-          <TableRow data={conservativePull} units={unitSystem.weightUnits}>
+          <TableRow
+            data={conservativePull}
+            units={unitSystem.weightUnits}
+            dataMaxTolerance={currentCable.maxTension}
+          >
             {percentPull && depth
               ? `Conservative ${percentPull} % WP pull @ ${depth} ${unitSystem.depthUnits}`
               : 'Conservative pull'}
           </TableRow>
-          <TableRow data={maxPull} units={unitSystem.weightUnits}>
+          <TableRow
+            data={maxPull}
+            units={unitSystem.weightUnits}
+            dataMaxTolerance={currentCable.maxTension}
+          >
             {percentPull && depth
               ? `Max ${percentPull} % WP pull @ ${depth} ${unitSystem.depthUnits}`
               : 'Max pull'}
