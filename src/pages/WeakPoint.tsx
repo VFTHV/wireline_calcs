@@ -39,7 +39,7 @@ export const WeakPoint = () => {
       ) : (
         <CurrentCableSpecs
           specs={[
-            'breakingStrength',
+            // 'breakingStrength',
             'outerArmorBS',
             'weightInAir',
             'maxTension',

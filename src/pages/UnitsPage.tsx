@@ -62,7 +62,7 @@ export const UnitsPage = () => {
     <LargeScreenWrapper>
       <NavHeader>Change Measurement Units</NavHeader>
       <h4
-        className="err-header"
+        className="text-center"
         aria-label="measurement unit change page heading"
       >
         CHANGE ALL UNITS
@@ -75,7 +75,7 @@ export const UnitsPage = () => {
         }}
         currentValue={allUnits}
       />
-      <h4 className="err-header">CHANGE UNITS ONE BY ONE</h4>
+      <h4 className="text-center">CHANGE UNITS ONE BY ONE</h4>
       <RadioDualInput
         values={[DepthUnits.FT, DepthUnits.M]}
         onChange={(e) =>

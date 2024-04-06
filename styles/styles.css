@@ -195,4 +195,8 @@ h6 {
   margin: 1rem;
   color: rgba(255, 0, 0, 0.616);
   text-align: center;
+}
+
+.text-center {
+  text-align: center;
 }/*# sourceMappingURL=styles.css.map */
