@@ -35,7 +35,10 @@ export const TableRow: FC<TableRowProps> = ({
 
   return (
     <tr className="t-row" aria-label={`table group displaying in ${units}`}>
-      <th className="t-head">{`${children}, ${units}`}</th>
+      <th className="t-head">
+        {children}
+        {units && `, ${units}`}
+      </th>
       <td className="t-data">
         <div>{displayData()}</div>
         <div className="warning">{renderWarning()}</div>

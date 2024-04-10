@@ -9,27 +9,25 @@ export const FluidSelector: FC = () => {
   const dispatch = useDispatch();
 
   return (
-    <>
-      <div className="input-group">
-        <label htmlFor="fluid" id="fluid-type" aria-label="choose fluid type">
-          Fluid Type:
-        </label>
-        <select
-          className="input-item"
-          id="fluid"
-          name="fluid"
-          value={fluid.type}
-          onChange={(e) => dispatch(changeFluid(e.target.value))}
-        >
-          {types.map((type, i) => {
-            return (
-              <option key={i} aria-labelledby="fluid-type">
-                {type}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-    </>
+    <div className="input-group">
+      <label htmlFor="fluid" id="fluid-type" aria-label="choose fluid type">
+        Fluid Type:
+      </label>
+      <select
+        className="input-item"
+        id="fluid"
+        name="fluid"
+        value={fluid.type}
+        onChange={(e) => dispatch(changeFluid(e.target.value))}
+      >
+        {types.map((type, i) => {
+          return (
+            <option key={i} aria-labelledby="fluid-type">
+              {type}
+            </option>
+          );
+        })}
+      </select>
+    </div>
   );
 };

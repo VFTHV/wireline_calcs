@@ -70,7 +70,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose }) => {
             hole Depth
           </p>
           <div>
-            <strong>Step 5.</strong>
+            <strong>Step 4.</strong>
             Calculator returns the following
             <ul className="styled-list">
               <li>TOTAL CABLE WEIGHT at maximum Depth</li>
