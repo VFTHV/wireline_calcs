@@ -11,6 +11,7 @@ export * from './Modal';
 export * from './FluidSelector';
 export * from './PipeSelector';
 export * from './PipeSpecsDisplay';
+export * from './WarriorLink';
 export * from '../pages/NavPage';
 export * from '../pages/UnitsPage';
 export * from '../pages/WeakPoint';

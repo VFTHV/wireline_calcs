@@ -1,4 +1,4 @@
-import { NavItem } from '../components';
+import { NavItem, WarriorLink } from '../components';
 import { pathNames } from '../database/routes';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsExclamationTriangle } from 'react-icons/bs';
@@ -8,6 +8,9 @@ export const NavPage = () => {
   return (
     <nav className="navigation">
       <ul>
+        <WarriorLink
+          to={'https://wireline-logging.thinkific.com/courses/wireline-logging'}
+        />
         <NavItem to={pathNames.units} icon={<FiSettings />}>
           Change Measurement Units
         </NavItem>
