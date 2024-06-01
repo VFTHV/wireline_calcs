@@ -7,15 +7,6 @@ import { Modal } from '.';
 interface NavHeaderProps {
   children: string | string[];
 }
-// NavHeaderProps
-// NavHeaderProps
-// NavHeaderProps
-// NavHeaderProps
-// NavHeaderProps
-// NavHeaderProps
-// NavHeaderProps
-// NavHeaderProps
-// NavHeaderProps
 
 export const NavHeader: FC<NavHeaderProps> = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
