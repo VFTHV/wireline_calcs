@@ -8,6 +8,7 @@ interface NavHeaderProps {
   children: string | string[];
 }
 // NavHeaderProps
+// NavHeaderProps
 
 export const NavHeader: FC<NavHeaderProps> = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
