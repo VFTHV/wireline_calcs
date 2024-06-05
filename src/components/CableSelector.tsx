@@ -6,15 +6,7 @@ import { cablesData } from '../database/cables';
 export const CableSelector: FC = () => {
   const dispatch = useDispatch();
   const { currentCable } = useSelector((state: StoreState) => state.weakPoint);
-  // currentCableSelector
-  // currentCableSelector
-  // currentCableSelector
-  // currentCableSelector
-  // currentCableSelector
-  // currentCableSelector
-  // currentCableSelector
-  // currentCableSelector
-  // currentCableSelector
+
   const handleCableChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const selectedCable = cablesData.find(
       (cable) => cable.type === e.target.value
