@@ -17,10 +17,33 @@ import {
   KeySeat,
 } from './components';
 import FluidVelocity from './pages/FluidVelocity';
+import { useState } from 'react';
+
+const compDict = {
+  units: <UnitsPage />,
+  weakPoint: <WeakPoint />,
+  weightBar: <WeightBar />,
+  stretch: <Stretch />,
+  keyseat: <KeySeat />,
+  maxPull: <MaxPull />,
+  casginDetails: <CasingDetails />,
+  tempCorrLength: <TempCorrLength />,
+  cbl: <CBL />,
+  feedback: <ReportProblemForm />,
+  disclaimer: <Disclaimer />,
+  fluidVelocity: <FluidVelocity />,
+};
+
+export type CompDictKeysType = keyof typeof compDict;
 
 function App() {
   const { getAllUnits } = useLocalStorage();
   getAllUnits();
+  const [dictKey, setDictKey] = useState<CompDictKeysType | null>(null);
+
+  return (
+    <>{dictKey ? compDict[dictKey] : <NavPage setDictKey={setDictKey} />}</>
+  );
 
   return (
     <>
