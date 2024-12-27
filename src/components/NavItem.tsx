@@ -1,23 +1,24 @@
 import { FC, ReactNode } from 'react';
 import { GoChevronRight } from 'react-icons/go';
 import { BsCalculator } from 'react-icons/bs';
-import { CompDictKeysType } from '../App';
+import { CompDictKeysType } from '../store/slices/types';
+import { useDispatch } from 'react-redux';
+import { changeCompDictKey } from '../store';
 
 interface NavItemProps {
-  setDictKey: React.Dispatch<React.SetStateAction<CompDictKeysType | null>>;
   componentDictKey: CompDictKeysType;
   children: string | string[];
   icon?: ReactNode;
 }
 
 export const NavItem: FC<NavItemProps> = ({
-  setDictKey,
   componentDictKey,
   children,
   icon,
 }) => {
+  const dispatch = useDispatch();
   const onClick = () => {
-    setDictKey(componentDictKey);
+    dispatch(changeCompDictKey(componentDictKey));
   };
 
   return (

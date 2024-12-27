@@ -1,17 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { PipeSpecs, casingData } from '../../database/casingsTubings';
 import { FluidSpecs, fluidsData } from '../../database/cbl';
+import { CompDictKeysType } from './types';
 
 export interface CblState {
   casing: PipeSpecs | undefined;
   tubing: PipeSpecs | undefined;
   fluid: FluidSpecs;
+  compDictKey: CompDictKeysType | null;
 }
 
 const initialState: CblState = {
   casing: undefined,
   tubing: casingData[0], // change this to tubing data array
   fluid: fluidsData[0],
+  compDictKey: null,
 };
 
 const cblSlice = createSlice({
@@ -31,8 +34,12 @@ const cblSlice = createSlice({
       if (!selected) return;
       state.fluid = selected;
     },
+    changeCompDictKey(state, action: { payload: CompDictKeysType | null }) {
+      state.compDictKey = action.payload;
+    },
   },
 });
 
-export const { changeCasing, changeTubing, changeFluid } = cblSlice.actions;
+export const { changeCasing, changeTubing, changeFluid, changeCompDictKey } =
+  cblSlice.actions;
 export const cblReducer = cblSlice.reducer;
