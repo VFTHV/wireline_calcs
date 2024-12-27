@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { PipeSpecs, casingData } from '../../database/casingsTubings';
 import { FluidSpecs, fluidsData } from '../../database/cbl';
-import { CompDictKeysType } from './types';
+import { CompDictKeysType } from '../../database/componentDicts';
 
 export interface CblState {
   casing: PipeSpecs | undefined;

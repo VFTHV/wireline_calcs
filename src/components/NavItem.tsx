@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import { GoChevronRight } from 'react-icons/go';
 import { BsCalculator } from 'react-icons/bs';
-import { CompDictKeysType } from '../store/slices/types';
+import { CompDictKeysType } from '../App';
 import { useDispatch } from 'react-redux';
 import { changeCompDictKey } from '../store';
 

@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import { GoChevronLeft } from 'react-icons/go';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { Modal } from '.';
@@ -15,9 +14,7 @@ export const NavHeader: FC<NavHeaderProps> = ({ children }) => {
     <>
       <header>
         <nav className="nav-header" aria-label="navigation-menu">
-          <NavLink to="/">
-            <GoChevronLeft />
-          </NavLink>
+          <GoChevronLeft onClick={() => console.log('back')} />
           <h4>{children}</h4>
           <div className="pointer" onClick={() => setIsModalOpen(true)}>
             <AiOutlineQuestionCircle />

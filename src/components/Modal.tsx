@@ -1,7 +1,7 @@
 import { FC, Dispatch } from 'react';
 import { createPortal } from 'react-dom';
 import { AiOutlineClose } from 'react-icons/ai';
-import { modalTextDict } from '../store/slices/types';
+import { modalTextDict } from '../database/componentDicts';
 import { StoreState } from '../store';
 import { useSelector } from 'react-redux';
 
