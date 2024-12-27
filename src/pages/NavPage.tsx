@@ -4,7 +4,6 @@ import { BsExclamationTriangle } from 'react-icons/bs';
 import { FiSettings } from 'react-icons/fi';
 
 export const NavPage = () => {
-  console.log('nav page');
   return (
     <nav className="navigation">
       <ul>
