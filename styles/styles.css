@@ -1,11 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;700&display=swap");
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-body {
+#root,
+#modal-root {
   box-sizing: border-box;
   margin: 0;
   background-color: rgb(1, 82, 234);
@@ -13,35 +8,49 @@ body {
   font-family: "Outfit", sans-serif;
   padding: 1rem 0;
 }
-
-a {
+#root ul,
+#modal-root ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#root a,
+#modal-root a {
   text-decoration: none;
   color: rgb(255, 255, 255);
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+#root h1,
+#root h2,
+#root h3,
+#root h4,
+#root h5,
+#root h6,
+#modal-root h1,
+#modal-root h2,
+#modal-root h3,
+#modal-root h4,
+#modal-root h5,
+#modal-root h6 {
   margin: 0;
 }
 
-.container {
+#root .container,
+#modal-root .container {
   padding: 1rem;
 }
-
-.navigation {
+#root .navigation,
+#modal-root .navigation {
   padding: 0 1rem;
 }
-.navigation .navitem {
+#root .navigation .navitem,
+#modal-root .navigation .navitem {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   border-bottom: solid 2px rgb(0, 65, 216);
 }
-.navigation .coral {
+#root .navigation .coral,
+#modal-root .navigation .coral {
   animation: pulse 2s infinite alternate;
 }
 @keyframes pulse {
@@ -54,19 +63,19 @@ h6 {
     background-color: rgb(255, 127, 80);
   }
 }
-
-.nav-header {
+#root .nav-header,
+#modal-root .nav-header {
   display: flex;
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
 }
-
-.table {
+#root .table,
+#modal-root .table {
   width: 100%;
 }
-
-.t-row {
+#root .t-row,
+#modal-root .t-row {
   display: grid;
   grid-template-columns: 3fr 3fr;
   grid-template-rows: 1fr;
@@ -75,8 +84,10 @@ h6 {
   text-align: left;
   background-color: rgb(255, 255, 255);
 }
-.t-row .t-head,
-.t-row .t-data {
+#root .t-row .t-head,
+#root .t-row .t-data,
+#modal-root .t-row .t-head,
+#modal-root .t-row .t-data {
   border: solid 1px rgb(184, 177, 169);
   padding: 1rem;
   display: flex;
@@ -84,46 +95,55 @@ h6 {
   display: flex;
   flex-direction: column;
 }
-.t-row .t-head .warning,
-.t-row .t-data .warning {
+#root .t-row .t-head .warning,
+#root .t-row .t-data .warning,
+#modal-root .t-row .t-head .warning,
+#modal-root .t-row .t-data .warning {
   font-size: 1rem;
   color: red;
 }
-.t-row .t-head {
+#root .t-row .t-head,
+#modal-root .t-row .t-head {
   color: rgb(1, 82, 234);
 }
-.t-row .t-data {
+#root .t-row .t-data,
+#modal-root .t-row .t-data {
   color: black;
   font-size: 2rem;
   font-weight: 100;
 }
-
-.input-group {
+#root .input-group,
+#modal-root .input-group {
   margin: 1rem;
   display: flex;
   flex-direction: column;
 }
-.input-group .input-item {
+#root .input-group .input-item,
+#modal-root .input-group .input-item {
   height: 2rem;
   border-radius: 5px;
   font-size: 1rem;
 }
-.input-group .input-with-units {
+#root .input-group .input-with-units,
+#modal-root .input-group .input-with-units {
   width: 85%;
 }
-.input-group .textearea {
+#root .input-group .textearea,
+#modal-root .input-group .textearea {
   height: unset;
 }
-.input-group span {
+#root .input-group span,
+#modal-root .input-group span {
   width: 15%;
 }
-.input-group .error-message {
+#root .input-group .error-message,
+#modal-root .input-group .error-message {
   color: black;
   font-size: 0.8rem;
   font-weight: 700;
 }
-
-.button {
+#root .button,
+#modal-root .button {
   padding: 0.5rem;
   width: 5rem;
   border-radius: 5px;
@@ -131,8 +151,8 @@ h6 {
   color: black;
   font-weight: 700;
 }
-
-.radio-container {
+#root .radio-container,
+#modal-root .radio-container {
   margin: 1rem auto;
   display: flex;
   width: 15rem;
@@ -140,26 +160,32 @@ h6 {
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
 }
-.radio-container input {
+#root .radio-container input,
+#modal-root .radio-container input {
   display: none;
 }
-.radio-container input:checked + .label-container {
+#root .radio-container input:checked + .label-container,
+#modal-root .radio-container input:checked + .label-container {
   background-color: rgb(1, 121, 234);
   color: #fff;
   font-weight: 700;
 }
-.radio-container label {
+#root .radio-container label,
+#modal-root .radio-container label {
   color: rgb(1, 82, 234);
   width: 50%;
   cursor: pointer;
 }
-.radio-container label .left {
+#root .radio-container label .left,
+#modal-root .radio-container label .left {
   border-radius: 5px 0 0 5px;
 }
-.radio-container label .right {
+#root .radio-container label .right,
+#modal-root .radio-container label .right {
   border-radius: 0 5px 5px 0;
 }
-.radio-container label .label-container {
+#root .radio-container label .label-container,
+#modal-root .radio-container label .label-container {
   width: 100%;
   height: 100%;
   transition: background-color 0.3s ease-in-out;
@@ -167,8 +193,8 @@ h6 {
   align-items: center;
   justify-content: center;
 }
-
-.modal {
+#root .modal,
+#modal-root .modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -177,39 +203,42 @@ h6 {
   background-color: rgba(1, 82, 234, 0.95);
   padding-block: 1rem;
 }
-.modal .modal-header {
+#root .modal .modal-header,
+#modal-root .modal .modal-header {
   display: flex;
   align-items: center;
   padding-block: 1rem;
   justify-content: space-between;
   padding-inline: 1rem;
 }
-.modal .modal-header .modal-title {
+#root .modal .modal-header .modal-title,
+#modal-root .modal .modal-header .modal-title {
   text-align: center;
   flex-grow: 1;
 }
-.modal .modal-content {
+#root .modal .modal-content,
+#modal-root .modal .modal-content {
   padding-inline: 1rem;
 }
-
-.pointer {
+#root .pointer,
+#modal-root .pointer {
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.styled-list {
+#root .styled-list,
+#modal-root .styled-list {
   list-style-type: initial;
   list-style-position: inside;
 }
-
-.err-header {
+#root .err-header,
+#modal-root .err-header {
   margin: 1rem;
   color: rgba(255, 0, 0, 0.616);
   text-align: center;
 }
-
-.text-center {
+#root .text-center,
+#modal-root .text-center {
   text-align: center;
 }/*# sourceMappingURL=styles.css.map */
