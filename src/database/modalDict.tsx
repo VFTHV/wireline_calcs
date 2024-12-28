@@ -6,6 +6,10 @@ type ModalTextDict = Record<
 >;
 
 export const modalTextDict: ModalTextDict = {
+  navPage: {
+    title: 'Nav Page Help',
+    content: <p>Navigation page helps navigating the app</p>,
+  },
   units: {
     title: 'Measurement Units Help',
     content: (
