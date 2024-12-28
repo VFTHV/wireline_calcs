@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;700&display=swap");
 #root,
 #modal-root {
   box-sizing: border-box;
@@ -33,7 +32,6 @@
 #modal-root h6 {
   margin: 0;
 }
-
 #root .container,
 #modal-root .container {
   padding: 1rem;
