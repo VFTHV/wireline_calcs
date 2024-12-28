@@ -17,7 +17,6 @@ import {
 import { useSelector } from 'react-redux';
 import { StoreState } from './store';
 import FluidVelocity from './pages/FluidVelocity';
-import { LargeScreenWrapper } from './components/LargeScreenWrapper';
 
 const compDict = {
   units: <UnitsPage />,
