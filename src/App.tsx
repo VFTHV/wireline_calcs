@@ -16,6 +16,7 @@ import {
 import { useSelector } from 'react-redux';
 import { StoreState } from './store';
 import FluidVelocity from './pages/FluidVelocity';
+import { LargeScreenWrapper } from './components/LargeScreenWrapper';
 
 const compDict = {
   units: <UnitsPage />,
@@ -40,7 +41,15 @@ function App() {
 
   getAllUnits();
 
-  return <>{compDictKey ? compDict[compDictKey] : <NavPage />}</>;
+  return (
+    <>
+      {compDictKey ? (
+        <LargeScreenWrapper>{compDict[compDictKey]}</LargeScreenWrapper>
+      ) : (
+        <NavPage />
+      )}
+    </>
+  );
 }
 
 export default App;

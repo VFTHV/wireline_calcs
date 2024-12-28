@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { NavHeader } from '../components';
-import { LargeScreenWrapper } from '../components/LargeScreenWrapper';
 
 export const ReportProblemForm = () => {
   const [state, handleSubmit] = useForm('xrgvvznv');
@@ -13,7 +12,7 @@ export const ReportProblemForm = () => {
   }
 
   return (
-    <LargeScreenWrapper>
+    <>
       <NavHeader>Report a Problem</NavHeader>
       <form
         onSubmit={handleSubmit}
@@ -71,6 +70,6 @@ export const ReportProblemForm = () => {
           </button>
         </div>
       </form>
-    </LargeScreenWrapper>
+    </>
   );
 };

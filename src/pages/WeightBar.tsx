@@ -13,7 +13,6 @@ import {
   StoreState,
 } from '../store';
 import { useWeightBarCalc } from '../logics/useWeighBarCalc';
-import { LargeScreenWrapper } from '../components/LargeScreenWrapper';
 
 export const WeightBar = () => {
   const dispatch = useDispatch();
@@ -31,7 +30,7 @@ export const WeightBar = () => {
   );
 
   return (
-    <LargeScreenWrapper>
+    <>
       <NavHeader>Weight Bar</NavHeader>
       <InputData
         onChange={(e) => dispatch(changeDiameter(e.target.value))}
@@ -79,6 +78,6 @@ export const WeightBar = () => {
         </tbody>
       </table>
       <WeightBarSelector />
-    </LargeScreenWrapper>
+    </>
   );
 };

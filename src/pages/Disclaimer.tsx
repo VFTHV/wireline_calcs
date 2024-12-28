@@ -1,9 +1,8 @@
 import { NavHeader } from '../components';
-import { LargeScreenWrapper } from '../components/LargeScreenWrapper';
 
 export const Disclaimer = () => {
   return (
-    <LargeScreenWrapper>
+    <>
       <NavHeader>Disclaimer</NavHeader>
       <div className="container" aria-label="disclaimer text">
         <p>
@@ -34,6 +33,6 @@ export const Disclaimer = () => {
           is recommended to seek guidance from a licensed professional engineer.
         </p>
       </div>
-    </LargeScreenWrapper>
+    </>
   );
 };

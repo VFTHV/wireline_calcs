@@ -118,6 +118,7 @@
   margin: 1rem;
   display: flex;
   flex-direction: column;
+  width: auto;
 }
 #root .input-group .input-item,
 #modal-root .input-group .input-item {

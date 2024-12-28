@@ -120,6 +120,7 @@ $spacing-default: 1rem;
     margin: $spacing-default;
     display: flex;
     flex-direction: column;
+    width: auto;
 
     .input-item {
       height: 2rem;

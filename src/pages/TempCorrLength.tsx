@@ -9,7 +9,6 @@ import {
 import { useSelector } from 'react-redux';
 import { StoreState } from '../store';
 import { useTempLengthCalc } from '../logics/useTempLengthCalc';
-import { LargeScreenWrapper } from '../components/LargeScreenWrapper';
 
 export const TempCorrLength = () => {
   const [temp, setTemp] = useState(0);
@@ -29,7 +28,7 @@ export const TempCorrLength = () => {
   );
 
   return (
-    <LargeScreenWrapper>
+    <>
       <NavHeader>Temp. Corrected Length</NavHeader>
       <InputData
         value={temp}
@@ -62,6 +61,6 @@ export const TempCorrLength = () => {
           </TableRow>
         </tbody>
       </table>
-    </LargeScreenWrapper>
+    </>
   );
 };

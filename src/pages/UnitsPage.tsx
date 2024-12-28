@@ -30,7 +30,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { measurementObject as mo } from '../store/slices/types';
 import { useLocalStorage } from '../logics/useLocalStorageSet';
-import { LargeScreenWrapper } from '../components/LargeScreenWrapper';
 
 export const UnitsPage = () => {
   const dispatch = useDispatch();
@@ -59,7 +58,7 @@ export const UnitsPage = () => {
   const { setAllLocalStorageUnits } = useLocalStorage();
 
   return (
-    <LargeScreenWrapper>
+    <>
       <NavHeader>Change Measurement Units</NavHeader>
       <h4
         className="text-center"
@@ -140,6 +139,6 @@ export const UnitsPage = () => {
         }
         currentValue={velocityUnits}
       />
-    </LargeScreenWrapper>
+    </>
   );
 };
