@@ -14,7 +14,7 @@ export const RadioDualInput: FC<RadioDualInputProps> = ({
   return (
     <form aria-label="dual input group to choose measurement units">
       <div className="radio-container">
-        <label>
+        <label className="dual-input-label">
           <input
             type="radio"
             name="option1"
@@ -24,7 +24,7 @@ export const RadioDualInput: FC<RadioDualInputProps> = ({
           />
           <div className="left label-container">{values[0].toUpperCase()}</div>
         </label>
-        <label>
+        <label className="dual-input-label">
           <input
             type="radio"
             name="option2"

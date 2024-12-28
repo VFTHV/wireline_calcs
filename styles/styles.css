@@ -48,6 +48,8 @@
   display: flex;
   justify-content: space-between;
   border-bottom: solid 2px rgb(0, 65, 216);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
 }
 #root .navigation .coral,
 #modal-root .navigation .coral {
@@ -69,6 +71,7 @@
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 #root .table,
 #modal-root .table {
@@ -170,22 +173,23 @@
   color: #fff;
   font-weight: 700;
 }
-#root .radio-container label,
-#modal-root .radio-container label {
+#root .radio-container .dual-input-label,
+#modal-root .radio-container .dual-input-label {
   color: rgb(1, 82, 234);
   width: 50%;
+  margin: 0;
   cursor: pointer;
 }
-#root .radio-container label .left,
-#modal-root .radio-container label .left {
+#root .radio-container .dual-input-label .left,
+#modal-root .radio-container .dual-input-label .left {
   border-radius: 5px 0 0 5px;
 }
-#root .radio-container label .right,
-#modal-root .radio-container label .right {
+#root .radio-container .dual-input-label .right,
+#modal-root .radio-container .dual-input-label .right {
   border-radius: 0 5px 5px 0;
 }
-#root .radio-container label .label-container,
-#modal-root .radio-container label .label-container {
+#root .radio-container .dual-input-label .label-container,
+#modal-root .radio-container .dual-input-label .label-container {
   width: 100%;
   height: 100%;
   transition: background-color 0.3s ease-in-out;
