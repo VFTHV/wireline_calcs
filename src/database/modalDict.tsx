@@ -1,9 +1,11 @@
 import { CompDictKeysType } from '../App';
 
-export const modalTextDict: Record<
+type ModalTextDict = Record<
   CompDictKeysType,
   { title: string; content: JSX.Element }
-> = {
+>;
+
+export const modalTextDict: ModalTextDict = {
   units: {
     title: 'Measurement Units Help',
     content: (

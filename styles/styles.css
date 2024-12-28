@@ -32,6 +32,10 @@
 #modal-root h6 {
   margin: 0;
 }
+#root h4,
+#modal-root h4 {
+  font-size: 1rem;
+}
 #root .container,
 #modal-root .container {
   padding: 1rem;
@@ -129,6 +133,10 @@
 #root .input-group .input-with-units,
 #modal-root .input-group .input-with-units {
   width: 85%;
+}
+#root .input-group .units,
+#modal-root .input-group .units {
+  color: rgb(255, 255, 255);
 }
 #root .input-group .textearea,
 #modal-root .input-group .textearea {
@@ -244,4 +252,8 @@
 #root .text-center,
 #modal-root .text-center {
   text-align: center;
+}
+#root .disclaimer,
+#modal-root .disclaimer {
+  color: rgb(255, 255, 255);
 }/*# sourceMappingURL=styles.css.map */

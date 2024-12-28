@@ -7,14 +7,16 @@ export interface CblState {
   casing: PipeSpecs | undefined;
   tubing: PipeSpecs | undefined;
   fluid: FluidSpecs;
-  compDictKey: CompDictKeysType | null;
+  compDictKey: CompDictKeysType;
+  isModalOpen: boolean;
 }
 
 const initialState: CblState = {
   casing: undefined,
   tubing: casingData[0], // change this to tubing data array
   fluid: fluidsData[0],
-  compDictKey: null,
+  compDictKey: 'navPage',
+  isModalOpen: false,
 };
 
 const cblSlice = createSlice({
@@ -34,12 +36,20 @@ const cblSlice = createSlice({
       if (!selected) return;
       state.fluid = selected;
     },
-    changeCompDictKey(state, action: { payload: CompDictKeysType | null }) {
+    changeCompDictKey(state, action: { payload: CompDictKeysType }) {
       state.compDictKey = action.payload;
+    },
+    changeIsModalOpen(state, action: { payload: boolean }) {
+      state.isModalOpen = action.payload;
     },
   },
 });
 
-export const { changeCasing, changeTubing, changeFluid, changeCompDictKey } =
-  cblSlice.actions;
+export const {
+  changeCasing,
+  changeTubing,
+  changeFluid,
+  changeCompDictKey,
+  changeIsModalOpen,
+} = cblSlice.actions;
 export const cblReducer = cblSlice.reducer;

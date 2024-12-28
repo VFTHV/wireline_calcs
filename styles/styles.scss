@@ -39,6 +39,10 @@ $spacing-default: 1rem;
     margin: 0;
   }
 
+  h4 {
+    font-size: 1rem;
+  }
+
   .container {
     padding: $spacing-default;
   }
@@ -129,6 +133,9 @@ $spacing-default: 1rem;
     }
     .input-with-units {
       width: 85%;
+    }
+    .units {
+      color: $secondary-color;
     }
     .textearea {
       height: unset;
@@ -234,5 +241,9 @@ $spacing-default: 1rem;
 
   .text-center {
     text-align: center;
+  }
+
+  .disclaimer {
+    color: $secondary-color;
   }
 }

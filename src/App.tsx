@@ -12,6 +12,7 @@ import {
   UnitsPage,
   WeakPoint,
   WeightBar,
+  Modal,
 } from './components';
 import { useSelector } from 'react-redux';
 import { StoreState } from './store';
@@ -31,6 +32,7 @@ const compDict = {
   feedback: <ReportProblemForm />,
   disclaimer: <Disclaimer />,
   fluidVelocity: <FluidVelocity />,
+  navPage: <NavPage />,
 };
 
 export type CompDictKeysType = keyof typeof compDict;
@@ -38,16 +40,16 @@ export type CompDictKeysType = keyof typeof compDict;
 function App() {
   const { compDictKey } = useSelector((state: StoreState) => state.cbl);
   const { getAllUnits } = useLocalStorage();
+  const isModalOpen = useSelector((state: StoreState) => state.cbl.isModalOpen);
 
   getAllUnits();
 
   return (
     <>
-      {compDictKey ? (
-        <LargeScreenWrapper>{compDict[compDictKey]}</LargeScreenWrapper>
-      ) : (
-        <NavPage />
-      )}
+      {/* <LargeScreenWrapper> */}
+      {compDict[compDictKey]}
+      {/* </LargeScreenWrapper> */}
+      {isModalOpen && <Modal />}
     </>
   );
 }

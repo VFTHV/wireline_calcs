@@ -51,7 +51,7 @@ export const InputData: FC<InputDataProps> = ({
           placeholder={placeholder}
           aria-labelledby={`input-for-${typeId}`}
         />
-        <span>{unit}</span>
+        <span className="units">{unit}</span>
       </div>
       {renderError()}
     </div>
