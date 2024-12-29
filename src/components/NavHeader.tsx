@@ -19,7 +19,7 @@ export const NavHeader: FC<NavHeaderProps> = ({ children }) => {
   return (
     <header>
       <nav className="nav-header" aria-label="navigation-menu">
-        <GoChevronLeft onClick={onGoBack} />
+        <GoChevronLeft onClick={onGoBack} className="pointer" />
         <h4>{children}</h4>
         <div className="pointer" onClick={onModalOpen}>
           <AiOutlineQuestionCircle />

@@ -91,7 +91,6 @@ $spacing-default: 1rem;
     padding: $spacing-default;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
   }
 
   .table {
@@ -181,8 +180,7 @@ $spacing-default: 1rem;
 
     input {
       display: none;
-      .label-container {
-      }
+
       &:checked + .label-container {
         background-color: $light-color;
         color: #fff;
@@ -230,11 +228,6 @@ $spacing-default: 1rem;
       justify-content: space-between;
       padding-inline: $spacing-default;
       border: none;
-
-      .modal-title {
-        text-align: center;
-        flex-grow: 1;
-      }
     }
     .modal-content {
       padding-inline: $spacing-default;

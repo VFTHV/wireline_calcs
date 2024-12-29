@@ -69,7 +69,6 @@
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
 }
 #root .table {
   width: 100%;
@@ -195,10 +194,6 @@
   justify-content: space-between;
   padding-inline: 1rem;
   border: none;
-}
-#root .calcs-modal .modal-header .modal-title {
-  text-align: center;
-  flex-grow: 1;
 }
 #root .calcs-modal .modal-content {
   padding-inline: 1rem;
