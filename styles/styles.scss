@@ -10,8 +10,8 @@ $black: black;
 
 $spacing-default: 1rem;
 
-#root,
-#modal-root {
+#root {
+  position: relative;
   box-sizing: border-box;
   margin: 0;
   background-color: $primary-color;
@@ -41,6 +41,18 @@ $spacing-default: 1rem;
 
   h4 {
     font-size: 1rem;
+  }
+
+  p {
+    background-color: $modal-color;
+    color: $secondary-color;
+
+    strong {
+      color: $secondary-color;
+    }
+  }
+  div {
+    color: $secondary-color;
   }
 
   .container {
@@ -166,8 +178,11 @@ $spacing-default: 1rem;
     height: 2rem;
     background-color: $secondary-color;
     border-radius: 5px;
+
     input {
       display: none;
+      .label-container {
+      }
       &:checked + .label-container {
         background-color: $light-color;
         color: #fff;
@@ -192,16 +207,19 @@ $spacing-default: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;
+        color: $primary-color;
       }
     }
   }
 
-  .modal {
-    position: fixed;
+  .calcs-modal {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 999;
+
     background-color: $modal-color;
     padding-block: $spacing-default;
 
@@ -211,6 +229,7 @@ $spacing-default: 1rem;
       padding-block: 1rem;
       justify-content: space-between;
       padding-inline: $spacing-default;
+      border: none;
 
       .modal-title {
         text-align: center;
@@ -219,6 +238,17 @@ $spacing-default: 1rem;
     }
     .modal-content {
       padding-inline: $spacing-default;
+      background-color: $modal-color;
+      color: $secondary-color;
+
+      div {
+        color: $secondary-color;
+      }
+      ul {
+        li {
+          color: $secondary-color;
+        }
+      }
     }
   }
 

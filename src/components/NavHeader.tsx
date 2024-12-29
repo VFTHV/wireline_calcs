@@ -11,7 +11,10 @@ interface NavHeaderProps {
 export const NavHeader: FC<NavHeaderProps> = ({ children }) => {
   const dispatch = useDispatch();
   const onGoBack = () => dispatch(changeCompDictKey('navPage'));
-  const onModalOpen = () => dispatch(changeIsModalOpen(true));
+  const onModalOpen = () => {
+    console.log('open modal');
+    dispatch(changeIsModalOpen(true));
+  };
 
   return (
     <header>

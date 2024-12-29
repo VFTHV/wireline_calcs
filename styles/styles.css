@@ -1,5 +1,5 @@
-#root,
-#modal-root {
+#root {
+  position: relative;
   box-sizing: border-box;
   margin: 0;
   background-color: rgb(1, 82, 234);
@@ -7,14 +7,12 @@
   font-family: "Outfit", sans-serif;
   padding: 1rem 0;
 }
-#root ul,
-#modal-root ul {
+#root ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-#root a,
-#modal-root a {
+#root a {
   text-decoration: none;
   color: rgb(255, 255, 255);
 }
@@ -23,29 +21,29 @@
 #root h3,
 #root h4,
 #root h5,
-#root h6,
-#modal-root h1,
-#modal-root h2,
-#modal-root h3,
-#modal-root h4,
-#modal-root h5,
-#modal-root h6 {
+#root h6 {
   margin: 0;
 }
-#root h4,
-#modal-root h4 {
+#root h4 {
   font-size: 1rem;
 }
-#root .container,
-#modal-root .container {
+#root p {
+  background-color: rgba(1, 82, 234, 0.95);
+  color: rgb(255, 255, 255);
+}
+#root p strong {
+  color: rgb(255, 255, 255);
+}
+#root div {
+  color: rgb(255, 255, 255);
+}
+#root .container {
   padding: 1rem;
 }
-#root .navigation,
-#modal-root .navigation {
+#root .navigation {
   padding: 0 1rem;
 }
-#root .navigation .navitem,
-#modal-root .navigation .navitem {
+#root .navigation .navitem {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -53,8 +51,7 @@
   color: rgb(255, 255, 255);
   cursor: pointer;
 }
-#root .navigation .coral,
-#modal-root .navigation .coral {
+#root .navigation .coral {
   animation: pulse 2s infinite alternate;
 }
 @keyframes pulse {
@@ -67,20 +64,17 @@
     background-color: rgb(255, 127, 80);
   }
 }
-#root .nav-header,
-#modal-root .nav-header {
+#root .nav-header {
   display: flex;
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
 }
-#root .table,
-#modal-root .table {
+#root .table {
   width: 100%;
 }
-#root .t-row,
-#modal-root .t-row {
+#root .t-row {
   display: grid;
   grid-template-columns: 3fr 3fr;
   grid-template-rows: 1fr;
@@ -90,9 +84,7 @@
   background-color: rgb(255, 255, 255);
 }
 #root .t-row .t-head,
-#root .t-row .t-data,
-#modal-root .t-row .t-head,
-#modal-root .t-row .t-data {
+#root .t-row .t-data {
   border: solid 1px rgb(184, 177, 169);
   padding: 1rem;
   display: flex;
@@ -101,59 +93,47 @@
   flex-direction: column;
 }
 #root .t-row .t-head .warning,
-#root .t-row .t-data .warning,
-#modal-root .t-row .t-head .warning,
-#modal-root .t-row .t-data .warning {
+#root .t-row .t-data .warning {
   font-size: 1rem;
   color: red;
 }
-#root .t-row .t-head,
-#modal-root .t-row .t-head {
+#root .t-row .t-head {
   color: rgb(1, 82, 234);
 }
-#root .t-row .t-data,
-#modal-root .t-row .t-data {
+#root .t-row .t-data {
   color: black;
   font-size: 2rem;
   font-weight: 100;
 }
-#root .input-group,
-#modal-root .input-group {
+#root .input-group {
   margin: 1rem;
   display: flex;
   flex-direction: column;
   width: auto;
 }
-#root .input-group .input-item,
-#modal-root .input-group .input-item {
+#root .input-group .input-item {
   height: 2rem;
   border-radius: 5px;
   font-size: 1rem;
 }
-#root .input-group .input-with-units,
-#modal-root .input-group .input-with-units {
+#root .input-group .input-with-units {
   width: 85%;
 }
-#root .input-group .units,
-#modal-root .input-group .units {
+#root .input-group .units {
   color: rgb(255, 255, 255);
 }
-#root .input-group .textearea,
-#modal-root .input-group .textearea {
+#root .input-group .textearea {
   height: unset;
 }
-#root .input-group span,
-#modal-root .input-group span {
+#root .input-group span {
   width: 15%;
 }
-#root .input-group .error-message,
-#modal-root .input-group .error-message {
+#root .input-group .error-message {
   color: black;
   font-size: 0.8rem;
   font-weight: 700;
 }
-#root .button,
-#modal-root .button {
+#root .button {
   padding: 0.5rem;
   width: 5rem;
   border-radius: 5px;
@@ -161,8 +141,7 @@
   color: black;
   font-weight: 700;
 }
-#root .radio-container,
-#modal-root .radio-container {
+#root .radio-container {
   margin: 1rem auto;
   display: flex;
   width: 15rem;
@@ -170,90 +149,86 @@
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
 }
-#root .radio-container input,
-#modal-root .radio-container input {
+#root .radio-container input {
   display: none;
 }
-#root .radio-container input:checked + .label-container,
-#modal-root .radio-container input:checked + .label-container {
+#root .radio-container input:checked + .label-container {
   background-color: rgb(1, 121, 234);
   color: #fff;
   font-weight: 700;
 }
-#root .radio-container .dual-input-label,
-#modal-root .radio-container .dual-input-label {
+#root .radio-container .dual-input-label {
   color: rgb(1, 82, 234);
   width: 50%;
   margin: 0;
   cursor: pointer;
 }
-#root .radio-container .dual-input-label .left,
-#modal-root .radio-container .dual-input-label .left {
+#root .radio-container .dual-input-label .left {
   border-radius: 5px 0 0 5px;
 }
-#root .radio-container .dual-input-label .right,
-#modal-root .radio-container .dual-input-label .right {
+#root .radio-container .dual-input-label .right {
   border-radius: 0 5px 5px 0;
 }
-#root .radio-container .dual-input-label .label-container,
-#modal-root .radio-container .dual-input-label .label-container {
+#root .radio-container .dual-input-label .label-container {
   width: 100%;
   height: 100%;
   transition: background-color 0.3s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: rgb(1, 82, 234);
 }
-#root .modal,
-#modal-root .modal {
-  position: fixed;
+#root .calcs-modal {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 999;
   background-color: rgba(1, 82, 234, 0.95);
   padding-block: 1rem;
 }
-#root .modal .modal-header,
-#modal-root .modal .modal-header {
+#root .calcs-modal .modal-header {
   display: flex;
   align-items: center;
   padding-block: 1rem;
   justify-content: space-between;
   padding-inline: 1rem;
+  border: none;
 }
-#root .modal .modal-header .modal-title,
-#modal-root .modal .modal-header .modal-title {
+#root .calcs-modal .modal-header .modal-title {
   text-align: center;
   flex-grow: 1;
 }
-#root .modal .modal-content,
-#modal-root .modal .modal-content {
+#root .calcs-modal .modal-content {
   padding-inline: 1rem;
+  background-color: rgba(1, 82, 234, 0.95);
+  color: rgb(255, 255, 255);
 }
-#root .pointer,
-#modal-root .pointer {
+#root .calcs-modal .modal-content div {
+  color: rgb(255, 255, 255);
+}
+#root .calcs-modal .modal-content ul li {
+  color: rgb(255, 255, 255);
+}
+#root .pointer {
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#root .styled-list,
-#modal-root .styled-list {
+#root .styled-list {
   list-style-type: initial;
   list-style-position: inside;
 }
-#root .err-header,
-#modal-root .err-header {
+#root .err-header {
   margin: 1rem;
   color: rgba(255, 0, 0, 0.616);
   text-align: center;
 }
-#root .text-center,
-#modal-root .text-center {
+#root .text-center {
   text-align: center;
 }
-#root .disclaimer,
-#modal-root .disclaimer {
+#root .disclaimer {
   color: rgb(255, 255, 255);
 }/*# sourceMappingURL=styles.css.map */

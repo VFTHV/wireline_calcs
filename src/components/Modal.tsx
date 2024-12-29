@@ -17,7 +17,7 @@ export const Modal = () => {
       };
 
   return (
-    <div aria-label="Help information window" className="modal">
+    <div aria-label="Help information window" className="calcs-modal">
       <header className="modal-header">
         <h4
           className="modal-title"
