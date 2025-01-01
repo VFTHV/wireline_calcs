@@ -11,6 +11,8 @@ $black: black;
 $spacing-default: 1rem;
 
 #root {
+  // all: revert;
+
   position: relative;
   box-sizing: border-box;
   margin: 0;
@@ -41,18 +43,6 @@ $spacing-default: 1rem;
 
   h4 {
     font-size: 1rem;
-  }
-
-  p {
-    background-color: $modal-color;
-    color: $secondary-color;
-
-    strong {
-      color: $secondary-color;
-    }
-  }
-  div {
-    color: $secondary-color;
   }
 
   .container {

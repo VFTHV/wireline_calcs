@@ -27,16 +27,6 @@
 #root h4 {
   font-size: 1rem;
 }
-#root p {
-  background-color: rgba(1, 82, 234, 0.95);
-  color: rgb(255, 255, 255);
-}
-#root p strong {
-  color: rgb(255, 255, 255);
-}
-#root div {
-  color: rgb(255, 255, 255);
-}
 #root .container {
   padding: 1rem;
 }

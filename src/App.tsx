@@ -45,10 +45,8 @@ function App() {
 
   return (
     <>
-      {/* <LargeScreenWrapper> */}
       {isModalOpen && <Modal />}
       {compDict[compDictKey]}
-      {/* </LargeScreenWrapper> */}
     </>
   );
 }
