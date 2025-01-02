@@ -1,5 +1,4 @@
 import { NavItem } from '../components';
-import { AiOutlineMail } from 'react-icons/ai';
 import { BsExclamationTriangle } from 'react-icons/bs';
 import { FiSettings } from 'react-icons/fi';
 
@@ -28,9 +27,9 @@ export const NavPage = () => {
         </NavItem>
         <NavItem componentDictKey="cbl">Cement Bond Log Calcs</NavItem>
         <NavItem componentDictKey="fluidVelocity">Fluid Velocity</NavItem>
-        <NavItem componentDictKey="feedback" icon={<AiOutlineMail />}>
+        {/* <NavItem componentDictKey="feedback" icon={<AiOutlineMail />}>
           Report a Problem
-        </NavItem>
+        </NavItem> */}
         <NavItem componentDictKey="disclaimer" icon={<BsExclamationTriangle />}>
           Disclaimer
         </NavItem>
